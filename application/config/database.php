@@ -74,13 +74,13 @@ $active_group = 'default';
 $query_builder = TRUE;
 
 $db['default'] = array(
-	'dsn'	=> '',
+	'dsn'	   => '',
 	'hostname' => 'localhost',
 	'username' => 'root',
 	'password' => '',
 	'database' => 'birobinamental',
 	'dbdriver' => 'mysqli',
-	'port' => '3307',
+	'port' 	   => '3307',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
 	'db_debug' => (ENVIRONMENT !== 'production'),
