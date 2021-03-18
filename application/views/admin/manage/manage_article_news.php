@@ -1,6 +1,6 @@
 <div class="container mr-3">
     <br>
-    <a type="button" class="btn btn-outline-primary mb-3"><i class="fas fa-plus"></i> ADD</a>
+    <a type="button" href="<?= base_url() ?>posts_tambah/tambah_article_news" class="btn btn-outline-primary mb-3"><i class="fas fa-plus"></i> ADD</a>
 
     <table class="table table-striped">
         <thead>
