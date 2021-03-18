@@ -6,12 +6,12 @@
                     <form action="" method="POST">
                         <div class="form-group">
                             <label for="name">Nama Lengkap</label>
-                            <input type="text" name="name" class="form-control" id="name" value="<?= set_value('name') ?>">
+                            <input type="text" name="name" class="form-control form-control-sm" id="name" value="<?= set_value('name') ?>">
                             <?= form_error('name', '<small class="pl-3 text-danger">', '</small>') ?>
                         </div>
                         <div class="form-group">
                             <label for="email">Email Address</label>
-                            <input type="email" name="email" class="form-control" id="email" value="<?= set_value('email') ?>">
+                            <input type="email" name="email" class="form-control form-control-sm" id="email" value="<?= set_value('email') ?>">
                             <?= form_error('email', '<small class="pl-3 text-danger">', '</small>') ?>
                         </div>
                         <button type="submit" class="btn btn-primary">Daftar</button>
