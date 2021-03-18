@@ -15,11 +15,13 @@
 
     <!-- Custom styles for this template -->
     <link href="<?= base_url() ?>assets/css/dashboard.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="<?= base_url(); ?>assets/libs/fontawesome/css/all.min.css">
 </head>
 
 <body>
     <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
-        <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="<?= base_url() ?>">Admin</a>
+        <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="<?= base_url() ?>home_admin">Admin</a>
         <ul class="navbar-nav px-3">
             <li class="nav-item text-nowrap">
                 <a class="nav-link" href="#">Sign out</a>
@@ -33,72 +35,59 @@
                 <div class="sidebar-sticky">
                     <ul class="nav flex-column">
                         <li class="nav-item">
-                            <a class="nav-link active" href="#">
+                            <a class="nav-link" href="<?= base_url() ?>home_admin">
                                 <span data-feather="home"></span>
-                                Dashboard <span class="sr-only">(current)</span>
+                                <i class="fas fa-tachometer-alt"></i> Dashboard <span class="sr-only"></span>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                <span data-feather="file"></span>
-                                Orders
+                            <a class="nav-link" href="<?= base_url() ?>home_admin/manage_menu">
+                                <span data-feather="home"></span>
+                                <i class="fas fa-tasks"></i> Manajemen Menu <span class="sr-only"></span>
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                <span data-feather="shopping-cart"></span>
-                                Products
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-user-friends"></i> Manajemen User
                             </a>
+                            <ul class="submenu"></ul>
+                            <div class="dropdown-menu" style="position:fixed; float:none ; " aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="<?= base_url() ?>home_admin/manage_instansi">Instansi</a>
+                                <a class="dropdown-item" href="<?= base_url() ?>home_admin/manage_user">User</a>
+                            </div>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                <span data-feather="users"></span>
-                                Customers
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-newspaper"></i> Manajemen News
                             </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="<?= base_url() ?>home_admin/manage_category">Category</a>
+                                <a class="dropdown-item" href="<?= base_url() ?>home_admin/manage_article_news">Article News</a>
+                                <a class="dropdown-item" href="<?= base_url() ?>home_admin/manage_article_upload">Article Update</a>
+                            </div>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                <span data-feather="bar-chart-2"></span>
-                                Reports
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-file"></i> Manajemen Page
                             </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="<?= base_url() ?>home_admin/manage_slide_show">Slide Show</a>
+                                <a class="dropdown-item" href="<?= base_url() ?>home_admin/manage_page_news">Page news</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-images"></i> Gallery
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="<?= base_url() ?>home_admin/manage_photo">Photo</a>
+                                <a class="dropdown-item" href="<?= base_url() ?>home_admin/manage_video">Video</a>
+                            </div>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">
                                 <span data-feather="layers"></span>
-                                Integrations
-                            </a>
-                        </li>
-                    </ul>
-
-                    <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-                        <span>Saved reports</span>
-                        <a class="d-flex align-items-center text-muted" href="#">
-                            <span data-feather="plus-circle"></span>
-                        </a>
-                    </h6>
-                    <ul class="nav flex-column mb-2">
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                <span data-feather="file-text"></span>
-                                Current month
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                <span data-feather="file-text"></span>
-                                Last quarter
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                <span data-feather="file-text"></span>
-                                Social engagement
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                <span data-feather="file-text"></span>
-                                Year-end sale
+                                <i class="fas fa-calendar-week"></i> Agenda
                             </a>
                         </li>
                     </ul>

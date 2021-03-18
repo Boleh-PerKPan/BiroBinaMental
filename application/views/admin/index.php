@@ -5,7 +5,34 @@
         </div>
     </div>
 
-    <canvas class="my-4" id="myChart" width="900" height="380"></canvas>
+
+    <div class="row">
+        <div class="col-md-2">
+            <div class="card" style="height: 120px;">
+                <div class="card-body">
+                    <h5><i class="fas fa-tachometer-alt" style="font-size: 2.5em;"></i></h5>
+                    <h5>Dashboard</h5>
+                </div>
+            </div>
+        </div>
+        <div class=" col-md-2">
+            <div class="card" style="height: 120px;">
+                <div class="card-body">
+                    <h5><i class="fas fa-user" style="font-size: 2.5em;"></i> </h5>
+                    <h5>User</h5>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="card" style="height: 120px;">
+                <div class="card-body">
+                    <h5><i class="fas fa-sign-out-alt" style="font-size: 2.5em;"></i></h5>
+                    <h5>Logout</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
 </main>
 </div>
 </div>

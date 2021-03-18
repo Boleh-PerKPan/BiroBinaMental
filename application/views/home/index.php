@@ -1,0 +1,1 @@
+<a href="<?= base_url() ?>home_admin">Go to Home Admin</a>
