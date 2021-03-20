@@ -1,5 +1,5 @@
 <?php
-class Home_admin extends CI_Controller
+class Dashboard extends CI_Controller
 {
     public function __construct()
     {
@@ -10,8 +10,12 @@ class Home_admin extends CI_Controller
 
     public function index()
     {
-        $this->load->view('template/header');
-        $this->load->view('index');
+        //$header_data['title'] = 'Biro Bina Mental dan Kesra';
+        $data = [
+            'title' => 'Biro Bina Mental Dan Kesra'
+        ];
+        $this->load->view('template/header', $data);
+        $this->load->view('guest/index');
         $this->load->view('template/footer');
     }
 

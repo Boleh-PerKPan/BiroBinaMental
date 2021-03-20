@@ -47,11 +47,13 @@
                             </a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <!--<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fas fa-user-friends"></i> Manajemen User
-                            </a>
-                            <ul class="submenu"></ul>
-                            <div class="dropdown-menu" style="position:fixed; float:none ; " aria-labelledby="navbarDropdown">
+                            </a>-->
+                            <button class="nav-link dropdown-toggle btn bg-transparent" id="navbarDropdonw" data-toggle="collapse" data-target="#manajemenuser" aria-expanded="false" >
+                                <i class="fas fa-user-friends"></i> Manajemen User
+                            </button>
+                            <div class="collapse navbar-collapse" id="manajemenuser" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="<?= base_url() ?>home_admin/manage_instansi">Instansi</a>
                                 <a class="dropdown-item" href="<?= base_url() ?>home_admin/manage_user">User</a>
                             </div>
