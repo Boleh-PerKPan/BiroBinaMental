@@ -1,6 +1,11 @@
+    <!--penutup div clas container pada header.php-->
     </div>
     </main>
     <footer>
+        <div class="new-panel">
+            fsdhfjgfuesfb
+        </div>
+        <div style="text-align: center; background-color: #454343">© 2021 Copyright<br>Support by Dinas Komunikasi dan Informatika Provinsi Sumatera Barat</div>
     </footer>
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

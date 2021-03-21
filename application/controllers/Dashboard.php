@@ -15,7 +15,10 @@ class Dashboard extends CI_Controller
             'title' => 'Biro Bina Mental Dan Kesra'
         ];
         $this->load->view('template/header', $data);
+        $this->load->view('guest/carousel');
         $this->load->view('guest/index');
+        $this->load->view('guest/sidebar');
+        //$this->load->view('guest/test-page');
         $this->load->view('template/footer');
     }
 
