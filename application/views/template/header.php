@@ -17,33 +17,47 @@
     <title><?=$title?></title>
 </head>
 <body>
-    <header class="container">
-        <a class="" href="index.html" ><h5 class="nav-style" style="font-family: 'Trebuchet MS', sans-serif; padding-top:15px; padding-bottom:10px; padding-left:20px; color:black; ">(inilogo) Biro Bina Mental Dan Kesejahteraan Rakyat Sumatera Barat</h5></a>
+    <header class="container ">
+        <a class="" href="<?=base_url()?>guest" >
+            <h5 class="nav-style" style="font-family: 'Trebuchet MS', sans-serif; padding-top:15px; padding-left:20px; ">
+                <img src="<?= base_url()?>assets/files/images/sumbarprof_logo.png" style="width:30px" alt="...">
+                Biro Bina Mental Dan Kesejahteraan Rakyat Sumatera Barat
+            </h5>
+        </a>
         <nav class="navbar navbar-expand-lg navbar-light bg-warning nav-style" id="mainNav" style="">
-            <div class="">
-                <button class="navbar-toggler navbar-toggler-icon ml-auto" type="button" id="navbardrop" data-toggle="collapse" data-target="#navnav" aria-controls="navnav" aria-expanded="false" >
-                    <span></span>
-                </button>
-                <div id="navnav" class="collapse navbar-collapse">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link " href="<?=base_url()?>dashboard">Dashboard</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="">Profile</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="">Berita</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="">Kegiatan</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="">Galery</a>
-                        </li>
-                    </ul>
-                </div>
+            <button class="navbar-toggler navbar-toggler-icon" type="button" id="navbardrop" data-toggle="collapse" data-target="#navnav" aria-controls="navnav" aria-expanded="false" >
+                <span></span>
+            </button>
+            <div id="navnav" class="collapse navbar-collapse">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link " href="<?=base_url()?>guest">Dashboard</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" id="navbarDropdonw" data-toggle="collapse" data-target="#profile" aria-expanded="false" >
+                            Profile
+                        </a>
+                        <div class="collapse dropdown-menu" id="profile" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="<?= base_url() ?>guest/extrapage_news/visimisi">Visi dan Misi</a>
+                            <a class="dropdown-item" href="<?= base_url() ?>guest/extrapage_news/strukturOrganisasi">Struktur Organisasi</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="<?=base_url()?>guest/index_berita">Berita</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="">Kegiatan</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="<?=base_url()?>guest/index_galery">Galery</a>
+                    </li>
+                </ul>
+                <form class="form-inline my-2 my-lg-0 ">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </form>
             </div>
+            
         </nav>
     </header>
 
