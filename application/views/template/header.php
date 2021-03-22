@@ -17,6 +17,7 @@
     <title><?=$title?></title>
 </head>
 <body>
+    <i onclick="topFunction()" id="upBtn" class="fas fa-chevron-up" title="Go to top"></i>
     <header class="container ">
         <a class="" href="<?=base_url()?>guest" >
             <h5 class="nav-style" style="font-family: 'Trebuchet MS', sans-serif; padding-top:15px; padding-left:20px; ">
