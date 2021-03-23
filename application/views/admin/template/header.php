@@ -50,38 +50,38 @@
                             <!--<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fas fa-user-friends"></i> Manajemen User
                             </a>-->
-                            <button class="nav-link dropdown-toggle btn bg-transparent" id="navbarDropdonw" data-toggle="collapse" data-target="#manajemenuser" aria-expanded="false" >
+                            <a class="nav-link dropdown-toggle " id="navbarDropdonw" data-toggle="collapse" href="#" data-target="#manajemenuser" aria-expanded="false">
                                 <i class="fas fa-user-friends"></i> Manajemen User
-                            </button>
+                            </a>
                             <div class="collapse navbar-collapse" id="manajemenuser" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="<?= base_url() ?>home_admin/manage_instansi">Instansi</a>
                                 <a class="dropdown-item" href="<?= base_url() ?>home_admin/manage_user">User</a>
                             </div>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle " id="navbarDropdonw" data-toggle="collapse" href="#" data-target="#manajemennews" aria-expanded="false">
                                 <i class="fas fa-newspaper"></i> Manajemen News
                             </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <div class="collapse navbar-collapse" aria-labelledby="navbarDropdown" id="manajemennews">
                                 <a class="dropdown-item" href="<?= base_url() ?>home_admin/manage_category">Category</a>
                                 <a class="dropdown-item" href="<?= base_url() ?>home_admin/manage_article_news">Article News</a>
                                 <a class="dropdown-item" href="<?= base_url() ?>home_admin/manage_article_upload">Article Update</a>
                             </div>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle " id="navbarDropdonw" data-toggle="collapse" href="#" data-target="#manajemenpage" aria-expanded="false">
                                 <i class="fas fa-file"></i> Manajemen Page
                             </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <div class="collapse navbar-collapse" id="manajemenpage" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="<?= base_url() ?>home_admin/manage_slide_show">Slide Show</a>
                                 <a class="dropdown-item" href="<?= base_url() ?>home_admin/manage_page_news">Page news</a>
                             </div>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle " id="navbarDropdonw" data-toggle="collapse" href="#" data-target="#gallery" aria-expanded="false">
                                 <i class="fas fa-images"></i> Gallery
                             </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <div class="collapse navbar-collapse" id="gallery" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="<?= base_url() ?>home_admin/manage_photo">Photo</a>
                                 <a class="dropdown-item" href="<?= base_url() ?>home_admin/manage_video">Video</a>
                             </div>
@@ -95,4 +95,4 @@
                     </ul>
                 </div>
             </nav>
-    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+            <main role="main" class="col-md-10 ml-sm-auto ">
