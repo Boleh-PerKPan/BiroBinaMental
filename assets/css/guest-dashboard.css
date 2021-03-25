@@ -1,3 +1,14 @@
+
+a:hover{
+    text-decoration: none;
+    color: inherit;
+}
+footer {
+    background-color: #736D6D; 
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size:12px;
+}
 .nav-item:hover {
     background-color : rgba(255,255,255,0.4);
 }
@@ -11,12 +22,6 @@
 }
 .new-panel {
     margin-top: 25px;
-}
-footer {
-    background-color: #736D6D; 
-    color: white;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size:12px;
 }
 .article-item {
     font-size:13px; 
@@ -33,7 +38,7 @@ footer {
     display: none;
     position: fixed;
     bottom: 20px;
-    right: 30px;
+    right: 10px;
     z-index: 99;
     border: none;
     outline: none;
@@ -41,4 +46,4 @@ footer {
     cursor: pointer;
     padding: 15px;
     border-radius: 4px;
-  }
+}

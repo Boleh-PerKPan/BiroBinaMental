@@ -105,7 +105,7 @@ a {
 	color: inherit;
 }
 
-.card-link {
+a:hover {
 	text-decoration: none;
 	color: inherit;
 }

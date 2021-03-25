@@ -2,7 +2,7 @@
     </div>
     </main>
     <footer>
-        <div class="new-panel row" style="padding-left: 5rem; padding-top:1rem">
+        <div class="new-panel row" style="padding-left: 5rem; padding-right: 5rem; padding-top:1rem">
             <div class="col">
                 <p style="font-size:13px"><b>Tentang Kami</b></p>
                 <p>Alamat Kantor <br>Padang Pasir, Kec. Padang Barat, Kota Padang, Sumatera Barat </p>

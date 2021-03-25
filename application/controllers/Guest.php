@@ -10,7 +10,6 @@ class Guest extends CI_Controller
 
     public function index()
     {
-        //$header_data['title'] = 'Biro Bina Mental dan Kesra';
         $data = [
             'title' => 'Biro Bina Mental Dan Kesra'
         ];
