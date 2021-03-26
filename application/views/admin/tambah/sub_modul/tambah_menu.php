@@ -24,6 +24,11 @@
                             <input type="hidden" name="order_no" class="form-control form-control-sm" id="order_no" value="<?= $order_no ?>">
                         </div>
                         <div class="form-group">
+                            <label for="id_parent">Parent ID</label>
+                            <input type="text" class="form-control form-control-sm" value="<?= $id_parent ?>" disabled>
+                            <input type="hidden" name="id_parent" class="form-control form-control-sm" id="id_parent" value="<?= $id_parent ?>">
+                        </div>
+                        <div class="form-group">
                             <label for="exampleFormControlSelect1">Status </label>
 
                             <select class="form-control" id="status" name="status">

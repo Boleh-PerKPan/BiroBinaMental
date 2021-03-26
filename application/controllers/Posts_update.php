@@ -4,7 +4,7 @@ class Posts_update extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-        $this->load->model('');
+        $this->load->model('Posts_model');
         $this->load->library('form_validation');
     }
 
@@ -12,11 +12,39 @@ class Posts_update extends CI_Controller
     {
     }
 
-    public function Update_menu()
+    public function Update_menu($id)
     {
-        $this->load->view('admin/template/header');
-        $this->load->view('admin/Update/Update_menu');
-        $this->load->view('admin/template/footer');
+        $data['judul'] = "Update Menu";
+        $data['post'] = $this->Posts_model->getMenuId($id);
+        $this->form_validation->set_rules('name', 'nama menu', 'required');
+
+        if ($this->form_validation->run() == false) {
+            $this->load->view('admin/template/header');
+            $this->load->view('admin/Update/update_menu', $data);
+            $this->load->view('admin/template/footer');
+        } else {
+            $this->Post_model->updatePost($id);
+            $this->session->set_flashdata('pesan', 'diupdate');
+            redirect(base_url() . "home_admin/manage_menu");
+        }
+    }
+
+    public function Tambah_submenu($id)
+    {
+        $data['post'] = $this->Posts_model->getBanyakMenu();
+        $data['id_parent'] = $id;
+        $data['order_no'] = $data['post'] + 1;
+        $this->form_validation->set_rules('name', 'nama menu', 'required');
+
+        if ($this->form_validation->run() == false) {
+            $this->load->view('admin/template/header');
+            $this->load->view('admin/tambah/sub_modul/tambah_menu', $data);
+            $this->load->view('admin/template/footer');
+        } else {
+            $this->Posts_model->tambahPostMenu();
+            $this->session->set_flashdata('pesan', 'ditambahkan');
+            redirect(base_url() . "home_admin/manage_menu");
+        }
     }
 
     public function Update_instansi()
