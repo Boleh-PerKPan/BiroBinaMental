@@ -27,6 +27,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
     <script>
         var mybutton = document.getElementById("upBtn");
+        var mynav = document.getElementById("navScroll");
 
         // When the user scrolls down 20px from the top of the document, show the button
         window.onscroll = function() {
@@ -34,10 +35,12 @@
         };
 
         function scrollFunction() {
-            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            if (document.body.scrollTop > 60 || document.documentElement.scrollTop > 60) {
                 mybutton.style.display = "block";
+                mynav.style.display = "block";
             } else {
                 mybutton.style.display = "none";
+                mynav.style.display = "none";
             }
         }
 
