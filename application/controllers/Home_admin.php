@@ -4,12 +4,13 @@ class Home_admin extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-        $this->load->model('');
+        $this->load->model('Posts_model');
         $this->load->library('form_validation');
     }
 
     public function index()
     {
+
         $this->load->view('admin/template/header');
         $this->load->view('admin/index');
         $this->load->view('admin/template/footer');
@@ -17,8 +18,9 @@ class Home_admin extends CI_Controller
 
     public function manage_menu()
     {
+        $data['posts'] = $this->Posts_model->getMenu();
         $this->load->view('admin/template/header');
-        $this->load->view('admin/manage/manage_menu');
+        $this->load->view('admin/manage/manage_menu', $data);
         $this->load->view('admin/template/footer');
     }
 

@@ -10,12 +10,14 @@
     <link rel="icon" href="../../../../favicon.ico">
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
     <!-- Custom styles for this template -->
     <link href="<?= base_url(); ?>assets/css/guest-dashboard.css" rel="stylesheet">
     <link rel="stylesheet" href="<?= base_url(); ?>assets/libs/fontawesome/css/all.min.css">
     
     <title><?=$title?></title>
 </head>
+
 <body>
     <i onclick="topFunction()" id="upBtn" class="fas fa-chevron-up" title="Go to top"></i>
         
@@ -105,4 +107,4 @@
     </header>
 
     <main>
-    <div class="container">
+        <div class="container">

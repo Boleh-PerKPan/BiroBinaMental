@@ -3,7 +3,7 @@
                 <a href="<?= base_url()?>guest/index_berita"><h4 class="nav-style">Berita Utama</h4></a>
             </div>
             <div class="card mb-3 new-panel">
-                <img src="<?=base_url()?>assets/files/images/pendd_char.png" class="card-img-top" alt="...">
+                <img src="<?= base_url() ?>assets/files/images/pendd_char.png" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">Card title</h5>
                     <p style="text-align:right" class="article-item">
@@ -22,10 +22,10 @@
             <div>
                 <a href="<?= base_url()?>guest/index_berita"><h4 class="nav-style">Berita Terkait</h4></a>
             </div>
-            <div class="card new-panel" style="">
+            <div class="card new-panel">
                 <div class="row no-gutters" style="max-height: 25rem;">
                     <div class="col-md-2">
-                        <img src="<?= base_url()?>assets/files/images/sumbarprof_logo.png" style="height:5rem; width : 5rem; margin:1rem;" alt="...">
+                        <img src="<?= base_url() ?>assets/files/images/sumbarprof_logo.png" style="height:5rem; width : 5rem; margin:1rem;" alt="...">
                     </div>
                     <div class="col-md-10">
                         <div class="card-body">
@@ -42,7 +42,7 @@
                 <hr>
                 <div class="row no-gutters" style="max-height: 25rem;">
                     <div class="col-md-2">
-                        <img src="<?= base_url()?>assets/files/images/jam_gadang.jpg" style="height:5rem; width : 5rem; margin:1rem;" alt="...">
+                        <img src="<?= base_url() ?>assets/files/images/jam_gadang.jpg" style="height:5rem; width : 5rem; margin:1rem;" alt="...">
                     </div>
                     <div class="col-md-10">
                         <div class="card-body">
@@ -59,7 +59,7 @@
                 <hr>
                 <div class="row no-gutters" style="max-height: 25rem;">
                     <div class="col-md-2">
-                        <img src="<?= base_url()?>assets/files/images/sumbarprof_logo.png" style="height:5rem; width : 5rem;  margin:1rem;" alt="...">
+                        <img src="<?= base_url() ?>assets/files/images/sumbarprof_logo.png" style="height:5rem; width : 5rem;  margin:1rem;" alt="...">
                     </div>
                     <div class="col-md-10">
                         <div class="card-body">
@@ -79,5 +79,5 @@
                 </div>
             </div>
         </div>
-    <!--ini adalah tutup col yang ada di carousel.php -->
-    </div>
+        <!--ini adalah tutup col yang ada di carousel.php -->
+        </div>

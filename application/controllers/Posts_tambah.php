@@ -4,7 +4,7 @@ class Posts_tambah extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-        $this->load->model('');
+        $this->load->model('Posts_model');
         $this->load->library('form_validation');
     }
 
@@ -14,9 +14,19 @@ class Posts_tambah extends CI_Controller
 
     public function tambah_menu()
     {
-        $this->load->view('admin/template/header');
-        $this->load->view('admin/tambah/tambah_menu');
-        $this->load->view('admin/template/footer');
+        $data['post'] = $this->Posts_model->getBanyakMenu();
+        $data['order_no'] = $data['post'] + 1;
+        $this->form_validation->set_rules('name', 'nama menu', 'required');
+
+        if ($this->form_validation->run() == false) {
+            $this->load->view('admin/template/header');
+            $this->load->view('admin/tambah/tambah_menu', $data);
+            $this->load->view('admin/template/footer');
+        } else {
+            $this->Posts_model->tambahPostMenu();
+            $this->session->set_flashdata('pesan', 'ditambahkan');
+            redirect(base_url() . "home_admin/manage_menu");
+        }
     }
 
     public function tambah_instansi()
