@@ -34,8 +34,8 @@
 
                             <select class="form-control" id="instansi" name="instansi">
 
-                                <?php foreach ($instansi as $instansi) { ?>
-                                    <option value="<?= $instansi['id_instansi'] ?>"><?= $instansi['nama_instansi'] ?></option>
+                                <?php foreach ($instansi as $listinstansi) { ?>
+                                    <option value="<?= $listinstansi['id_instansi'] ?>"><?php echo $listinstansi['nama_instansi'] ?></option>
                                 <?php } ?>
 
                             </select>
@@ -45,8 +45,8 @@
 
                             <select class="form-control" id="role" name="role">
 
-                                <?php foreach ($role as $role) { ?>
-                                    <option value="<?= $role['id_role'] ?>"><?= $role['nama_role'] ?></option>
+                                <?php foreach ($role as $listrole) { ?>
+                                    <option value="<?= $listrole['id_role'] ?>"><?php echo $listrole['nama_role'] ?></option>
                                 <?php } ?>
 
                             </select>

@@ -46,24 +46,26 @@ class Posts_tambah extends CI_Controller
 
     public function tambah_user()
     {
-        $data['user'] = $this->Posts_model->getUser();
+        $data['instansi'] = $this->Posts_model->getInstansi();
         $data['role'] = $this->Posts_model->getRole();
 
         $this->form_validation->set_rules('name', 'nama instansi', 'required');
         $this->form_validation->set_rules('email', 'email', 'required');
-        $this->form_validation->set_rules('user', 'username', 'required');
+        $this->form_validation->set_rules('username', 'username', 'required|min_length[4]', [
+            'min_length' => 'Username too short'
+        ]);
         $this->form_validation->set_rules('password', 'password', 'required|min_length[4]', [
             'min_length' => 'Password too short'
         ]);
 
         if ($this->form_validation->run() == false) {
             $this->load->view('admin/template/header');
-            $this->load->view('admin/tambah/tambah_user');
+            $this->load->view('admin/tambah/tambah_user', $data);
             $this->load->view('admin/template/footer');
         } else {
             $this->Posts_model->tambahPostUser();
             $this->session->set_flashdata('pesan', 'ditambahkan');
-            redirect(base_url() . "home_admin/manage_instansi");
+            redirect(base_url() . "home_admin/manage_user");
         }
     }
 

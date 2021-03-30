@@ -83,11 +83,32 @@ class Posts_update extends CI_Controller
         }
     }
 
-    public function Update_user()
+    public function Update_user($id)
     {
-        $this->load->view('admin/template/header');
-        $this->load->view('admin/Update/Update_user');
-        $this->load->view('admin/template/footer');
+        $data['judul'] = "Update User";
+        $data['post'] = $this->Posts_model->getUserId($id);
+        $data['instansi'] = $this->Posts_model->getInstansi();
+        $data['role'] = $this->Posts_model->getRole();
+
+        $this->form_validation->set_rules('name', 'nama instansi', 'required');
+        $this->form_validation->set_rules('email', 'email', 'required');
+        $this->form_validation->set_rules('username', 'username', 'required|min_length[4]', [
+            'min_length' => 'Username too short'
+        ]);
+
+        $this->form_validation->set_rules('password', 'password', 'required|min_length[4]', [
+            'min_length' => 'Password too short'
+        ]);
+
+        if ($this->form_validation->run() == false) {
+            $this->load->view('admin/template/header');
+            $this->load->view('admin/Update/update_user', $data);
+            $this->load->view('admin/template/footer');
+        } else {
+            $this->Posts_model->updatePostUser($id);
+            $this->session->set_flashdata('pesan', 'diupdate');
+            redirect(base_url() . "home_admin/manage_user");
+        }
     }
 
     public function Update_category()

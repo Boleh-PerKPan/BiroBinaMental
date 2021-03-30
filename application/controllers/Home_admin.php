@@ -34,9 +34,9 @@ class Home_admin extends CI_Controller
 
     public function manage_user()
     {
-
+        $data['posts'] = $this->Posts_model->getUser();
         $this->load->view('admin/template/header');
-        $this->load->view('admin/manage/manage_user');
+        $this->load->view('admin/manage/manage_user', $data);
         $this->load->view('admin/template/footer');
     }
 
