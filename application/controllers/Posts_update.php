@@ -12,10 +12,12 @@ class Posts_update extends CI_Controller
     {
     }
 
+    #MENU
     public function Update_menu($id)
     {
         $data['judul'] = "Update Menu";
         $data['post'] = $this->Posts_model->getMenuId($id);
+        $data['menu'] = $this->Posts_model->getMenu();
         $this->form_validation->set_rules('name', 'nama menu', 'required');
 
         if ($this->form_validation->run() == false) {
@@ -23,7 +25,7 @@ class Posts_update extends CI_Controller
             $this->load->view('admin/Update/update_menu', $data);
             $this->load->view('admin/template/footer');
         } else {
-            $this->Post_model->updatePost($id);
+            $this->Posts_model->updatePostMenu($id);
             $this->session->set_flashdata('pesan', 'diupdate');
             redirect(base_url() . "home_admin/manage_menu");
         }
@@ -32,8 +34,8 @@ class Posts_update extends CI_Controller
     public function Tambah_submenu($id)
     {
         $data['post'] = $this->Posts_model->getBanyakMenu();
-        $data['id_parent'] = $id;
         $data['order_no'] = $data['post'] + 1;
+        $data['id_parent'] = $id;
         $this->form_validation->set_rules('name', 'nama menu', 'required');
 
         if ($this->form_validation->run() == false) {
@@ -41,17 +43,44 @@ class Posts_update extends CI_Controller
             $this->load->view('admin/tambah/sub_modul/tambah_menu', $data);
             $this->load->view('admin/template/footer');
         } else {
-            $this->Posts_model->tambahPostMenu();
+            $this->Posts_model->tambahPostSubMenu($id);
             $this->session->set_flashdata('pesan', 'ditambahkan');
             redirect(base_url() . "home_admin/manage_menu");
         }
     }
 
-    public function Update_instansi()
+    #INSTANSI
+    public function Update_instansi($id)
     {
-        $this->load->view('admin/template/header');
-        $this->load->view('admin/Update/Update_instansi');
-        $this->load->view('admin/template/footer');
+        $data['judul'] = "Update Instansi";
+        $data['post'] = $this->Posts_model->getInstansiId($id);
+        $this->form_validation->set_rules('name', 'nama Instansi', 'required');
+
+        if ($this->form_validation->run() == false) {
+            $this->load->view('admin/template/header');
+            $this->load->view('admin/Update/update_instansi', $data);
+            $this->load->view('admin/template/footer');
+        } else {
+            $this->Posts_model->updatePostInstansi($id);
+            $this->session->set_flashdata('pesan', 'diupdate');
+            redirect(base_url() . "home_admin/manage_instansi");
+        }
+    }
+
+    public function Tambah_subinstansi($id)
+    {
+        $data['id_parent'] = $id;
+        $this->form_validation->set_rules('name', 'nama instansi', 'required');
+
+        if ($this->form_validation->run() == false) {
+            $this->load->view('admin/template/header');
+            $this->load->view('admin/tambah/sub_modul/tambah_instansi', $data);
+            $this->load->view('admin/template/footer');
+        } else {
+            $this->Posts_model->tambahPostSubInstansi($id);
+            $this->session->set_flashdata('pesan', 'ditambahkan');
+            redirect(base_url() . "home_admin/manage_instansi");
+        }
     }
 
     public function Update_user()

@@ -23,20 +23,32 @@
                         </div>
                         <div class="form-group">
                             <label for="order_no">Order No.</label>
-                            <input type="text" class="form-control form-control-sm" value="<?= $post['order_no'] ?>" disabled>
-                            <input type="hidden" name="order_no" class="form-control form-control-sm" id="order_no" value="<?= $post['order_no'] ?>">
+                            <input type="number" name="order_no" id="order_no" class="form-control form-control-sm" value="<?= $post['order_no'] ?>">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlSelect1">Menu Parent</label>
+
+                            <select class="form-control" id="parent_id" name="parent_id">
+
+                                <option value="0" selected="selected">0</option>
+
+                                <?php foreach ($menu as $menu) { ?>
+                                    <option value="<?= $menu['id_menu'] ?>"><?= $menu['nama_menu'] ?></option>
+                                <?php } ?>
+
+                            </select>
                         </div>
                         <div class="form-group">
                             <label for="exampleFormControlSelect1">Status </label>
 
                             <select class="form-control" id="status" name="status">
 
-                                <option value="Aktif">Aktif</option>
-                                <option value="Non-Aktif" selected="selected">Non-Aktif</option>
+                                <option value="Aktif" selected="selected">Aktif</option>
+                                <option value="Non-Aktif">Non-Aktif</option>
 
                             </select>
                         </div>
-                        <button type="submit" class="btn btn-primary" name="submit">Confirm</button>
+                        <button type="submit" class="btn btn-primary" name="submit">Update</button>
                         <input class="btn btn-primary" type="reset" value="Reset">
                         <a class="btn btn-primary" href="<?= base_url() ?>home_admin/manage_menu">Kembali</a>
                     </div>

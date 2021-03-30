@@ -14,4 +14,11 @@ class Posts_hapus extends CI_Controller
         $this->session->set_flashdata('pesan', 'dihapus');
         redirect(base_url() . "home_admin/manage_menu");
     }
+
+    public function hapus_instansi($id)
+    {
+        $this->Posts_model->hapusInstansi($id);
+        $this->session->set_flashdata('pesan', 'dihapus');
+        redirect(base_url() . "home_admin/manage_instansi");
+    }
 }

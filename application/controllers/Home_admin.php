@@ -26,13 +26,15 @@ class Home_admin extends CI_Controller
 
     public function manage_instansi()
     {
+        $data['posts'] = $this->Posts_model->getInstansi();
         $this->load->view('admin/template/header');
-        $this->load->view('admin/manage/manage_instansi');
+        $this->load->view('admin/manage/manage_instansi', $data);
         $this->load->view('admin/template/footer');
     }
 
     public function manage_user()
     {
+
         $this->load->view('admin/template/header');
         $this->load->view('admin/manage/manage_user');
         $this->load->view('admin/template/footer');
