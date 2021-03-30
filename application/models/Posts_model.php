@@ -183,4 +183,126 @@ class Posts_model extends CI_Model
             ->where('id_user', $id)
             ->delete('user');
     }
+
+    #ARTIKEL KATEOGRI
+    public function tambahPostArtikelKategori()
+    {
+        $data['nama_artikel_kategori'] = $this->input->post('name');
+        $data['status'] = $this->input->post('status');
+        $this->db->insert('artikel_kategori', $data);
+    }
+
+    public function getArtikelKategori()
+    {
+        return $this->db
+            ->get('artikel_kategori')
+            ->result_array();
+    }
+
+
+    #update artikel kategori
+    public function getArtikelKategoriId($id)
+    {
+        return $this->db
+            ->where('id_artikel_kategori', $id)
+            ->get('artikel_kategori')
+            ->row_array();
+    }
+
+    public function updatePostArtikelKategori($id)
+    {
+        $data = array(
+            'nama_artikel_kategori' => $this->input->post('name'),
+            'status' => $this->input->post('status')
+        );
+        $this->db
+            ->where('id_artikel_kategori', $id)
+            ->update('artikel_kategori', $data);
+    }
+
+    #hapus artikel kategori
+    public function hapusArtikelKategori($id)
+    {
+        $this->db
+            ->where('id_artikel_kategori', $id)
+            ->delete('artikel_kategori');
+    }
+
+    #ARTIKEL BERITA
+
+    public function tambahGaleriKontenBerita($foto, $userdata)
+    {
+        $data['nama_file'] = $foto;
+        $data['id_user'] = $userdata;
+        $data['status'] = $this->input->post('status');
+        $data['id_galeri_kategori'] = "4";
+        $this->db->insert('galeri_konten', $data);
+    }
+
+    public function getGaleriKontenLastID()
+    {
+        return $this->db
+            ->order_by('id_galeri_konten', 'desc')
+            ->get('galeri_konten', 1)
+            ->row_array();
+    }
+
+    public function tambahPostArtikelBerita($LastGaleriKonten, $userdata)
+    {
+        $data['tanggal_publish'] = $this->input->post('date');
+        $data['id_user'] = $userdata;
+        $data['judul'] = $this->input->post('judul');
+        $data['isi'] = $this->input->post('isi');
+        $data['id_galeri_konten'] = $LastGaleriKonten['id_galeri_konten'];
+        $data['id_artikel_kategori'] = $this->input->post('kategori');
+        $data['status'] = $this->input->post('status');
+        $this->db->insert('artikel_berita', $data);
+    }
+
+    public function getArtikelBerita()
+    {
+        return $this->db
+            ->join('artikel_kategori', 'artikel_kategori.id_artikel_kategori = artikel_berita.id_artikel_kategori')
+            ->join('galeri_konten', 'galeri_konten.id_galeri_konten = artikel_berita.id_galeri_konten')
+            ->select('artikel_berita.id_artikel_berita, 
+                    artikel_berita.tanggal_publish, 
+                    artikel_berita.judul,
+                    artikel_berita.isi,
+                    artikel_berita.hits,
+                    artikel_berita.status,
+                    artikel_kategori.nama_artikel_kategori')
+            ->get('artikel_berita')
+            ->result_array();
+    }
+
+    #update artikel berita
+    public function getArtikelBeritaId($id)
+    {
+        return $this->db
+            ->where('id_artikel_kategori', $id)
+            ->get('artikel_kategori')
+            ->row_array();
+    }
+
+    public function updatePostArtikelBerita($id)
+    {
+        $data = array(
+            'nama_artikel_kategori' => $this->input->post('name'),
+            'status' => $this->input->post('status')
+        );
+        $this->db
+            ->where('id_artikel_kategori', $id)
+            ->update('artikel_kategori', $data);
+    }
+
+    #hapus artikel berita
+    public function hapusArtikelBerita($id)
+    {
+        $this->db
+            ->where('id_artikel_kategori', $id)
+            ->delete('artikel_berita');
+    }
+
+    #GALERI
+
 }

@@ -71,16 +71,64 @@ class Posts_tambah extends CI_Controller
 
     public function tambah_category()
     {
-        $this->load->view('admin/template/header');
-        $this->load->view('admin/tambah/tambah_category');
-        $this->load->view('admin/template/footer');
+        $this->form_validation->set_rules('name', 'nama kategori', 'required');
+
+
+        if ($this->form_validation->run() == false) {
+            $this->load->view('admin/template/header');
+            $this->load->view('admin/tambah/tambah_category');
+            $this->load->view('admin/template/footer');
+        } else {
+            $this->Posts_model->tambahPostArtikelKategori();
+            $this->session->set_flashdata('pesan', 'ditambahkan');
+            redirect(base_url() . "home_admin/manage_category");
+        }
     }
 
     public function tambah_article_news()
     {
-        $this->load->view('admin/template/header');
-        $this->load->view('admin/tambah/tambah_article_news');
-        $this->load->view('admin/template/footer');
+        $data['kategori'] = $this->Posts_model->getArtikelKategori();
+        date_default_timezone_set('Asia/Jakarta');
+        $data['tanggal_publish'] = date("Y-m-d H:i:s");
+        $this->form_validation->set_rules('judul', 'Judul', 'required');
+        $this->form_validation->set_rules('isi', 'Isi', 'required');
+
+        if ($this->form_validation->run() == false) {
+            $this->load->view('admin/template/header');
+            $this->load->view('admin/tambah/tambah_article_news', $data);
+            $this->load->view('admin/template/footer');
+        } else {
+            #pengambilan Foto
+            if (isset($_FILES)) {
+                $namaFile = $_FILES['gambar']['name'];
+                $ukuranFile = $_FILES['gambar']['size'];
+                $error = $_FILES['gambar']['error'];
+                $tmpName = $_FILES['gambar']['tmp_name'];
+
+                // cek apakah yang di upload adalah gambar
+                $ekstensiGambarValid = ['jpg', 'jpeg', 'png'];
+                $ekstensiGambar = explode('.', $namaFile);
+                $ekstensiGambar = strtolower(end($ekstensiGambar));
+
+                // lolos pengecekan, gambar siap di upload
+                // generate nama gambar baru
+                $namaFileBaru = uniqid();
+                $namaFileBaru .= '.';
+                $namaFileBaru .= $ekstensiGambar;
+                move_uploaded_file($tmpName, 'assets/img/' . $namaFileBaru);
+            } else {
+                $namaFileBaru = 'default.png';
+            }
+
+            $userdataSTATIS = "1";
+            $this->Posts_model->tambahGaleriKontenBerita($namaFileBaru, $userdataSTATIS);
+
+            $LastGaleriKonten = $this->Posts_model->getGaleriKontenLastID();
+
+            $this->Posts_model->tambahPostArtikelBerita($LastGaleriKonten, $userdataSTATIS);
+            $this->session->set_flashdata('pesan', 'ditambahkan');
+            redirect(base_url() . "home_admin/manage_article_news");
+        }
     }
 
     public function tambah_article_upload()

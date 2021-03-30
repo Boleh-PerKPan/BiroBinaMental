@@ -42,15 +42,17 @@ class Home_admin extends CI_Controller
 
     public function manage_category()
     {
+        $data['posts'] = $this->Posts_model->getArtikelKategori();
         $this->load->view('admin/template/header');
-        $this->load->view('admin/manage/manage_category');
+        $this->load->view('admin/manage/manage_category', $data);
         $this->load->view('admin/template/footer');
     }
 
     public function manage_article_news()
     {
+        $data['posts'] = $this->Posts_model->getArtikelBerita();
         $this->load->view('admin/template/header');
-        $this->load->view('admin/manage/manage_article_news');
+        $this->load->view('admin/manage/manage_article_news', $data);
         $this->load->view('admin/template/footer');
     }
 

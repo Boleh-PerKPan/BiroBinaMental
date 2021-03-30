@@ -111,11 +111,22 @@ class Posts_update extends CI_Controller
         }
     }
 
-    public function Update_category()
+    public function Update_category($id)
     {
-        $this->load->view('admin/template/header');
-        $this->load->view('admin/Update/Update_category');
-        $this->load->view('admin/template/footer');
+        $data['judul'] = "Update Kategori";
+        $data['post'] = $this->Posts_model->getArtikelKategoriId($id);
+
+        $this->form_validation->set_rules('name', 'nama Kategori', 'required');
+
+        if ($this->form_validation->run() == false) {
+            $this->load->view('admin/template/header');
+            $this->load->view('admin/Update/update_category', $data);
+            $this->load->view('admin/template/footer');
+        } else {
+            $this->Posts_model->updatePostArtikelKategori($id);
+            $this->session->set_flashdata('pesan', 'diupdate');
+            redirect(base_url() . "home_admin/manage_category");
+        }
     }
 
     public function Update_article_news()

@@ -28,4 +28,11 @@ class Posts_hapus extends CI_Controller
         $this->session->set_flashdata('pesan', 'dihapus');
         redirect(base_url() . "home_admin/manage_user");
     }
+
+    public function hapus_artikel_kategori($id)
+    {
+        $this->Posts_model->hapusArtikelKategori($id);
+        $this->session->set_flashdata('pesan', 'dihapus');
+        redirect(base_url() . "home_admin/manage_category");
+    }
 }
