@@ -19,7 +19,7 @@ class Home_user extends CI_Controller
             $this->nav_konten .= 
                 '<li class="nav-item active">
                     <a class="nav-link " href="';
-                    $this->nav_konten .= base_url().$link;
+                    $this->nav_konten .= base_url().'home_user/'.$link;
                     $this->nav_konten .= '">';
                     $this->nav_konten .= $namamenu;
                     $this->nav_konten .= '</a>
@@ -40,23 +40,11 @@ class Home_user extends CI_Controller
                 $this->setnavkonten($data['id_menu'], $data['child'], $data['link'], $data['nama_menu']);
             endforeach;    
                         
-            $act =    '    <a class="dropdown-item" href="<?= base_url() ?>home_user/extrapage_news/visimisi">Visi dan Misi</a>
-                                <a class="dropdown-item" href="<?= base_url() ?>home_user/extrapage_news/strukturOrganisasi">Struktur Organisasi</a>
-                           ';
             $this->nav_konten .= '</ul></li>';
-            //$child = $data['parent_id']; 
-            //$header_data['child'] = $this->Main_model->getHeaderData($data['parent_id']);
         } 
     }
     public function index()
     {   
-
-        // $header_data = $this->Main_model->getHeaderData();
-        //         foreach ($header_data as $datas) {
-        //            echo $datas['id_menu'];
-        //        }
-        // $header_data['class'] = 'dropdown';
-        // $header_data['dropdown_item'] = ' id="navbarDropdown" data-toggle="collapse" aria-expanded="false" ';
         $header_data = [
             'nav_konten' => $this->nav_konten,
             'title' => 'Biro Bina Mental Dan Kesra',

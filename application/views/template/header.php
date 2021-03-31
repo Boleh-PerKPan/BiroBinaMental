@@ -29,29 +29,7 @@
                 </button>
                 <div id="navnav" class="collapse navbar-collapse">
                     <ul class="navbar-nav mr-auto">
-                        <li class="nav-item">
-                            <a class="nav-link " href="<?=base_url()?>home_user">Dashboard</a>
-                        </li>
-                        <li class="nav-item <?=$class?>">
-                            <a href="#" data-target="#profile" class="nav-link" <?=$dropdown_item;?> >Profile</a>
-                            <div class="collapse dropdown-menu" id="profile" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="<?= base_url() ?>home_user/extrapage_news/visimisi">Visi dan Misi</a>
-                                <a class="dropdown-item" href="<?= base_url() ?>home_user/extrapage_news/strukturOrganisasi">Struktur Organisasi</a>
-                            </div>
-                        </li>
-                        <li class="nav-item ">
-                            <a class="nav-link" href="<?=base_url()?>home_user/index_berita">Berita</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link " href="">Kegiatan</a>
-                        </li>
-                        <li class="nav-item <?=$class?>">
-                            <a class="nav-link" data-target="#galery" <?=$dropdown_item;?> href="#">Galery</a>
-                            <div class="collapse dropdown-menu" id="galery" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="<?= base_url() ?>home_user/index_foto">Foto</a>
-                                <a class="dropdown-item" href="<?= base_url() ?>home_user/index_video">Video</a>
-                            </div>
-                        </li>
+                        <?=$nav_konten;?>
                     </ul>
                     <form class="form-inline my-2 my-lg-0 ">
                         <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
