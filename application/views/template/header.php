@@ -60,42 +60,31 @@
                 </div>
             </div>    
         </nav>
+        <!-- Main Navbar -->
         <div class="container ">
-            <a class="" href="<?=base_url()?>home_user" >
+            <a href="<?=base_url()?>home_user" >
                 <h5 class="nav-style" style="font-family: 'Trebuchet MS', sans-serif; padding-top:15px; padding-left:20px; ">
-                    <img src="<?= base_url()?>assets/files/images/sumbarprof_logo.png" style="width:30px" alt="...">
+                    <img src="<?= base_url()?>assets/files/images/sumbarprof_logo.png" style="width:30px">
                     Biro Bina Mental Dan Kesejahteraan Rakyat Sumatera Barat
                 </h5>
             </a>
+            <!-- Take data from controller -->
+            <?php 
+            foreach ($data as $data) : ?>
+                <?php
+                    // echo $data['id_menu'];
+                    // if ($data['child'] != 0) {
+                    //     echo $data['child'][$data['parent_id']]['id_menu'];
+                    // }
+                ?>
+            <?php endforeach; ?>
             <nav class="navbar navbar-expand-lg navbar-light bg-warning nav-style" id="mainNav">
                 <button class="navbar-toggler navbar-toggler-icon" type="button" id="navbardrop" data-toggle="collapse" data-target="#navnav" aria-controls="navnav" aria-expanded="false" >
                     <span></span>
                 </button>
                 <div id="navnav" class="collapse navbar-collapse">
-                    <ul class="navbar-nav mr-auto">
-                        <li class="nav-item">
-                            <a class="nav-link " href="<?=base_url()?>home_user">Dashboard</a>
-                        </li>
-                        <li class="nav-item <?=$class?>">
-                            <a href="#" data-target="#profile" class="nav-link" <?=$dropdown_item;?> >Profile</a>
-                            <div class="collapse dropdown-menu" id="profile" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="<?= base_url() ?>home_user/extrapage_news/visimisi">Visi dan Misi</a>
-                                <a class="dropdown-item" href="<?= base_url() ?>home_user/extrapage_news/strukturOrganisasi">Struktur Organisasi</a>
-                            </div>
-                        </li>
-                        <li class="nav-item ">
-                            <a class="nav-link" href="<?=base_url()?>home_user/index_berita">Berita</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link " href="">Kegiatan</a>
-                        </li>
-                        <li class="nav-item <?=$class?>">
-                            <a class="nav-link" data-target="#galery" <?=$dropdown_item;?> href="#">Galery</a>
-                            <div class="collapse dropdown-menu" id="galery" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="<?= base_url() ?>home_user/index_foto">Foto</a>
-                                <a class="dropdown-item" href="<?= base_url() ?>home_user/index_video">Video</a>
-                            </div>
-                        </li>
+                    <ul class="navbar-nav mr-auto" id="nav-konten">
+                        <?=$nav_konten;?>
                     </ul>
                     <form class="form-inline my-2 my-lg-0 ">
                         <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
