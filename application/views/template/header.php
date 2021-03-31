@@ -68,16 +68,7 @@
                     Biro Bina Mental Dan Kesejahteraan Rakyat Sumatera Barat
                 </h5>
             </a>
-            <!-- Take data from controller -->
-            <?php 
-            foreach ($data as $data) : ?>
-                <?php
-                    // echo $data['id_menu'];
-                    // if ($data['child'] != 0) {
-                    //     echo $data['child'][$data['parent_id']]['id_menu'];
-                    // }
-                ?>
-            <?php endforeach; ?>
+            
             <nav class="navbar navbar-expand-lg navbar-light bg-warning nav-style" id="mainNav">
                 <button class="navbar-toggler navbar-toggler-icon" type="button" id="navbardrop" data-toggle="collapse" data-target="#navnav" aria-controls="navnav" aria-expanded="false" >
                     <span></span>

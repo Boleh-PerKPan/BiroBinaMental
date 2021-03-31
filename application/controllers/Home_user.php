@@ -8,6 +8,10 @@ class Home_user extends CI_Controller
         parent::__construct();
         $this->load->model('Main_model');
         $this->load->library('form_validation');
+        $data_nav = $this->Main_model->getHeaderData();
+        foreach ($data_nav as $data) :
+           $this->setnavkonten($data['id_menu'], $data['child'], $data['link'], $data['nama_menu']);
+        endforeach; 
     }
     private function setnavkonten($parentid, $child,$link,$namamenu) {
         if ($child == 0) {
@@ -15,7 +19,7 @@ class Home_user extends CI_Controller
             $this->nav_konten .= 
                 '<li class="nav-item active">
                     <a class="nav-link " href="';
-                    $this->nav_konten .= $link;
+                    $this->nav_konten .= base_url().$link;
                     $this->nav_konten .= '">';
                     $this->nav_konten .= $namamenu;
                     $this->nav_konten .= '</a>
@@ -46,10 +50,6 @@ class Home_user extends CI_Controller
     }
     public function index()
     {   
-        $data_nav = $this->Main_model->getHeaderData();
-        foreach ($data_nav as $data) :
-           $this->setnavkonten($data['id_menu'], $data['child'], $data['link'], $data['nama_menu']);
-        endforeach; 
 
         // $header_data = $this->Main_model->getHeaderData();
         //         foreach ($header_data as $datas) {
@@ -58,7 +58,6 @@ class Home_user extends CI_Controller
         // $header_data['class'] = 'dropdown';
         // $header_data['dropdown_item'] = ' id="navbarDropdown" data-toggle="collapse" aria-expanded="false" ';
         $header_data = [
-            'data' => $data_nav,
             'nav_konten' => $this->nav_konten,
             'title' => 'Biro Bina Mental Dan Kesra',
             'class' => 'dropdown',
@@ -73,6 +72,7 @@ class Home_user extends CI_Controller
     }
     public function index_foto() {
         $header_data = [
+            'nav_konten' => $this->nav_konten,
             'title' => 'Index Foto', 
             'class' => 'dropdown',
             'dropdown_item' => ' id="navbarDropdown" data-toggle="collapse" aria-expanded="false" '
@@ -83,6 +83,7 @@ class Home_user extends CI_Controller
     }
     public function index_video() {
         $header_data = [
+            'nav_konten' => $this->nav_konten,
             'title' => 'Index Video', 
             'class' => 'dropdown',
             'dropdown_item' => ' id="navbarDropdown" data-toggle="collapse" aria-expanded="false" '
@@ -93,6 +94,7 @@ class Home_user extends CI_Controller
     }
     public function index_berita() {
         $header_data = [
+            'nav_konten' => $this->nav_konten,
             'title' => 'Index Berita',
             'class' => 'dropdown',
             'dropdown_item' => ' id="navbarDropdown" data-toggle="collapse" aria-expanded="false" '
@@ -103,6 +105,7 @@ class Home_user extends CI_Controller
     }
     public function index_agenda() {
         $header_data = [
+            'nav_konten' => $this->nav_konten,
             'title' => 'Index Agenda',
             'class' => 'dropdown',
             'dropdown_item' => ' id="navbarDropdown" data-toggle="collapse" aria-expanded="false" '
@@ -114,6 +117,7 @@ class Home_user extends CI_Controller
     }
     public function detail($judul, $jenis) {
         $header_data = [
+            'nav_konten' => $this->nav_konten,
             'title' => $judul,
             'class' => 'dropdown',
             'dropdown_item' => ' id="navbarDropdown" data-toggle="collapse" aria-expanded="false" '
@@ -125,6 +129,7 @@ class Home_user extends CI_Controller
     }
     public function detail_agenda($judul) {
         $header_data = [
+            'nav_konten' => $this->nav_konten,
             'title' => $judul,
             'class' => 'dropdown',
             'dropdown_item' => ' id="navbarDropdown" data-toggle="collapse" aria-expanded="false" '
@@ -137,6 +142,7 @@ class Home_user extends CI_Controller
     }
     public function extrapage_news($judul) {
         $header_data = [
+            'nav_konten' => $this->nav_konten,
             'title' => $judul,
             'class' => 'dropdown',
             'dropdown_item' => ' id="navbarDropdown" data-toggle="collapse" aria-expanded="false" '
