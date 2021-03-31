@@ -1,6 +1,6 @@
         <div class="new-panel">
             <div>
-                <a href="<?= base_url()?>guest/index_berita"><h4 class="nav-style">Berita Utama</h4></a>
+                <a href="<?= base_url()?>home_user/index_berita"><h4 class="nav-style">Berita Utama</h4></a>
             </div>
             <div class="card mb-3 new-panel">
                 <img src="<?= base_url() ?>assets/files/images/pendd_char.png" class="card-img-top" alt="...">
@@ -14,13 +14,13 @@
                     <p class="card-text">
                         Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolores ipsa magnam odit atque optio nihil perspiciatis, officia quos. Vitae assumenda laboriosam corporis! Neque vero quidem placeat repudiandae nam numquam delectus.
                         This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer...</p>
-                    <a href="<?=base_url()?>/guest/detail_berita/berita1" class="btn btn-success" role="button">Selengkapnya &raquo;</a>
+                    <a href="<?=base_url()?>/home_user/detail_berita/berita1" class="btn btn-success" role="button">Selengkapnya &raquo;</a>
                 </div>
             </div>
         </div>
         <div class="new-panel" id="beritaterkait">
             <div>
-                <a href="<?= base_url()?>guest/index_berita"><h4 class="nav-style">Berita Terkait</h4></a>
+                <a href="<?= base_url()?>home_user/index_berita"><h4 class="nav-style">Berita Terkait</h4></a>
             </div>
             <div class="card new-panel">
                 <div class="row no-gutters" style="max-height: 25rem;">
@@ -35,7 +35,7 @@
                                     <i>katgori &nbsp; publish oleh &nbsp; waktu publis </i><br>
                                 </p>
                             </small>
-                            <a href="<?=base_url()?>guest/detail/berita1/berita" class="btn btn-success" role="button" style="height:28px; padding-top:0px; margin-top:6px;"><small> Selengkapnya &raquo;</small></a>
+                            <a href="<?=base_url()?>home_user/detail/berita1/berita" class="btn btn-success" role="button" style="height:28px; padding-top:0px; margin-top:6px;"><small> Selengkapnya &raquo;</small></a>
                         </div>
                     </div>
                 </div>
@@ -52,7 +52,7 @@
                                     <i>katgori &nbsp; publish oleh &nbsp; waktu publis </i><br>
                                 </p>
                             </small>
-                            <a href="<?=base_url()?>guest/detail/berita1/berita" class="btn btn-success" role="button" style="height:28px; padding-top:0px; margin-top:6px;"><small> Selengkapnya &raquo;</small></a>
+                            <a href="<?=base_url()?>home_user/detail/berita1/berita" class="btn btn-success" role="button" style="height:28px; padding-top:0px; margin-top:6px;"><small> Selengkapnya &raquo;</small></a>
                         </div>
                     </div>
                 </div>
@@ -69,13 +69,13 @@
                                     <i>katgori &nbsp; publish oleh &nbsp; waktu publis </i><br>
                                 </p>
                             </small>
-                            <a href="<?=base_url()?>guest/detail/berita1/berita" class="btn btn-success" role="button" style="height:28px; padding-top:0px; margin-top:6px;"><small> Selengkapnya &raquo;</small></a>
+                            <a href="<?=base_url()?>home_user/detail/berita1/berita" class="btn btn-success" role="button" style="height:28px; padding-top:0px; margin-top:6px;"><small> Selengkapnya &raquo;</small></a>
                         </div>
                     </div>
                 </div>
                 <hr>
                 <div style="margin: auto; margin-bottom:1rem;">
-                    <a href="<?=base_url()?>guest/index_berita" role="button" class="btn my-btn">Berita Lainnya &raquo;</a>
+                    <a href="<?=base_url()?>home_user/index_berita" role="button" class="btn my-btn">Berita Lainnya &raquo;</a>
                 </div>
             </div>
         </div>

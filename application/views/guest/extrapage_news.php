@@ -19,9 +19,9 @@
 <div class="new-panel" id="informasiterkait_pagenews" >
     <h4 class="nav-style">Informasi terkait</h4>
     <div class="new-panel">
-        <a href="<?=base_url()?>/guest/extrapage_news/sejarah"  style="color:black"><i class="fas fa-chevron-right"></i> Sejarah</a> <hr>
-        <a href="<?=base_url()?>/guest/extrapage_news/struktur_organisasi" style="color:black"><i class="fas fa-chevron-right"></i> Struktur Organisasi</a> <hr>  
-        <a href="<?=base_url()?>/guest/extrapage_news/ProfilePejabat" style="color:black"><i class="fas fa-chevron-right"></i> Profile Pejabat </a> <hr>           
+        <a href="<?=base_url()?>home_user/extrapage_news/sejarah"  style="color:black"><i class="fas fa-chevron-right"></i> Sejarah</a> <hr>
+        <a href="<?=base_url()?>home_user/extrapage_news/struktur_organisasi" style="color:black"><i class="fas fa-chevron-right"></i> Struktur Organisasi</a> <hr>  
+        <a href="<?=base_url()?>home_user/extrapage_news/ProfilePejabat" style="color:black"><i class="fas fa-chevron-right"></i> Profile Pejabat </a> <hr>           
     </div>
 </div>
 

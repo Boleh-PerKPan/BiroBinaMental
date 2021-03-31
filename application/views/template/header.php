@@ -30,17 +30,17 @@
                 <div id="navnav" class="collapse navbar-collapse">
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item">
-                            <a class="nav-link " href="<?=base_url()?>guest">Dashboard</a>
+                            <a class="nav-link " href="<?=base_url()?>home_user">Dashboard</a>
                         </li>
                         <li class="nav-item <?=$class?>">
                             <a href="#" data-target="#profile" class="nav-link" <?=$dropdown_item;?> >Profile</a>
                             <div class="collapse dropdown-menu" id="profile" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="<?= base_url() ?>guest/extrapage_news/visimisi">Visi dan Misi</a>
-                                <a class="dropdown-item" href="<?= base_url() ?>guest/extrapage_news/strukturOrganisasi">Struktur Organisasi</a>
+                                <a class="dropdown-item" href="<?= base_url() ?>home_user/extrapage_news/visimisi">Visi dan Misi</a>
+                                <a class="dropdown-item" href="<?= base_url() ?>home_user/extrapage_news/strukturOrganisasi">Struktur Organisasi</a>
                             </div>
                         </li>
                         <li class="nav-item ">
-                            <a class="nav-link" href="<?=base_url()?>guest/index_berita">Berita</a>
+                            <a class="nav-link" href="<?=base_url()?>home_user/index_berita">Berita</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link " href="">Kegiatan</a>
@@ -48,8 +48,8 @@
                         <li class="nav-item <?=$class?>">
                             <a class="nav-link" data-target="#galery" <?=$dropdown_item;?> href="#">Galery</a>
                             <div class="collapse dropdown-menu" id="galery" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="<?= base_url() ?>guest/index_foto">Foto</a>
-                                <a class="dropdown-item" href="<?= base_url() ?>guest/index_video">Video</a>
+                                <a class="dropdown-item" href="<?= base_url() ?>home_user/index_foto">Foto</a>
+                                <a class="dropdown-item" href="<?= base_url() ?>home_user/index_video">Video</a>
                             </div>
                         </li>
                     </ul>
@@ -61,7 +61,7 @@
             </div>    
         </nav>
         <div class="container ">
-            <a class="" href="<?=base_url()?>guest" >
+            <a class="" href="<?=base_url()?>home_user" >
                 <h5 class="nav-style" style="font-family: 'Trebuchet MS', sans-serif; padding-top:15px; padding-left:20px; ">
                     <img src="<?= base_url()?>assets/files/images/sumbarprof_logo.png" style="width:30px" alt="...">
                     Biro Bina Mental Dan Kesejahteraan Rakyat Sumatera Barat
@@ -74,17 +74,17 @@
                 <div id="navnav" class="collapse navbar-collapse">
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item">
-                            <a class="nav-link " href="<?=base_url()?>guest">Dashboard</a>
+                            <a class="nav-link " href="<?=base_url()?>home_user">Dashboard</a>
                         </li>
                         <li class="nav-item <?=$class?>">
                             <a href="#" data-target="#profile" class="nav-link" <?=$dropdown_item;?> >Profile</a>
                             <div class="collapse dropdown-menu" id="profile" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="<?= base_url() ?>guest/extrapage_news/visimisi">Visi dan Misi</a>
-                                <a class="dropdown-item" href="<?= base_url() ?>guest/extrapage_news/strukturOrganisasi">Struktur Organisasi</a>
+                                <a class="dropdown-item" href="<?= base_url() ?>home_user/extrapage_news/visimisi">Visi dan Misi</a>
+                                <a class="dropdown-item" href="<?= base_url() ?>home_user/extrapage_news/strukturOrganisasi">Struktur Organisasi</a>
                             </div>
                         </li>
                         <li class="nav-item ">
-                            <a class="nav-link" href="<?=base_url()?>guest/index_berita">Berita</a>
+                            <a class="nav-link" href="<?=base_url()?>home_user/index_berita">Berita</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link " href="">Kegiatan</a>
@@ -92,8 +92,8 @@
                         <li class="nav-item <?=$class?>">
                             <a class="nav-link" data-target="#galery" <?=$dropdown_item;?> href="#">Galery</a>
                             <div class="collapse dropdown-menu" id="galery" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="<?= base_url() ?>guest/index_foto">Foto</a>
-                                <a class="dropdown-item" href="<?= base_url() ?>guest/index_video">Video</a>
+                                <a class="dropdown-item" href="<?= base_url() ?>home_user/index_foto">Foto</a>
+                                <a class="dropdown-item" href="<?= base_url() ?>home_user/index_video">Video</a>
                             </div>
                         </li>
                     </ul>

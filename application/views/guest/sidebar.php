@@ -1,7 +1,7 @@
     <div class="col-md-4 offset-md-0 new-panel">
         <div id="galery">
             <div>
-                <a href="<?= base_url()?>guest/index_foto"><h4 class="nav-style">Foto</h4></a>
+                <a href="<?= base_url()?>home_user/index_foto"><h4 class="nav-style">Foto</h4></a>
             </div>
             <div id="carousel-galery" class="carousel slide new-panel" data-ride="carousel">
                 <div class="carousel-inner" style="">
@@ -27,12 +27,12 @@
             </div>
             <hr>
             <div style="margin: auto; margin-bottom:1rem;">
-                <a href="<?=base_url()?>guest/index_foto" role="button" class="btn my-btn">Foto Lainnya &raquo;</a>
+                <a href="<?=base_url()?>home_user/index_foto" role="button" class="btn my-btn">Foto Lainnya &raquo;</a>
             </div>
         </div>
         <div id="video">
             <div class="new-panel">
-                <a href="<?= base_url()?>guest/index_video"><h4 class="nav-style">Video</h4></a>
+                <a href="<?= base_url()?>home_user/index_video"><h4 class="nav-style">Video</h4></a>
             </div>
             <div class="new-panel" style="">
                 <iframe width="" height="" class="w-100"  src="https://www.youtube.com/embed/xV1HeAbOUGw">
@@ -41,12 +41,12 @@
             </div>
             <hr>
             <div style="margin: auto; margin-bottom:1rem;">
-                <a href="<?=base_url()?>guest/index_video" role="button" class="btn my-btn">Video Lainnya &raquo;</a>
+                <a href="<?=base_url()?>home_user/index_video" role="button" class="btn my-btn">Video Lainnya &raquo;</a>
             </div>
         </div>
         <div id="agenda">
             <div class="new-panel">
-                <a href="<?= base_url()?>guest/index_agenda"><h4 class="nav-style">Agenda</h4></a>
+                <a href="<?= base_url()?>home_user/index_agenda"><h4 class="nav-style">Agenda</h4></a>
             </div>
             <div class="card new-panel" style="">
                 <div class="row no-gutters" style="max-height: 25rem;">
@@ -58,7 +58,7 @@
                                     <i>30 januari 2021 &nbsp; Hotel inna muara </i><br>
                                 </p>
                             </small>
-                            <a href="<?=base_url()?>/guest/detail_agenda/agenda1" class="btn btn-success" role="button" style="height:28px; padding-top:0px; margin-top:6px;"><small> Selengkapnya &raquo;</small></a>
+                            <a href="<?=base_url()?>/home_user/detail_agenda/agenda1" class="btn btn-success" role="button" style="height:28px; padding-top:0px; margin-top:6px;"><small> Selengkapnya &raquo;</small></a>
                         </div>
                     </div>
                 </div>
@@ -72,7 +72,7 @@
                                 <i>30 januari 2021 &nbsp; Hotel inna muara </i><br>
                                 </p>
                             </small>
-                            <a href="<?=base_url()?>/guest/detail_agenda/agenda1" class="btn btn-success" role="button" style="height:28px; padding-top:0px; margin-top:6px;"><small> Selengkapnya &raquo;</small></a>
+                            <a href="<?=base_url()?>/home_user/detail_agenda/agenda1" class="btn btn-success" role="button" style="height:28px; padding-top:0px; margin-top:6px;"><small> Selengkapnya &raquo;</small></a>
                         </div>
                     </div>
                 </div>
@@ -86,19 +86,19 @@
                                     <i>30 januari 2021 &nbsp; Hotel inna muara </i><br>
                                 </p>
                             </small>
-                            <a href="<?=base_url()?>/guest/detail_agenda/agenda1" class="btn btn-success" role="button" style="height:28px; padding-top:0px; margin-top:6px;"><small> Selengkapnya &raquo;</small></a>
+                            <a href="<?=base_url()?>/home_user/detail_agenda/agenda1" class="btn btn-success" role="button" style="height:28px; padding-top:0px; margin-top:6px;"><small> Selengkapnya &raquo;</small></a>
                         </div>
                     </div>
                 </div>
             </div>
             <hr>
             <div style=" margin-bottom:1rem;">
-                <a href="<?=base_url()?>guest/index_agenda" role="button" class="btn my-btn">Agenda Lainnya &raquo;</a>
+                <a href="<?=base_url()?>home_user/index_agenda" role="button" class="btn my-btn">Agenda Lainnya &raquo;</a>
             </div>
         </div>
         <div class="" id="kategori">
             <div class="new-panel">
-                <a href="<?= base_url()?>guest/index_artikel_kategory"><h4 class="nav-style">Kategori Berita</h4></a>
+                <a href="<?= base_url()?>home_user/index_artikel_kategory"><h4 class="nav-style">Kategori Berita</h4></a>
             </div>
             <div class="card new-panel" style="">
                 <div class="card-body">

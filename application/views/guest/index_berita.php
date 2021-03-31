@@ -18,21 +18,21 @@
                                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis tempore dolores expedita officiis maiores laborum excepturi porro inventore ist...
                                 </p>
                             </small>
-                            <a href="<?=base_url()?>/guest/detail_berita/berita1" class="btn btn-success" role="button" style="height:28px; padding-top:0px; margin-top:6px;"><small> Selengkapnya &raquo;</small></a>
+                            <a href="<?=base_url()?>/home_user/detail_berita/berita1" class="btn btn-success" role="button" style="height:28px; padding-top:0px; margin-top:6px;"><small> Selengkapnya &raquo;</small></a>
                         </div>
                     </div>
                 </div>
                 <hr>
             <?php } ?>
             <div style="margin: auto; margin-bottom:1rem;">
-                <a href="<?=base_url()?>guest/index_berita" role="button" class="btn my-btn">1|2|3|nexpage</a>
+                <a href="<?=base_url()?>home_user/index_berita" role="button" class="btn my-btn">1|2|3|nexpage</a>
             </div>
         </div>
         
         <div id="kategori" style="margin-top:15px">
                 <hr>
             <div class="new-panel">
-                <a href="<?= base_url()?>guest/#"><h4 class="nav-style">Kategori Berita</h4></a>
+                <a href="<?= base_url()?>home_user/#"><h4 class="nav-style">Kategori Berita</h4></a>
             </div>
             <div class="card new-panel" style="">
                 <div class="card-body">

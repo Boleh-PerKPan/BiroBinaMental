@@ -17,7 +17,7 @@
                 <hr>
             <?php } ?>
             <div style="margin: auto; margin-bottom:1rem;">
-                <a href="<?=base_url()?>guest/index_video" role="button" class="btn my-btn">1|2|3|nexpage</a>
+                <a href="<?=base_url()?>home_user/index_video" role="button" class="btn my-btn">1|2|3|nexpage</a>
             </div>
         </div>
       

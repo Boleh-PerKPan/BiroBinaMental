@@ -16,6 +16,6 @@
     </div>
     <hr>
     <div style="margin-bottom:1rem; text-align:center">
-        <a href="<?=base_url()?>guest/index_foto" role="button" class="btn my-btn">1|2|3|nexpage</a>
+        <a href="<?=base_url()?>home_user/index_foto" role="button" class="btn my-btn">1|2|3|nexpage</a>
     </div>
 </div>
