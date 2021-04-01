@@ -65,7 +65,7 @@
                             <div class="collapse navbar-collapse" aria-labelledby="navbarDropdown" id="manajemennews">
                                 <a class="dropdown-item" href="<?= base_url() ?>home_admin/manage_category">Category</a>
                                 <a class="dropdown-item" href="<?= base_url() ?>home_admin/manage_article_news">Article News</a>
-                                <a class="dropdown-item" href="<?= base_url() ?>home_admin/manage_article_upload">Article Update</a>
+                                <a class="dropdown-item" href="<?= base_url() ?>home_admin/manage_article_upload">Article Upload</a>
                             </div>
                         </li>
                         <li class="nav-item dropdown">
