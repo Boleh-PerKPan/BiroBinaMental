@@ -33,8 +33,8 @@
                     <td scope="row">
                         <a href="#" class="btn btn-outline-dark dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">action</a>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                            <a class="dropdown-item" href="<?= base_url() ?>posts_update/update_artikel_news/<?= $post['id_artikel_berita'] ?>">Edit</a>
-                            <a class="dropdown-item" href="<?= base_url() ?>posts_hapus/hapus_artikel_news/<?= $post['id_artikel_berita'] ?>" onclick="return confirm('apakah anda ingin menghapusnya?')">Delete</a>
+                            <a class="dropdown-item" href="<?= base_url() ?>posts_update/update_article_news/<?= $post['id_artikel_berita'] ?>">Edit</a>
+                            <a class="dropdown-item" href="<?= base_url() ?>posts_hapus/hapus_article_news/<?= $post['id_artikel_berita'] ?>" onclick="return confirm('apakah anda ingin menghapusnya?')">Delete</a>
                         </div>
                     </td>
                     <td scope="row"><?= $post['id_artikel_berita'] ?></td>
