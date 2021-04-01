@@ -62,10 +62,12 @@ class Posts_model extends CI_Model
     #count child menu
     private function countChild($parent)
     {
-        return $this->db
+        $count = $this->db
             ->where('parent_id', $parent)
             ->count_all('web_menu');
+        return $count->num_rows();
     }
+
     #hapus menu
     public function hapusMenu($id, $parent)
     {
