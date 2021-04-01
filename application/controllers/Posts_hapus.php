@@ -8,9 +8,9 @@ class Posts_hapus extends CI_Controller
         $this->load->library('form_validation');
     }
 
-    public function hapus_menu($id)
+    public function hapus_menu($id, $parent)
     {
-        $this->Posts_model->hapusMenu($id);
+        $this->Posts_model->hapusMenu($id, $parent);
         $this->session->set_flashdata('pesan', 'dihapus');
         redirect(base_url() . "home_admin/manage_menu");
     }

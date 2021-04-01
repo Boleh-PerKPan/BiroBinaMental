@@ -33,7 +33,7 @@
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                             <a class="dropdown-item" href="<?= base_url() ?>posts_update/tambah_submenu/<?= $post['id_menu'] ?>">Sub Module</a>
                             <a class="dropdown-item" href="<?= base_url() ?>posts_update/update_menu/<?= $post['id_menu'] ?>">Edit</a>
-                            <a class="dropdown-item" href="<?= base_url() ?>posts_hapus/hapus_menu/<?= $post['id_menu'] ?>" onclick="return confirm('apakah anda ingin menghapusnya?')">Delete</a>
+                            <a class="dropdown-item" href="<?= base_url() ?>posts_hapus/hapus_menu/<?= $post['id_menu'] ?>/<?= $post['parent_id'] ?>" onclick="return confirm('apakah anda ingin menghapusnya?')">Delete</a>
                         </div>
                     </td>
                     <td scope="row"><?= $post['parent_id'] ?></td>

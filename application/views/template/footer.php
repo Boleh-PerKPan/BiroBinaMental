@@ -11,7 +11,7 @@
             <div class="col-6 offset-md-1">
                 <p>col 2</p>
             </div>
-            <div class="col" style="">
+            <div class="col">
                 <p style="font-size:13px"><b>Sites Link</b></p>
                 <p>
                     <a href="http://sumbarprov.go.id/" style="color: white;"><i class="fas fa-chevron-right"></i> Situs Resmi Provinsi Sumbar</a> <br>

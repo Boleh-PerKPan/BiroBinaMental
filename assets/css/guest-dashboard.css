@@ -1,69 +1,81 @@
-
 a {
 	text-decoration: none;
 	color: inherit;
 }
-a:hover{
-    text-decoration: none;
-    color: inherit;
-    font-size: 110%;
+
+a:hover {
+	text-decoration: none;
+	color: inherit;
+	font-size: 110%;
 }
+
 footer {
-    background-color: #736D6D; 
-    color: white;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size:12px;
-    width: 100%;
+	background-color: #736D6D;
+	color: white;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	width: 100%;
 }
+
 hr {
-    margin-top:5px;
-    margin-bottom : 10px;
+	margin-top: 5px;
+	margin-bottom: 10px;
 }
+
 .nav-item:hover {
-    background-color : rgba(255,255,255,0.4);
+	background-color: rgba(255, 255, 255, 0.4);
 }
+
 .nav-style {
-    background: linear-gradient(180deg, #FFD27A 10.08%, rgba(255, 255, 255, 0) 100%);
-    color:black;
+	background: linear-gradient(180deg, #FFD27A 10.08%, rgba(255, 255, 255, 0) 100%);
+	color: black;
 }
+
 .white-bg-transparent {
-    background: rgba(255, 255, 255, 0.25);
-    color: black;
+	background: rgba(255, 255, 255, 0.25);
+	color: black;
 }
+
 .new-panel {
-    margin-top: 25px;
+	margin-top: 25px;
 }
+
 .article-item {
-    font-size:13px; 
+	font-size: 13px;
 }
+
 .my-btn {
-    background-color: #FFC450;
-    color: black; 
-    margin-top:15px;
+	background-color: #FFC450;
+	color: black;
+	margin-top: 15px;
 }
+
 .my-btn:hover {
-    background-color: #f5b128;
-    color: black;
+	background-color: #f5b128;
+	color: black;
 }
+
 #upBtn {
-    display: none;
-    position: fixed;
-    bottom: 20px;
-    right: 10px;
-    z-index: 99;
-    border: none;
-    outline: none;
-    background-color: rgba(162, 157, 243, 0.61);
-    cursor: pointer;
-    padding: 15px;
-    border-radius: 4px; 
+	display: none;
+	position: fixed;
+	bottom: 20px;
+	right: 10px;
+	z-index: 99;
+	border: none;
+	outline: none;
+	background-color: rgba(162, 157, 243, 0.61);
+	cursor: pointer;
+	padding: 15px;
+	border-radius: 4px;
 }
+
 #navScroll {
-    display: none;
-    z-index: 99;
-    position:fixed;
-    width: 100%;
+	display: none;
+	z-index: 99;
+	position: fixed;
+	width: 100%;
 }
+
 .dropdown:hover>.dropdown-menu {
-    display: block;
+	display: block;
 }

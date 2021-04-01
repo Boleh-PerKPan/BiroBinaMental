@@ -88,6 +88,7 @@ class Posts_tambah extends CI_Controller
     public function tambah_article_news()
     {
         $data['kategori'] = $this->Posts_model->getArtikelKategori();
+        $LastGaleriKonten = $this->Posts_model->getGaleriKontenLastID();
         date_default_timezone_set('Asia/Jakarta');
         $data['tanggal_publish'] = date("Y-m-d H:i:s");
         $this->form_validation->set_rules('judul', 'Judul', 'required');
@@ -122,9 +123,6 @@ class Posts_tambah extends CI_Controller
 
             $userdataSTATIS = "1";
             $this->Posts_model->tambahGaleriKontenBerita($namaFileBaru, $userdataSTATIS);
-
-            $LastGaleriKonten = $this->Posts_model->getGaleriKontenLastID();
-
             $this->Posts_model->tambahPostArtikelBerita($LastGaleriKonten, $userdataSTATIS);
             $this->session->set_flashdata('pesan', 'ditambahkan');
             redirect(base_url() . "home_admin/manage_article_news");

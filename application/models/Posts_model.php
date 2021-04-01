@@ -59,12 +59,35 @@ class Posts_model extends CI_Model
             ->update('web_menu', $data);
     }
 
+    public function updatePostSubMenu($id)
+    {
+        $data['child'] = "1";
+        $this->db
+            ->where('id_menu', $id)
+            ->update('web_menu', $data);
+    }
+
+    #hitung banyak child 
+    private function countChild($parent)
+    {
+        $count = $this->db
+            ->where('parent_id', $parent)
+            ->get('web_menu');
+        return $count->num_rows();
+    }
+
     #hapus menu
-    public function hapusMenu($id)
+    public function hapusMenu($id, $parent)
     {
         $this->db
             ->where('id_menu', $id)
             ->delete('web_menu');
+        if (!$this->countChild($parent)) {
+            $child['child'] = 0;
+            $this->db
+                ->where('id_menu', $parent)
+                ->update('web_menu', $child);
+        }
     }
 
     #INSTANSI
@@ -279,27 +302,52 @@ class Posts_model extends CI_Model
     public function getArtikelBeritaId($id)
     {
         return $this->db
-            ->where('id_artikel_kategori', $id)
-            ->get('artikel_kategori')
+            ->join('artikel_kategori', 'artikel_kategori.id_artikel_kategori = artikel_berita.id_artikel_kategori')
+            ->join('galeri_konten', 'galeri_konten.id_galeri_konten = artikel_berita.id_galeri_konten')
+            ->select('artikel_berita.id_artikel_berita, 
+                    artikel_berita.tanggal_publish, 
+                    artikel_berita.judul,
+                    artikel_berita.isi,
+                    artikel_berita.hits,
+                    artikel_berita.status,
+                    galeri_konten.nama_file')
+            ->where('artikel_berita.id_artikel_berita', $id)
+            ->get('artikel_berita')
             ->row_array();
     }
 
-    public function updatePostArtikelBerita($id)
+    public function updatePostArtikelBerita($LastGaleriKonten, $id)
     {
         $data = array(
-            'nama_artikel_kategori' => $this->input->post('name'),
+            'judul' => $this->input->post('judul'),
+            'isi' => $this->input->post('isi'),
+            'id_galeri_konten' => $LastGaleriKonten['id_galeri_konten'],
+            'id_artikel_kategori' => $this->input->post('kategori'),
             'status' => $this->input->post('status')
         );
         $this->db
-            ->where('id_artikel_kategori', $id)
-            ->update('artikel_kategori', $data);
+            ->where('id_artikel_berita', $id)
+            ->update('artikel_berita', $data);
+    }
+
+    public function updatePostArtikelBerita2($id)
+    {
+        $data = array(
+            'judul' => $this->input->post('judul'),
+            'isi' => $this->input->post('isi'),
+            'id_artikel_kategori' => $this->input->post('kategori'),
+            'status' => $this->input->post('status')
+        );
+        $this->db
+            ->where('id_artikel_berita', $id)
+            ->update('artikel_berita', $data);
     }
 
     #hapus artikel berita
     public function hapusArtikelBerita($id)
     {
         $this->db
-            ->where('id_artikel_kategori', $id)
+            ->where('id_artikel_berita', $id)
             ->delete('artikel_berita');
     }
 

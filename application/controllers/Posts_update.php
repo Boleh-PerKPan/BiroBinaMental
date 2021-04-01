@@ -44,6 +44,7 @@ class Posts_update extends CI_Controller
             $this->load->view('admin/template/footer');
         } else {
             $this->Posts_model->tambahPostSubMenu($id);
+            $this->Posts_model->updatePostSubMenu($id);
             $this->session->set_flashdata('pesan', 'ditambahkan');
             redirect(base_url() . "home_admin/manage_menu");
         }
@@ -129,11 +130,50 @@ class Posts_update extends CI_Controller
         }
     }
 
-    public function Update_article_news()
+    public function Update_article_news($id)
     {
-        $this->load->view('admin/template/header');
-        $this->load->view('admin/Update/Update_article_news');
-        $this->load->view('admin/template/footer');
+        $data['post'] = $this->Posts_model->getArtikelBeritaId($id);
+        $data['kategori'] = $this->Posts_model->getArtikelKategori();
+
+
+        $this->form_validation->set_rules('judul', 'Judul', 'required');
+        $this->form_validation->set_rules('isi', 'Isi', 'required');
+
+        if ($this->form_validation->run() == false) {
+            $this->load->view('admin/template/header');
+            $this->load->view('admin/Update/update_article_news', $data);
+            $this->load->view('admin/template/footer');
+        } else {
+            #pengambilan Foto
+            if (isset($_FILES)) {
+                $namaFile = $_FILES['gambar']['name'];
+                $ukuranFile = $_FILES['gambar']['size'];
+                $error = $_FILES['gambar']['error'];
+                $tmpName = $_FILES['gambar']['tmp_name'];
+
+                // cek apakah yang di upload adalah gambar
+                $ekstensiGambarValid = ['jpg', 'jpeg', 'png'];
+                $ekstensiGambar = explode('.', $namaFile);
+                $ekstensiGambar = strtolower(end($ekstensiGambar));
+
+                // lolos pengecekan, gambar siap di upload
+                // generate nama gambar baru
+                $namaFileBaru = uniqid();
+                $namaFileBaru .= '.';
+                $namaFileBaru .= $ekstensiGambar;
+                move_uploaded_file($tmpName, 'assets/img/' . $namaFileBaru);
+
+                $userdataSTATIS = "1";
+                $this->Posts_model->tambahGaleriKontenBerita($namaFileBaru, $userdataSTATIS);
+                $galeri = $this->Posts_model->getGaleriKontenLastID();
+                $this->Posts_model->updatePostArtikelBerita($galeri, $id);
+            } else {
+                $this->Posts_model->updatePostArtikelBerita2($id);
+            }
+
+            $this->session->set_flashdata('pesan', 'diupdate');
+            redirect(base_url() . "home_admin/manage_article_news");
+        }
     }
 
     public function Update_article_upload()
