@@ -36,20 +36,13 @@
 
                             </select>
                         </div>
-                        <div class=" container card">
-                            <img src="<?= base_url() ?>assets/img/<?= $post['nama_file'] ?>" alt="" class="card-img-top" height="300px">
-                        </div>
-                        <div class="form-group">
-                            <label for="gambar">Image </label>
-                            <input type="file" class="form-control" name="gambar" accept="image/*">
-                        </div>
 
                         <div class="form-group">
                             <label for="isi">Isi </label>
                             <textarea class="form-control" name="isi" id="isi" cols="30" rows="10"><?= $post['isi'] ?></textarea>
                         </div>
 
-                        <button type="submit" class="btn btn-primary">Daftar</button>
+                        <button type="submit" class="btn btn-primary">Confirm</button>
                         <input class="btn btn-primary" type="reset" value="Reset">
                         <a class="btn btn-primary" href="<?= base_url() ?>home_admin/manage_article_news">Kembali</a>
                     </form>

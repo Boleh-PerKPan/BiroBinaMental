@@ -316,21 +316,7 @@ class Posts_model extends CI_Model
             ->row_array();
     }
 
-    public function updatePostArtikelBerita($LastGaleriKonten, $id)
-    {
-        $data = array(
-            'judul' => $this->input->post('judul'),
-            'isi' => $this->input->post('isi'),
-            'id_galeri_konten' => $LastGaleriKonten['id_galeri_konten'],
-            'id_artikel_kategori' => $this->input->post('kategori'),
-            'status' => $this->input->post('status')
-        );
-        $this->db
-            ->where('id_artikel_berita', $id)
-            ->update('artikel_berita', $data);
-    }
-
-    public function updatePostArtikelBerita2($id)
+    public function updatePostArtikelBerita($id)
     {
         $data = array(
             'judul' => $this->input->post('judul'),

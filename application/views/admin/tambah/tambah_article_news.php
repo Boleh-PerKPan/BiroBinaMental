@@ -38,7 +38,7 @@
                         </div>
                         <div class="form-group">
                             <label for="gambar">Image </label>
-                            <input type="file" class="form-control" name="gambar" accept="image/*">
+                            <input type="file" class="form-control" name="gambar" required>
                         </div>
 
                         <div class="form-group">
