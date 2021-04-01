@@ -59,14 +59,25 @@ class Posts_model extends CI_Model
             ->update('web_menu', $data);
     }
 
+     #count child menu
+     private function countChild($parent) {
+        return $this->db 
+            ->where('parent_id', $parent)
+            ->count_all('web_menu');
+    }
     #hapus menu
-    public function hapusMenu($id)
+    public function hapusMenu($id, $parent)
     {
         $this->db
             ->where('id_menu', $id)
             ->delete('web_menu');
+        if (!$this->countChild($parent)) {
+            $child['child'] = 0;
+            $this->db
+                ->where('id_menu', $parent)
+                ->update('web_menu', $child);
+        }
     }
-
     #INSTANSI
     public function tambahPostInstansi()
     {
