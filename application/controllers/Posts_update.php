@@ -202,17 +202,54 @@ class Posts_update extends CI_Controller
         }
     }
 
-    public function Update_photo()
+    public function Update_photo($id)
     {
-        $this->load->view('admin/template/header');
-        $this->load->view('admin/Update/Update_photo');
-        $this->load->view('admin/template/footer');
+        $data['post'] = $this->Posts_model->getPhotoId($id);
+
+        $this->form_validation->set_rules('judul', 'Judul', 'required');
+
+        if ($this->form_validation->run() == false) {
+            $this->load->view('admin/template/header');
+            $this->load->view('admin/Update/update_photo', $data);
+            $this->load->view('admin/template/footer');
+        } else {
+            $this->Posts_model->updatePostPhoto($id);
+            $this->session->set_flashdata('pesan', 'diupdate');
+            redirect(base_url() . "home_admin/manage_photo");
+        }
     }
 
-    public function Update_video()
+    public function Update_video($id)
     {
-        $this->load->view('admin/template/header');
-        $this->load->view('admin/Update/Update_video');
-        $this->load->view('admin/template/footer');
+        $data['post'] = $this->Posts_model->getVideoId($id);
+
+        $this->form_validation->set_rules('judul', 'Judul', 'required');
+
+        if ($this->form_validation->run() == false) {
+            $this->load->view('admin/template/header');
+            $this->load->view('admin/Update/update_video', $data);
+            $this->load->view('admin/template/footer');
+        } else {
+            $this->Posts_model->updatePostVideo($id);
+            $this->session->set_flashdata('pesan', 'diupdate');
+            redirect(base_url() . "home_admin/manage_video");
+        }
+    }
+
+    public function Update_agenda($id)
+    {
+        $data['post'] = $this->Posts_model->getAgendaId($id);
+
+        $this->form_validation->set_rules('judul', 'Judul', 'required');
+
+        if ($this->form_validation->run() == false) {
+            $this->load->view('admin/template/header');
+            $this->load->view('admin/Update/update_agenda', $data);
+            $this->load->view('admin/template/footer');
+        } else {
+            $this->Posts_model->updatePostAgenda($id);
+            $this->session->set_flashdata('pesan', 'diupdate');
+            redirect(base_url() . "home_admin/manage_agenda");
+        }
     }
 }

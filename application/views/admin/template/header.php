@@ -87,7 +87,7 @@
                             </div>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="<?= base_url() ?>home_admin/manage_agenda">
                                 <span data-feather="layers"></span>
                                 <i class="fas fa-calendar-week"></i> Agenda
                             </a>

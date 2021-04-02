@@ -258,15 +258,100 @@ class Posts_tambah extends CI_Controller
 
     public function tambah_photo()
     {
-        $this->load->view('admin/template/header');
-        $this->load->view('admin/tambah/tambah_photo');
-        $this->load->view('admin/template/footer');
+        $this->form_validation->set_rules('judul', 'Judul', 'required');
+
+        if ($this->form_validation->run() == false) {
+
+            $this->load->view('admin/template/header');
+            $this->load->view('admin/tambah/tambah_photo');
+            $this->load->view('admin/template/footer');
+        } else {
+            #pengambilan File
+            if (isset($_FILES)) {
+                $namaFile = $_FILES['gambar']['name'];
+                $ukuranFile = $_FILES['gambar']['size'];
+                $error = $_FILES['gambar']['error'];
+                $tmpName = $_FILES['gambar']['tmp_name'];
+
+                // cek apakah yang di upload adalah gambar
+                $ekstensiGambarValid = ['pdf'];
+                $ekstensiGambar = explode('.', $namaFile);
+                $ekstensiGambar = strtolower(end($ekstensiGambar));
+
+                // lolos pengecekan, gambar siap di upload
+                // generate nama gambar baru
+                $namaFileBaru = uniqid();
+                $namaFileBaru .= '.';
+                $namaFileBaru .= $ekstensiGambar;
+                move_uploaded_file($tmpName, 'assets/img/' . $namaFileBaru);
+            } else {
+            }
+
+            $userdataSTATIS = "1";
+
+            $this->Posts_model->tambahPostPhoto($namaFileBaru, $userdataSTATIS);
+            $this->session->set_flashdata('pesan', 'ditambahkan');
+            redirect(base_url() . "home_admin/manage_photo");
+        }
     }
 
     public function tambah_video()
     {
-        $this->load->view('admin/template/header');
-        $this->load->view('admin/tambah/tambah_video');
-        $this->load->view('admin/template/footer');
+        $this->form_validation->set_rules('judul', 'Judul', 'required');
+
+        if ($this->form_validation->run() == false) {
+            $this->load->view('admin/template/header');
+            $this->load->view('admin/tambah/tambah_video');
+            $this->load->view('admin/template/footer');
+        } else {
+            $userdataSTATIS = "1";
+            $this->Posts_model->tambahPostVideo($userdataSTATIS);
+            $this->session->set_flashdata('pesan', 'ditambahkan');
+            redirect(base_url() . "home_admin/manage_video");
+        }
+    }
+
+    public function tambah_agenda()
+    {
+        $this->form_validation->set_rules('judul', 'Judul', 'required');
+        $this->form_validation->set_rules('isi', 'Isi', 'required');
+
+        if ($this->form_validation->run() == false) {
+            $this->load->view('admin/template/header');
+            $this->load->view('admin/tambah/tambah_agenda');
+            $this->load->view('admin/template/footer');
+        } else {
+            #pengambilan Foto
+            if (isset($_FILES)) {
+                $namaFile = $_FILES['gambar']['name'];
+                $ukuranFile = $_FILES['gambar']['size'];
+                $error = $_FILES['gambar']['error'];
+                $tmpName = $_FILES['gambar']['tmp_name'];
+
+                // cek apakah yang di upload adalah gambar
+                $ekstensiGambarValid = ['jpg', 'jpeg', 'png'];
+                $ekstensiGambar = explode('.', $namaFile);
+                $ekstensiGambar = strtolower(end($ekstensiGambar));
+
+                // lolos pengecekan, gambar siap di upload
+                // generate nama gambar baru
+                $namaFileBaru = uniqid();
+                $namaFileBaru .= '.';
+                $namaFileBaru .= $ekstensiGambar;
+                move_uploaded_file($tmpName, 'assets/img/' . $namaFileBaru);
+            } else {
+                $namaFileBaru = 'default.png';
+            }
+
+            $userdataSTATIS = "1";
+            $this->Posts_model->tambahGaleriKontenAgenda($namaFileBaru, $userdataSTATIS);
+
+            $LastGaleriKonten = $this->Posts_model->getGaleriKontenLastID();
+
+            $this->Posts_model->tambahPostAgenda($LastGaleriKonten, $userdataSTATIS);
+
+            $this->session->set_flashdata('pesan', 'ditambahkan');
+            redirect(base_url() . "home_admin/manage_agenda");
+        }
     }
 }
