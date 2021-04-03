@@ -58,8 +58,8 @@
 
                             <select class="form-control" id="status" name="status">
 
-                                <option value="Aktif">Aktif</option>
-                                <option value="Non-Aktif" selected="selected">Non-Aktif</option>
+                                <option value="Aktif" <?php if ($post['status'] == 'Aktif') : ?>selected="selected" <?php endif; ?>>Aktif</option>
+                                <option value="Non-Aktif" <?php if ($post['status'] == 'Non-Aktif') : ?>selected="selected" <?php endif; ?>>Non-Aktif</option>
 
                             </select>
                         </div>

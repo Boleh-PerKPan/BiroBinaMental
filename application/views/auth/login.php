@@ -1,18 +1,24 @@
+<main role="main" class="container jumbotron bg-transparent a">
 
-<div class="container">
-    <form class="form-signin">
-        <img class="mb-4" src="https://getbootstrap.com/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
-        <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-        <label for="inputEmail" class="sr-only">Email address</label>
-        <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
-        <label for="inputPassword" class="sr-only">Password</label>
-        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-        <div class="checkbox mb-3">
-            <label>
-                <input type="checkbox" value="remember-me"> Remember me
-            </label>
+    <div class="col-md-6 mx-auto">
+        <div class="card">
+            <div class="card-header text-center">LOGIN</div>
+            <div class="card-body">
+                <form method="POST">
+                    <div class="form-group">
+                        <label for="">Username</label>
+                        <input type="type" class="form-control" name="id" required autofocus>
+                        <small class="form-text text-danger">Username Wajib Diisi</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="">Password</label>
+                        <input type="password" class="form-control" name="password" required>
+                        <small class="form-text text-danger">Password Wajib Diisi</small>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Login</button>
+                </form>
+            </div>
         </div>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign In</button>
-        <p class="mt-5 mb-3 text-muted">&copy; 2020-2021</p>
-    </form>
-</div>
+    </div>
+
+</main>

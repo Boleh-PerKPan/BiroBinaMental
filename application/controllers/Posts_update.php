@@ -150,38 +150,106 @@ class Posts_update extends CI_Controller
         }
     }
 
-    public function Update_artikel_upload()
+    public function Update_artikel_upload($id)
     {
-        $this->load->view('admin/template/header');
-        $this->load->view('admin/Update/Update_article_upload');
-        $this->load->view('admin/template/footer');
+        $data['post'] = $this->Posts_model->getArtikelUploadId($id);
+
+        $this->form_validation->set_rules('judul', 'Judul', 'required');
+
+        if ($this->form_validation->run() == false) {
+            $this->load->view('admin/template/header');
+            $this->load->view('admin/Update/update_article_upload', $data);
+            $this->load->view('admin/template/footer');
+        } else {
+            $this->Posts_model->updatePostArtikelUpload($id);
+            $this->session->set_flashdata('pesan', 'diupdate');
+            redirect(base_url() . "home_admin/manage_article_upload");
+        }
     }
 
-    public function Update_slide_show()
+    public function Update_slide_show($id)
     {
-        $this->load->view('admin/template/header');
-        $this->load->view('admin/Update/Update_slide_show');
-        $this->load->view('admin/template/footer');
+        $data['post'] = $this->Posts_model->getSlideShowId($id);
+
+        $this->form_validation->set_rules('judul', 'Judul', 'required');
+
+        if ($this->form_validation->run() == false) {
+            $this->load->view('admin/template/header');
+            $this->load->view('admin/Update/update_slide_show', $data);
+            $this->load->view('admin/template/footer');
+        } else {
+            $this->Posts_model->updatePostSlideShow($id);
+            $this->session->set_flashdata('pesan', 'diupdate');
+            redirect(base_url() . "home_admin/manage_slide_show");
+        }
     }
 
-    public function Update_page_news()
+    public function Update_page_news($id)
     {
-        $this->load->view('admin/template/header');
-        $this->load->view('admin/Update/Update_page_news');
-        $this->load->view('admin/template/footer');
+        $data['post'] = $this->Posts_model->getPageNewsId($id);
+
+        $this->form_validation->set_rules('judul', 'Judul', 'required');
+        $this->form_validation->set_rules('isi', 'Isi', 'required');
+
+        if ($this->form_validation->run() == false) {
+            $this->load->view('admin/template/header');
+            $this->load->view('admin/Update/update_page_news', $data);
+            $this->load->view('admin/template/footer');
+        } else {
+            $this->Posts_model->updatePostPagenews($id);
+            $this->session->set_flashdata('pesan', 'diupdate');
+            redirect(base_url() . "home_admin/manage_page_news");
+        }
     }
 
-    public function Update_photo()
+    public function Update_photo($id)
     {
-        $this->load->view('admin/template/header');
-        $this->load->view('admin/Update/Update_photo');
-        $this->load->view('admin/template/footer');
+        $data['post'] = $this->Posts_model->getPhotoId($id);
+
+        $this->form_validation->set_rules('judul', 'Judul', 'required');
+
+        if ($this->form_validation->run() == false) {
+            $this->load->view('admin/template/header');
+            $this->load->view('admin/Update/update_photo', $data);
+            $this->load->view('admin/template/footer');
+        } else {
+            $this->Posts_model->updatePostPhoto($id);
+            $this->session->set_flashdata('pesan', 'diupdate');
+            redirect(base_url() . "home_admin/manage_photo");
+        }
     }
 
-    public function Update_video()
+    public function Update_video($id)
     {
-        $this->load->view('admin/template/header');
-        $this->load->view('admin/Update/Update_video');
-        $this->load->view('admin/template/footer');
+        $data['post'] = $this->Posts_model->getVideoId($id);
+
+        $this->form_validation->set_rules('judul', 'Judul', 'required');
+
+        if ($this->form_validation->run() == false) {
+            $this->load->view('admin/template/header');
+            $this->load->view('admin/Update/update_video', $data);
+            $this->load->view('admin/template/footer');
+        } else {
+            $this->Posts_model->updatePostVideo($id);
+            $this->session->set_flashdata('pesan', 'diupdate');
+            redirect(base_url() . "home_admin/manage_video");
+        }
+    }
+
+    public function Update_agenda($id)
+    {
+        $data['post'] = $this->Posts_model->getAgendaId($id);
+
+        $this->form_validation->set_rules('judul', 'Judul', 'required');
+
+        if ($this->form_validation->run() == false) {
+            $this->load->view('admin/template/header');
+            $this->load->view('admin/Update/update_agenda', $data);
+            $this->load->view('admin/template/footer');
+        } else {
+            $this->Posts_model->updatePostAgenda($id);
+            $this->session->set_flashdata('pesan', 'diupdate');
+            redirect(base_url() . "home_admin/manage_agenda");
+        }
     }
 }

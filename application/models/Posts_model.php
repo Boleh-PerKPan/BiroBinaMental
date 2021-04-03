@@ -62,10 +62,12 @@ class Posts_model extends CI_Model
     #count child menu
     private function countChild($parent)
     {
-        return $this->db
+        $count = $this->db
             ->where('parent_id', $parent)
             ->count_all('web_menu');
+        return $count->num_rows();
     }
+
     #hapus menu
     public function hapusMenu($id, $parent)
     {
@@ -259,8 +261,28 @@ class Posts_model extends CI_Model
             ->row_array();
     }
 
+    private function getArtikelBeritaLastId()
+    {
+        return $this->db
+            ->order_by('id_artikel_berita', 'desc')
+            ->get('artikel_berita', 1)
+            ->row_array();
+    }
+
+    #tambah Berita Kategori
+    public function tambahBeritakategori()
+    {
+        $artikel_berita = $this->getArtikelBeritaLastId();
+
+        $data['id_artikel_berita'] = $artikel_berita['id_artikel_berita'];
+        $data['id_artikel_kategori'] = $this->input->post('kategori');
+        $this->db->insert('berita_kategori', $data);
+    }
+
+    #tambah Post berita
     public function tambahPostArtikelBerita($LastGaleriKonten, $userdata)
     {
+
         $data['tanggal_publish'] = $this->input->post('date');
         $data['id_user'] = $userdata;
         $data['judul'] = $this->input->post('judul');
@@ -326,6 +348,403 @@ class Posts_model extends CI_Model
             ->delete('artikel_berita');
     }
 
-    #GALERI
+    #ARTIKEL UPLOAD 
+    public function tambahPostArtikelUpload($file, $id)
+    {
+        $data['tanggal_publish'] = $this->input->post('date');
+        $data['tahun_berkas'] = $this->input->post('tahun_berkas');
+        $data['judul'] = $this->input->post('judul');
+        $data['id_user'] = $id;
+        $data['nama_file'] = $file;
+        $data['status'] = $this->input->post('status');
 
+        $this->db->insert('artikel_upload', $data);
+    }
+
+    public function getArtikelUpload()
+    {
+        return $this->db
+            ->join('user', 'user.id_user = artikel_upload.id_user')
+            ->select('user.nama_lengkap,
+                      artikel_upload.id_artikel_upload,
+                      artikel_upload.tanggal_publish,
+                      artikel_upload.judul,
+                      artikel_upload.tahun_berkas,
+                      artikel_upload.hits,
+                      artikel_upload.status')
+            ->get('artikel_upload')
+            ->result_array();
+    }
+
+
+    #update artikel Upload
+    public function getArtikelUploadId($id)
+    {
+        return $this->db
+            ->where('id_artikel_upload', $id)
+            ->get('artikel_upload')
+            ->row_array();
+    }
+
+    public function updatePostArtikelUpload($id)
+    {
+        $data = array(
+            'judul' => $this->input->post('judul'),
+            'tahun_berkas' => $this->input->post('tahun_berkas'),
+            'status' => $this->input->post('status')
+        );
+        $this->db
+            ->where('id_artikel_upload', $id)
+            ->update('artikel_upload', $data);
+    }
+
+    #hapus artikel Upload
+    public function hapusArtikelUpload($id)
+    {
+        $this->db
+            ->where('id_artikel_upload', $id)
+            ->delete('artikel_upload');
+    }
+
+    #SLIDE SHOW
+    public function tambahPostSlideShow($file, $id)
+    {
+        $data['text'] = $this->input->post('judul');
+        $data['id_user'] = $id;
+        $data['nama_file'] = $file;
+        $data['id_galeri_kategori'] = "1";
+        $data['status'] = $this->input->post('status');
+
+        $this->db
+            ->insert('galeri_konten', $data);
+    }
+
+    public function getSlideShow()
+    {
+        return $this->db
+            ->join('user', 'user.id_user = galeri_konten.id_user')
+            ->select('user.nama_lengkap,
+                      galeri_konten.id_galeri_konten,
+                      galeri_konten.text,
+                      galeri_konten.status,
+                      galeri_konten.nama_file,
+                      galeri_konten.hits,')
+            ->where('id_galeri_kategori', "1")
+            ->get('galeri_konten')
+            ->result_array();
+    }
+
+
+    #update slide show
+    public function getSlideShowId($id)
+    {
+        return $this->db
+            ->where('id_galeri_konten', $id)
+            ->get('galeri_konten')
+            ->row_array();
+    }
+
+    public function updatePostSlideShow($id)
+    {
+        $data = array(
+            'text' => $this->input->post('judul'),
+            'status' => $this->input->post('status')
+        );
+        $this->db
+            ->where('id_galeri_konten', $id)
+            ->update('galeri_konten', $data);
+    }
+
+    #hapus slide show
+    public function hapusSlideShow($id)
+    {
+        $this->db
+            ->where('id_galeri_konten', $id)
+            ->delete('galeri_konten');
+    }
+
+    #EXTRA PAGE NEWS
+    public function tambahGaleriKontenExtraPage($foto, $userdata)
+    {
+        $data['nama_file'] = $foto;
+        $data['id_user'] = $userdata;
+        $data['status'] = $this->input->post('status');
+        $data['id_galeri_kategori'] = "6";
+        $this->db->insert('galeri_konten', $data);
+    }
+
+    // public function getGaleriKontenLastID()
+    // {
+    //     return $this->db
+    //         ->order_by('id_galeri_konten', 'desc')
+    //         ->get('galeri_konten', 1)
+    //         ->row_array();
+    // }
+
+    public function tambahPostPageNews($LastGaleriKonten, $userdata)
+    {
+        $data['id_user'] = $userdata;
+        $data['judul'] = $this->input->post('judul');
+        $data['isi'] = $this->input->post('isi');
+        $data['id_galeri_konten'] = $LastGaleriKonten['id_galeri_konten'];
+        $data['status'] = $this->input->post('status');
+        $this->db->insert('extrapage_news', $data);
+    }
+
+    public function getPageNews()
+    {
+        return $this->db
+            ->join('user', 'user.id_user = extrapage_news.id_user')
+            ->join('galeri_konten', 'galeri_konten.id_galeri_konten = extrapage_news.id_galeri_konten')
+            ->select('extrapage_news.id_extrapage, 
+                    extrapage_news.judul,
+                    extrapage_news.isi,
+                    extrapage_news.status,
+                    user.nama_lengkap,
+                    galeri_konten.nama_file')
+            ->get('extrapage_news')
+            ->result_array();
+    }
+
+    #update page news
+    public function getPageNewsId($id)
+    {
+        return $this->db
+            ->join('user', 'user.id_user = extrapage_news.id_user')
+            ->join('galeri_konten', 'galeri_konten.id_galeri_konten = extrapage_news.id_galeri_konten')
+            ->select('extrapage_news.id_extrapage, 
+                    extrapage_news.judul,
+                    extrapage_news.isi,
+                    extrapage_news.status,
+                    user.nama_lengkap,
+                    galeri_konten.nama_file')
+            ->where('extrapage_news.id_extrapage', $id)
+            ->get('extrapage_news')
+            ->row_array();
+    }
+
+    public function updatePostPageNews($id)
+    {
+        $data = array(
+            'judul' => $this->input->post('judul'),
+            'isi' => $this->input->post('isi'),
+            'status' => $this->input->post('status')
+        );
+        $this->db
+            ->where('id_extrapage', $id)
+            ->update('extrapage_news', $data);
+    }
+
+    #hapus page news
+    public function hapusPageNews($id)
+    {
+        $this->db
+            ->where('id_extrapage', $id)
+            ->delete('extrapage_news');
+    }
+
+    #PHOTO
+    public function tambahPostPhoto($file, $id)
+    {
+        $data['text'] = $this->input->post('judul');
+        $data['id_user'] = $id;
+        $data['nama_file'] = $file;
+        $data['id_galeri_kategori'] = "2";
+        $data['status'] = $this->input->post('status');
+
+        $this->db
+            ->insert('galeri_konten', $data);
+    }
+
+    public function getPhoto()
+    {
+        return $this->db
+            ->join('user', 'user.id_user = galeri_konten.id_user')
+            ->select('user.nama_lengkap,
+                      galeri_konten.id_galeri_konten,
+                      galeri_konten.text,
+                      galeri_konten.status,
+                      galeri_konten.nama_file,
+                      galeri_konten.hits,')
+            ->where('id_galeri_kategori', "2")
+            ->get('galeri_konten')
+            ->result_array();
+    }
+
+
+    #update photo
+    public function getPhotoId($id)
+    {
+        return $this->db
+            ->where('id_galeri_konten', $id)
+            ->get('galeri_konten')
+            ->row_array();
+    }
+
+    public function updatePostPhoto($id)
+    {
+        $data = array(
+            'text' => $this->input->post('judul'),
+            'status' => $this->input->post('status')
+        );
+        $this->db
+            ->where('id_galeri_konten', $id)
+            ->update('galeri_konten', $data);
+    }
+
+    #hapus photo
+    public function hapusPhoto($id)
+    {
+        $this->db
+            ->where('id_galeri_konten', $id)
+            ->delete('galeri_konten');
+    }
+
+    #VIDEO
+    public function tambahPostVideo($id)
+    {
+        $data['text'] = $this->input->post('judul');
+        $data['id_user'] = $id;
+        $data['nama_file'] = $this->input->post('nama_file');
+        $data['id_galeri_kategori'] = "3";
+        $data['status'] = $this->input->post('status');
+
+        $this->db
+            ->insert('galeri_konten', $data);
+    }
+
+    public function getVideo()
+    {
+        return $this->db
+            ->join('user', 'user.id_user = galeri_konten.id_user')
+            ->select('user.nama_lengkap,
+                      galeri_konten.id_galeri_konten,
+                      galeri_konten.text,
+                      galeri_konten.status,
+                      galeri_konten.hits,')
+            ->where('id_galeri_kategori', "3")
+            ->get('galeri_konten')
+            ->result_array();
+    }
+
+
+    #update photo
+    public function getVideoId($id)
+    {
+        return $this->db
+            ->where('id_galeri_konten', $id)
+            ->get('galeri_konten')
+            ->row_array();
+    }
+
+    public function updatePostVideo($id)
+    {
+        $data = array(
+            'text' => $this->input->post('judul'),
+            'status' => $this->input->post('status')
+        );
+        $this->db
+            ->where('id_galeri_konten', $id)
+            ->update('galeri_konten', $data);
+    }
+
+    #hapus video
+    public function hapusVideo($id)
+    {
+        $this->db
+            ->where('id_galeri_konten', $id)
+            ->delete('galeri_konten');
+    }
+
+
+    #AGENDA
+    public function tambahGaleriKontenAgenda($foto, $userdata)
+    {
+        $data['nama_file'] = $foto;
+        $data['id_user'] = $userdata;
+        $data['status'] = $this->input->post('status');
+        $data['id_galeri_kategori'] = "5";
+        $this->db->insert('galeri_konten', $data);
+    }
+
+    // public function getGaleriKontenLastID()
+    // {
+    //     return $this->db
+    //         ->order_by('id_galeri_konten', 'desc')
+    //         ->get('galeri_konten', 1)
+    //         ->row_array();
+    // }
+
+    #tambah Post berita
+    public function tambahPostAgenda($LastGaleriKonten, $userdata)
+    {
+
+        $data['tanggal_pelaksanaan'] = $this->input->post('tanggal_pelaksanaan');
+        $data['id_user'] = $userdata;
+        $data['tempat_pelaksanaan'] = $this->input->post('tempat_pelaksanaan');
+        $data['judul'] = $this->input->post('judul');
+        $data['isi'] = $this->input->post('isi');
+        $data['id_galeri_konten'] = $LastGaleriKonten['id_galeri_konten'];
+        $data['status'] = $this->input->post('status');
+        $this->db->insert('agenda', $data);
+    }
+
+    public function getAgenda()
+    {
+        return $this->db
+            ->join('user', 'user.id_user = agenda.id_user')
+            ->join('galeri_konten', 'galeri_konten.id_galeri_konten = agenda.id_galeri_konten')
+            ->select('agenda.id_agenda, 
+                    agenda.tanggal_pelaksanaan,
+                    agenda.tempat_pelaksanaan, 
+                    agenda.judul,
+                    agenda.isi,
+                    agenda.hits,
+                    agenda.status,
+                    galeri_konten.nama_file,
+                    user.nama_lengkap')
+            ->get('agenda')
+            ->result_array();
+    }
+
+    #update artikel berita
+    public function getAgendaId($id)
+    {
+        return $this->db
+            ->join('user', 'user.id_user = agenda.id_user')
+            ->join('galeri_konten', 'galeri_konten.id_galeri_konten = agenda.id_galeri_konten')
+            ->select('agenda.id_agenda, 
+                    agenda.tanggal_pelaksanaan,
+                    agenda.tempat_pelaksanaan, 
+                    agenda.judul,
+                    agenda.isi,
+                    agenda.hits,
+                    agenda.status,
+                    galeri_konten.nama_file')
+            ->where('agenda.id_agenda', $id)
+            ->get('agenda')
+            ->row_array();
+    }
+
+    public function updatePostAgenda($id)
+    {
+        $data = array(
+            'judul' => $this->input->post('judul'),
+            'isi' => $this->input->post('isi'),
+            'tanggal_pelaksanaan' => $this->input->post('tanggal_pelaksanaan'),
+            'tempat_pelaksanaan' => $this->input->post('tempat_pelaksanaan'),
+            'status' => $this->input->post('status')
+        );
+        $this->db
+            ->where('id_agenda', $id)
+            ->update('agenda', $data);
+    }
+
+    #hapus artikel berita
+    public function hapusAgenda($id)
+    {
+        $this->db
+            ->where('id_agenda', $id)
+            ->delete('agenda');
+    }
 }
