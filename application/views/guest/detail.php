@@ -1,30 +1,16 @@
         <div class="new-panel">
             <div>
-                <h4 class="nav-style">Title Berita</h4>
+                <h4 class="nav-style"><?=$judul?></h4>
             </div>
             <div class="card mb-3 new-panel">
-                <img src="<?= base_url() ?>assets/files/images/pendd_char.png" class="card-img-top w-75 m-auto mt-lg-3" alt="...">
+                <img src="<?= base_url() ?>assets/img/<?=$nama_file_gambar?>" class="card-img-top w-75 m-auto mt-lg-3" alt="...">
                 <div class="card-body">    
-                    <p style="text-align:right" class="article-item">
-                        <i class="fas fa-tag"></i> Berita Utama &nbsp; &nbsp;
-                        <i class="fas fa-user"></i> Dipublish oleh &nbsp; &nbsp;
-                        <i class="fas fa-calendar-alt"></i> waktu publish &nbsp; &nbsp;
+                    <p style="text-align:center" class="article-item">
+                        <i class="fas fa-tag"></i> <?=$kategori?> &nbsp; &nbsp;
+                        <i class="fas fa-user"></i> <?=$nama_user?> &nbsp; &nbsp;
+                        <i class="fas fa-calendar-alt"></i> <?=$tanggal_publish?> &nbsp; &nbsp;
                     </p> <hr>
-                    <p class="card-text new-panel">
-                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolores ipsa magnam odit atque optio nihil perspiciatis, officia quos. Vitae assumenda laboriosam corporis! Neque vero quidem placeat repudiandae nam numquam delectus.
-                        This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer. 
-                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolores ipsa magnam odit atque optio nihil perspiciatis, officia quos. Vitae assumenda laboriosam corporis! Neque vero quidem placeat repudiandae nam numquam delectus.
-                        This is a wider card with supporting text below as a nat<br>ural lead-in to additional content. This content is a little bit longer
-                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolores ipsa magnam odit atque optio nihil perspiciatis, officia quos. Vitae assumenda laboriosam corporis! Neque vero quidem placeat repudiandae nam numquam delectus.
-                        This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer
-                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolores ipsa magnam odit atque optio nihil perspiciatis, officia quos. Vitae assumenda laboriosam corporis! Neque vero quidem placeat repudiandae nam numquam delectus.
-                        This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer
-                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolor <br>es ipsa magnam odit atque optio nihil perspiciatis, officia quos. Vitae assumenda laboriosam corporis! Neque vero quidem placeat repudiandae nam numquam delectus.
-                        This is a wider card with supporting text below as a natural lead-in to additional content. This content is a <br>little bit longer
-                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolores ipsa magnam odit atque optio nihil perspiciatis, officia quos. Vitae assumenda laboriosam corporis! Neque vero quidem placeat repudiandae nam numquam delectus.
-                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolores ipsa magnam odit atque optio nihil perspiciatis, officia quos. Vitae assumenda laboriosam corporis! Neque vero quidem placeat repudiandae nam numquam delectus.
-                        This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longerThis is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer
-                    </p>
+                    <pre class="card-text new-panel" id="long_text" style="text-align:justify"><?=$isi?></pre>
                 </div>
             </div>
         </div>
