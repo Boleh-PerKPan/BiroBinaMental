@@ -42,18 +42,18 @@ class Main_model extends CI_Model
                     ->get('artikel_berita', 1)
                     ->result_array();
     }
-    public function getBeritaTerkait($id) {
+    public function getBeritaTerkait($id = 0) {
         return $this->db
-                ->select("id_artikel_berita, nama_file, judul, nama_artikel_kategori, nama_lengkap, tanggal_publish ")
-                ->where('artikel_berita.status', 'Publish')
-                ->where('id_artikel_berita !=' , $id)
-                ->join('galeri_konten', 'galeri_konten.id_galeri_konten = artikel_berita.id_galeri_konten')
-                ->join('artikel_kategori', 'artikel_kategori.id_artikel_kategori = artikel_berita.id_artikel_kategori')
-                ->join('user', 'user.id_user = artikel_berita.id_user')
-                ->order_by('artikel_kategori.id_artikel_kategori')
-                ->order_by('tanggal_publish', 'DESC')
-                ->get('artikel_berita', 4)
-                ->result_array();
+                    ->select("id_artikel_berita, nama_file, judul, nama_artikel_kategori, nama_lengkap, tanggal_publish ")
+                    ->where('artikel_berita.status', 'Publish')
+                    ->where('id_artikel_berita !=' , $id)
+                    ->join('galeri_konten', 'galeri_konten.id_galeri_konten = artikel_berita.id_galeri_konten')
+                    ->join('artikel_kategori', 'artikel_kategori.id_artikel_kategori = artikel_berita.id_artikel_kategori')
+                    ->join('user', 'user.id_user = artikel_berita.id_user')
+                    ->order_by('artikel_kategori.id_artikel_kategori')
+                    ->order_by('tanggal_publish', 'DESC')
+                    ->get('artikel_berita', 4)
+                    ->result_array();
     }
     public function getDetailKonten($tabel, $id) {
         return $this->db

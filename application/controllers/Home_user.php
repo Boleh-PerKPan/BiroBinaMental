@@ -65,9 +65,12 @@ class Home_user extends CI_Controller
         #pengambilan data berita utama
         $berita_utama['berita_utama'] = $this->Main_model->getBeritaUtama();
         //$berita_utama['berita_terkait'] = $this->Main_model->getBeritaTerkait($this->Main_model->idBeritaUtama());
-        foreach ($berita_utama['berita_utama'] as $row)
-        {
-            $berita_utama['berita_terkait'] = $this->Main_model->getBeritaTerkait($row['id_artikel_berita']);
+        if ($berita_utama['berita_utama'] == null) {
+            $berita_utama['berita_terkait'] = $this->Main_model->getBeritaTerkait();
+        } else {
+            foreach ($berita_utama['berita_utama'] as $row){
+                $berita_utama['berita_terkait'] = $this->Main_model->getBeritaTerkait($row['id_artikel_berita']);
+            }
         }
         $header_data = [
             'nav_konten' => $_SESSION['data_nav'],
