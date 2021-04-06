@@ -4,6 +4,9 @@
             <h4 class="nav-style">Index Download</h4>
         </div>
         <div class="card new-panel " >
+            <?php if ($page_data == null) {
+                echo 'Belum ada file download';
+            } ?>
             <?php foreach($page_data as $data) : ?>
                 <div class="row no-gutters">
                     <div class="col-md-2">

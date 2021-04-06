@@ -92,6 +92,9 @@
             </div>
             <div class="card new-panel" style="">
                 <div class="card-body">
+                <?php if ($allkategori == null) {
+                    echo 'Belum ada kategori';
+                } ?>
                 <?php foreach ($allkategori as $data) :  ?>
                     <a href="<?=base_url()?>home_user/index_berita/<?=$data['id_artikel_kategori']?>" class="my-btn"><small> <?=$data['nama_artikel_kategori']?></small> </a>&nbsp;
                 <?php endforeach; ?>
