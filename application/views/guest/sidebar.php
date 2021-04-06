@@ -88,7 +88,7 @@
         </div>
         <div class="" id="kategori">
             <div class="new-panel">
-                <a href="<?= base_url()?>home_user/index_artikel_kategory"><h4 class="nav-style">Kategori Berita</h4></a>
+                <h4 class="nav-style">Kategori Berita</h4>
             </div>
             <div class="card new-panel" style="">
                 <div class="card-body">

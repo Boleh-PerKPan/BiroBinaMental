@@ -15,12 +15,12 @@
     <link href="<?= base_url(); ?>assets/css/guest-dashboard.css" rel="stylesheet">
     <link rel="stylesheet" href="<?= base_url(); ?>assets/libs/fontawesome/css/all.min.css">
     <link rel="shortcut icon" href="<?= base_url()?>assets/img/dont-delete-this-folder/sumbarprof_logo.ico" type="image/x-icon"  /> 
-    <script>
+    <!-- <script>
             var txt = document.getElementById('long_text').value;
             var text = txt.split("\r\n");
             var str = text.join('.</br>');
             document.write(str);
-    </script>
+    </script> -->
     <title><?=$title?></title>
 </head>
 

@@ -16,7 +16,7 @@
                         <i class="fas fa-calendar-alt"></i> <?= $data['tanggal_publish']?> &nbsp; &nbsp;
                     </p>
                     <pre class="card-text" style="text-align: justify; text-size:13px;"><?=$data['isi']?></pre>
-                    <a href="<?=base_url()?>/home_user/detail/artikel_berita/<?=$data['id_artikel_berita']?>" class="btn btn-success" role="button">Selengkapnya &raquo;</a>
+                    <a href="<?=base_url()?>/home_user/detail/Berita/<?=$data['id_artikel_berita']?>" class="btn btn-success" role="button">Selengkapnya &raquo;</a>
                 </div>
             </div>
             <?php endforeach; ?>

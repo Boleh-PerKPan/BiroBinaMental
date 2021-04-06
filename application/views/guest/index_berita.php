@@ -56,9 +56,10 @@
             </div>
             <div class="card new-panel" style="">
                 <div class="card-body">
-                <?php foreach($kategori_data as $data) : ?>
-                    <a href="<?=base_url()?>home_user/index_berita/<?=$data['id_artikel_kategori']?>" class="my-btn"><small> <?=$data['nama_artikel_kategori']?></small> </a>&nbsp;
-                <?php endforeach; ?>
+                    <a href="<?=base_url()?>home_user/index_berita/" class="my-btn"><small> Semua Kategori</small> </a>&nbsp;
+                    <?php foreach($kategori_data as $data) : ?>
+                        <a href="<?=base_url()?>home_user/index_berita/<?=$data['id_artikel_kategori']?>" class="my-btn"><small> <?=$data['nama_artikel_kategori']?></small> </a>&nbsp;
+                    <?php endforeach; ?>
                 </div>
             </div>
         </div>

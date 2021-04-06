@@ -11,11 +11,12 @@ class GetAll_model extends CI_Model
                     ->get('artikel_berita')
                     ->result_array();
     }
-    public function getAllbyKategori($filterid) {
+    public function getAllbyKategori($filterid, $judul = "") {
         return $this->db
                     ->select('*, SUBSTRING(isi,1,200) as isi')
                     ->where('artikel_kategori.id_artikel_kategori', $filterid)
                     ->where('artikel_berita.status', 'Publish')
+                    ->like('judul', $judul)
                     ->join('galeri_konten', 'galeri_konten.id_galeri_konten = artikel_berita.id_galeri_konten')
                     ->join('artikel_kategori', 'artikel_kategori.id_artikel_kategori = artikel_berita.id_artikel_kategori')
                     ->join('user', 'user.id_user = artikel_berita.id_user')
