@@ -48,7 +48,7 @@
                     <iframe class="w-100"  src="https://www.youtube.com/embed/<?=$data['nama_file']?>">
                     </iframe>
                     <p><?=$data['text']?></p>
-                    <a href="#" ><small> Lihat Video Ini &raquo;</small></a>
+                    <a href="<?=base_url()?>home_user/show_video/<?=$data['id_galeri_konten']?>" ><small> Lihat Video Ini &raquo;</small></a>
                 <?php endforeach; ?>
             </div>
             <hr>

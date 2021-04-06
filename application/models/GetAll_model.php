@@ -38,10 +38,28 @@ class GetAll_model extends CI_Model
     }
     
     public function getAllVideo() {
-        return null;
+        return $this->db
+                    ->where('status', 'Publish')
+                    ->where('id_galeri_kategori', 3)
+                    ->order_by('id_galeri_konten', 'DESC')
+                    ->get('galeri_konten')
+                    ->result_array();
     }
     public function getAllFoto() {
-        return null;
+        return $this->db
+                    ->where('status', 'Publish')
+                    ->where('id_galeri_kategori', 2)
+                    ->order_by('id_galeri_konten', 'DESC')
+                    ->get('galeri_konten')
+                    ->result_array();
+    }
+    public function getAllArtikelUpload() {
+        return $this->db
+                    ->where('artikel_upload.status', 'Publish')
+                    ->join('user', 'user.id_user = artikel_upload.id_user')
+                    ->order_by('tahun_berkas', 'DESC')
+                    ->get('artikel_upload')
+                    ->result_array();
     }
 
 }

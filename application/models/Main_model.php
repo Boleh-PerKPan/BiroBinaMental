@@ -27,6 +27,7 @@ class Main_model extends CI_Model
         return $this->db
                     ->join('galeri_konten', 'galeri_konten.id_galeri_konten = extrapage_news.id_galeri_konten')
                     ->where('id_extrapage !=', $id)
+                    ->where('extrapage_news.id', 'Publish')
                     ->get('extrapage_news')
                     ->result_array();
     }
@@ -98,4 +99,12 @@ class Main_model extends CI_Model
                     ->get('galeri_konten', 1)
                     ->result_array();
     }
+    public function getShowVideo($id) {
+        return $this->db
+                    ->where('status', 'Publish')
+                    ->where('id_galeri_konten', $id)
+                    ->get('galeri_konten')
+                    ->result_array();
+    }
+
 }

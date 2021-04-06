@@ -148,6 +148,19 @@ class Home_user extends CI_Controller
         $this->load->view('guest/extrapage_news', $page_data);
         $this->load->view('template/footer');
     }
+    public function show_video($id) {
+        $page_data['page_data'] = $this->Main_model->getShowVideo($id);
+        foreach ($page_data['page_data'] as  $value) {
+            $title = $value['text'];
+        }
+        $header_data = [
+            'nav_konten' => $_SESSION['data_nav'],
+            'title' => $title
+        ];
+        $this->load->view('template/header', $header_data);
+        $this->load->view('guest/detail_video', $page_data);
+        $this->load->view('template/footer');
+    }
     public function index_berita($filter) {
         redirect(base_url().'all_index/index_berita/'.$filter);
     }
@@ -159,6 +172,9 @@ class Home_user extends CI_Controller
     }
     public function index_video() {
         redirect(base_url().'all_index/index_video');
+    }
+    public function index_upload() {
+        redirect(base_url().'all_index/index_upload');
     }
     
 }

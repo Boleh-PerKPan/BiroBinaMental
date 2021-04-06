@@ -18,17 +18,17 @@ class All_index extends CI_Controller
             'title' => 'Index Video'
         ];
         $this->load->view('template/header', $header_data);
-        $this->load->view('guest/index_video', $page_data);
+        $this->load->view('guest/index_galery', $page_data);
         $this->load->view('template/footer');
     }
     public function index_foto() {
         $page_data['page_data'] = $this->GetAll_model->getAllFoto();
         $header_data = [
             'nav_konten' => $_SESSION['data_nav'],
-            'title' => 'Index Video'
+            'title' => 'Index Foto'
         ];
         $this->load->view('template/header', $header_data);
-        $this->load->view('guest/index_foto', $page_data);
+        $this->load->view('guest/index_galery', $page_data);
         $this->load->view('template/footer');
     }
     public function index_berita($filter = 'all') {
@@ -55,7 +55,16 @@ class All_index extends CI_Controller
         ];
         $this->load->view('template/header', $header_data);
         $this->load->view('guest/index_berita', $page_data);
-        //$this->load->view('guest/sidebar');
+        $this->load->view('template/footer');
+    }
+    public function index_upload() {
+        $page_data['page_data'] = $this->GetAll_model->getAllArtikelUpload();
+        $header_data = [
+            'nav_konten' => $_SESSION['data_nav'],
+            'title' => 'Index Download'
+        ];
+        $this->load->view('template/header', $header_data);
+        $this->load->view('guest/download_list', $page_data);
         $this->load->view('template/footer');
     }
 }
