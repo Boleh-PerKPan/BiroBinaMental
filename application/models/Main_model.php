@@ -55,13 +55,47 @@ class Main_model extends CI_Model
                     ->get('artikel_berita', 4)
                     ->result_array();
     }
-    public function getDetailKonten($tabel, $id) {
+    public function getAgendaTerkait($id = 0) {
+        return $this->db
+                    ->where('agenda.status', 'Publish')
+                    ->where('id_agenda !=' , $id)
+                    ->order_by('tanggal_pelaksanaan', 'DESC')
+                    ->get('agenda', 4)
+                    ->result_array();
+    }
+    public function getDetailBerita($id) {
         return $this->db
                     ->where('id_artikel_berita', $id)
+                    ->where('artikel_berita.status', 'Publish')
                     ->join('galeri_konten', 'galeri_konten.id_galeri_konten = artikel_berita.id_galeri_konten')
                     ->join('artikel_kategori', 'artikel_kategori.id_artikel_kategori = artikel_berita.id_artikel_kategori')
                     ->join('user', 'user.id_user = artikel_berita.id_user')
-                    ->get($tabel)
+                    ->get('artikel_berita')
+                    ->result_array();
+    }
+    public function getDetailAgenda( $id) {
+        return $this->db
+                    ->where('id_agenda', $id)
+                    ->where('agenda.status', 'Publish')
+                    ->join('galeri_konten', 'galeri_konten.id_galeri_konten = agenda.id_galeri_konten')
+                    ->join('user', 'user.id_user = agenda.id_user')
+                    ->get('agenda')
+                    ->result_array();
+    }
+    public function getCarouselFoto() {
+        return $this->db
+                    ->where('status', 'Publish')
+                    ->where('id_galeri_kategori', 2)
+                    ->order_by('id_galeri_konten', 'DESC')
+                    ->get('galeri_konten', 4)
+                    ->result_array();
+    }
+    public function getLastVideo() {
+        return $this->db
+                    ->where('status', 'Publish')
+                    ->where('id_galeri_kategori', 3)
+                    ->order_by('id_galeri_konten', 'DESC')
+                    ->get('galeri_konten', 1)
                     ->result_array();
     }
 }

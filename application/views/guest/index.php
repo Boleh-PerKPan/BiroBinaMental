@@ -1,6 +1,6 @@
         <div class="new-panel">
             <div>
-                <a href="<?= base_url()?>home_user/index_berita"><h4 class="nav-style">Berita Utama</h4></a>
+                <a href="<?= base_url()?>all_index/index_berita"><h4 class="nav-style">Berita Utama</h4></a>
             </div>
             <?php if($berita_utama==null) {
                 echo 'Belum Ada Berita Utama';
@@ -23,7 +23,7 @@
         </div>
         <div class="new-panel" id="beritaterkait">
             <div>
-                <a href="<?= base_url()?>home_user/index_berita"><h4 class="nav-style">Berita Terkait</h4></a>
+                <a href="<?= base_url()?>all_index/index_berita"><h4 class="nav-style">Berita Terkait</h4></a>
             </div>
             <div class="card new-panel">
                 <?php if($berita_terkait==null) {
@@ -46,7 +46,7 @@
                                         </i><br>
                                     </p>
                                 </small>
-                                <a href="<?=base_url()?>home_user/detail/artikel_berita/<?=$data['id_artikel_berita']?>" class="btn btn-success" role="button" style="height:28px; padding-top:0px; margin-top:6px;"><small> Selengkapnya &raquo;</small></a>
+                                <a href="<?=base_url()?>home_user/detail/Berita/<?=$data['id_artikel_berita']?>" class="btn btn-success" role="button" style="height:28px; padding-top:0px; margin-top:6px;"><small> Selengkapnya &raquo;</small></a>
                             </div>
                         </div>
                     </div>

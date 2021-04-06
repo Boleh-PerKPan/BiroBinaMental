@@ -6,9 +6,9 @@
         <?php for ($i=0; $i < 10; $i++) {  ?>
             <div class="col mb-3">
                 <div class="card">
-                    <img src="<?=base_url()?>assets/files/images/pelantikan_gub.jpg" class="card-img-top m-auto" style="width:200px; " alt="...">
+                    <img src="<?=base_url()?>assets/files/images/pelantikan_gub.jpg" class="card-img-top m-auto" style="width:20rem; " alt="...">
                     <div class="card-body">
-                        <h6 class="card-title">Pelantikan gubernur dan wakil gubernur sumbar periode 2021-2024</h6>
+                        <h6 class="card-title" style="max-width:22rem; margin:auto;">Pelantikan gubernur dan wakil gubernur sumbar periode 2021-2024</h6>
                     </div>
                 </div>
             </div>

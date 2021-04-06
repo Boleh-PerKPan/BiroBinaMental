@@ -7,13 +7,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     
-    <link rel="icon" href="../../../../favicon.ico">
+    <link rel="icon" href="<?= base_url()?>assets/img/dont-delete-this-folder/sumbarprof_logo.ico"  /> 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
     <!-- Custom styles for this template -->
     <link href="<?= base_url(); ?>assets/css/guest-dashboard.css" rel="stylesheet">
     <link rel="stylesheet" href="<?= base_url(); ?>assets/libs/fontawesome/css/all.min.css">
+    <link rel="shortcut icon" href="<?= base_url()?>assets/img/dont-delete-this-folder/sumbarprof_logo.ico" type="image/x-icon"  /> 
     <script>
             var txt = document.getElementById('long_text').value;
             var text = txt.split("\r\n");
@@ -53,7 +54,7 @@
         <div class="container ">
             <a href="<?=base_url()?>home_user" >
                 <h5 class="nav-style" style="font-family: 'Trebuchet MS', sans-serif; padding-top:15px; padding-left:20px; ">
-                    <img src="<?= base_url()?>assets/img/sumbarprof_logo.png" style="width:30px">
+                    <img src="<?= base_url()?>assets/img/dont-delete-this-folder/sumbarprof_logo.ico" style="width:30px">
                     Biro Bina Mental Dan Kesejahteraan Rakyat Sumatera Barat
                 </h5>
             </a>

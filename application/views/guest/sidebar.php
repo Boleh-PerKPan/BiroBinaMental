@@ -5,15 +5,24 @@
             </div>
             <div id="carousel-galery" class="carousel slide new-panel" data-ride="carousel">
                 <div class="carousel-inner" style="">
-                    <div class="carousel-item active">
-                        <img src="<?= base_url()?>assets/files/images/jam_gadang.jpg" class="d-block w-100" style="max-height:20rem" alt="...">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="<?= base_url()?>assets/files/images/pelantikan_gub.jpg" class="d-block w-100" style="max-height:20rem" alt="...">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="<?= base_url()?>assets/files/images/sumbarprof_logo.png" class="d-block w-100" style="max-height:20rem" alt="...">
-                    </div>
+                        <?php if ($data_foto==null) {
+                            $data_foto[] = array(
+                                'nama_file' => 'default.png',
+                                'text' => 'Biro Bina Mental dan Kesejahteraan Rakyat Sumbar'
+                            );
+                        }
+                        $row = 1;
+                        foreach ($data_foto as $data) :?>
+                            <?php if ($row == 1) { ?>
+                                <div class="carousel-item active">
+                            <?php $row = $row+1; 
+                            }else { ?>
+                                <div class="carousel-item">
+                            <?php } ?>
+                                <img src="<?= base_url() ?>assets/img/<?=$data['nama_file']?>" class="d-block w-100" style="max-height:20rem">
+                                </div>
+                        <?php endforeach; ?>
+                    
                 </div>
                 <a class="carousel-control-prev" href="#carousel-galery" role="button" data-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -35,9 +44,12 @@
                 <a href="<?= base_url()?>home_user/index_video"><h4 class="nav-style">Video</h4></a>
             </div>
             <div class="new-panel" style="">
-                <iframe width="" height="" class="w-100"  src="https://www.youtube.com/embed/xV1HeAbOUGw">
-                </iframe>
-                <a href="#" ><small> Lihat Video Ini &raquo;</small></a>
+                <?php foreach($data_video as $data) : ?>
+                    <iframe class="w-100"  src="https://www.youtube.com/embed/<?=$data['nama_file']?>">
+                    </iframe>
+                    <p><?=$data['text']?></p>
+                    <a href="#" ><small> Lihat Video Ini &raquo;</small></a>
+                <?php endforeach; ?>
             </div>
             <hr>
             <div style="margin: auto; margin-bottom:1rem;">
@@ -48,48 +60,26 @@
             <div class="new-panel">
                 <a href="<?= base_url()?>home_user/index_agenda"><h4 class="nav-style">Agenda</h4></a>
             </div>
-            <div class="card new-panel" style="">
+            <div class="card new-panel">
+                <?php 
+                if ($data_agenda == null) {
+                    echo 'Belum Ada Agenda';
+                }
+                foreach ($data_agenda as $data) : ?>
                 <div class="row no-gutters" style="max-height: 25rem;">
-                    <div class="">
-                        <div class="card-body">
-                            <h6 class="card-title">Agenda Penyuluhan Vaksinasi</h6>
-                            <small>
-                                <p class="card-text">
-                                    <i>30 januari 2021 &nbsp; Hotel inna muara </i><br>
-                                </p>
-                            </small>
-                            <a href="<?=base_url()?>/home_user/detail_agenda/agenda1" class="btn btn-success" role="button" style="height:28px; padding-top:0px; margin-top:6px;"><small> Selengkapnya &raquo;</small></a>
-                        </div>
+                    <div class="card-body">
+                        <h6 class="card-title"><?=$data['judul']?></h6>
+                        <small>
+                            <p class="card-text">
+                                <i><?=$data['tanggal_pelaksanaan']?> &nbsp; <?=$data['tempat_pelaksanaan']?> </i><br>
+                            </p>
+                        </small>
+                        <a href="<?=base_url()?>home_user/detail/Agenda/<?=$data['id_agenda']?>" class="btn btn-success" role="button" style="height:28px; padding-top:0px; margin-top:6px;"><small> Selengkapnya &raquo;</small></a>
                     </div>
                 </div>
                 <hr>
-                <div class="row no-gutters" style="max-height: 25rem;">
-                    <div class="">
-                        <div class="card-body">
-                            <h6 class="card-title">Agenda 2</h6>
-                            <small>
-                                <p class="card-text">
-                                <i>30 januari 2021 &nbsp; Hotel inna muara </i><br>
-                                </p>
-                            </small>
-                            <a href="<?=base_url()?>/home_user/detail_agenda/agenda1" class="btn btn-success" role="button" style="height:28px; padding-top:0px; margin-top:6px;"><small> Selengkapnya &raquo;</small></a>
-                        </div>
-                    </div>
-                </div>
-                <hr>
-                <div class="row no-gutters" style="max-height: 25rem;">
-                    <div class="">
-                        <div class="card-body">
-                            <h6 class="card-title">Agenda 2</h6>
-                            <small>
-                                <p class="card-text">
-                                    <i>30 januari 2021 &nbsp; Hotel inna muara </i><br>
-                                </p>
-                            </small>
-                            <a href="<?=base_url()?>/home_user/detail_agenda/agenda1" class="btn btn-success" role="button" style="height:28px; padding-top:0px; margin-top:6px;"><small> Selengkapnya &raquo;</small></a>
-                        </div>
-                    </div>
-                </div>
+                <?php endforeach; ?>
+                
             </div>
             <hr>
             <div style=" margin-bottom:1rem;">
@@ -102,9 +92,9 @@
             </div>
             <div class="card new-panel" style="">
                 <div class="card-body">
-                <?php for ($i=0; $i < 25; $i++) {  ?>
-                    <a href="#" class="my-btn"><small> link kategori <?=$i;?></small> </a>&nbsp;
-                <?php } ?>
+                <?php foreach ($allkategori as $data) :  ?>
+                    <a href="<?=base_url()?>home_user/index_berita/<?=$data['id_artikel_kategori']?>" class="my-btn"><small> <?=$data['nama_artikel_kategori']?></small> </a>&nbsp;
+                <?php endforeach; ?>
                 </div>
             </div>
         </div>

@@ -7,8 +7,48 @@ class Home_user extends CI_Controller
     {
         parent::__construct();
         $this->load->model('Main_model');
+        $this->load->model('GetAll_model');
         $this->load->library('form_validation');
         
+    }
+    public function index()
+    {   
+        #Pengambilan data navbar
+        $data_nav = $this->Main_model->getHeaderData();
+        foreach ($data_nav as $data) :
+           $this->setnavkonten($data['id_menu'], $data['child'], $data['link'], $data['nama_menu'], $data['status'], $data['level']);
+        endforeach; 
+        #set session data navbar
+        $session = [
+            'data_nav' => $this->nav_konten
+        ];
+        $this->session->set_userdata($session);
+        #pengambilan data untuk carousel
+        $data_carousel['data_carousel'] = $this->Main_model->getDataCarousel();
+        #pengambilan data berita utama
+        $berita_utama['berita_utama'] = $this->Main_model->getBeritaUtama();
+        //$berita_utama['berita_terkait'] = $this->Main_model->getBeritaTerkait($this->Main_model->idBeritaUtama());
+        if ($berita_utama['berita_utama'] == null) {
+            $berita_utama['berita_terkait'] = $this->Main_model->getBeritaTerkait();
+        } else {
+            foreach ($berita_utama['berita_utama'] as $row){
+                $berita_utama['berita_terkait'] = $this->Main_model->getBeritaTerkait($row['id_artikel_berita']);
+            }
+        }
+        $sidebar_data['allkategori'] = $this->GetAll_model->getAllArtikelKategori();
+        $sidebar_data['data_foto'] = $this->Main_model->getCarouselFoto();
+        $sidebar_data['data_video'] = $this->Main_model->getLastVideo();
+        $sidebar_data['data_agenda'] = $this->Main_model->getAgendaTerkait();
+        $header_data = [
+            'nav_konten' => $_SESSION['data_nav'],
+            'title' => 'Biro Bina Mental Dan Kesra',
+        ];
+
+        $this->load->view('template/header', $header_data);
+        $this->load->view('guest/carousel', $data_carousel);
+        $this->load->view('guest/index', $berita_utama);
+        $this->load->view('guest/sidebar', $sidebar_data);
+        $this->load->view('template/footer');
     }
     private function setnavkonten($parentid, $child,$link,$namamenu, $status, $x) {
         if ($status == "Aktif") {
@@ -48,90 +88,38 @@ class Home_user extends CI_Controller
             } 
         }
     }
-    public function index()
-    {   
-        #Pengambilan data navbar
-        $data_nav = $this->Main_model->getHeaderData();
-        foreach ($data_nav as $data) :
-           $this->setnavkonten($data['id_menu'], $data['child'], $data['link'], $data['nama_menu'], $data['status'], $data['level']);
-        endforeach; 
-        #set session data navbar
-        $session = [
-            'data_nav' => $this->nav_konten
-        ];
-        $this->session->set_userdata($session);
-        #pengambilan data untuk carousel
-        $data_carousel['data_carousel'] = $this->Main_model->getDataCarousel();
-        #pengambilan data berita utama
-        $berita_utama['berita_utama'] = $this->Main_model->getBeritaUtama();
-        //$berita_utama['berita_terkait'] = $this->Main_model->getBeritaTerkait($this->Main_model->idBeritaUtama());
-        if ($berita_utama['berita_utama'] == null) {
-            $berita_utama['berita_terkait'] = $this->Main_model->getBeritaTerkait();
-        } else {
-            foreach ($berita_utama['berita_utama'] as $row){
-                $berita_utama['berita_terkait'] = $this->Main_model->getBeritaTerkait($row['id_artikel_berita']);
-            }
-        }
-        $header_data = [
-            'nav_konten' => $_SESSION['data_nav'],
-            'title' => 'Biro Bina Mental Dan Kesra',
-        ];
-
-        $this->load->view('template/header', $header_data);
-        $this->load->view('guest/carousel', $data_carousel);
-        $this->load->view('guest/index', $berita_utama);
-        $this->load->view('guest/sidebar');
-        $this->load->view('template/footer');
-    }
-    public function index_foto() {
-        $header_data = [
-            'nav_konten' => $_SESSION['data_nav'],
-            'title' => 'Index Foto'
-        ];
-        $this->load->view('template/header', $header_data);
-        $this->load->view('guest/index_foto');
-        $this->load->view('template/footer');
-    }
-    public function index_video() {
-        $header_data = [
-            'nav_konten' => $_SESSION['data_nav'],
-            'title' => 'Index Video'
-        ];
-        $this->load->view('template/header', $header_data);
-        $this->load->view('guest/index_video');
-        $this->load->view('template/footer');
-    }
-    public function index_berita() {
-        $header_data = [
-            'nav_konten' => $_SESSION['data_nav'],
-            'title' => 'Index Berita'
-        ];
-        $this->load->view('template/header', $header_data);
-        $this->load->view('guest/index_berita');
-        $this->load->view('template/footer');
-    }
-    public function index_agenda() {
-        $header_data = [
-            'nav_konten' => $_SESSION['data_nav'],
-            'title' => 'Index Agenda'
-        ];
-        $this->load->view('template/header', $header_data);
-        $this->load->view('guest/index_berita');
-        //$this->load->view('guest/sidebar');
-        $this->load->view('template/footer');
-    }
+    
     public function detail($tabel, $id) {
-        $data_detail = $this->Main_model->getDetailKonten($tabel, $id);
+        if ($tabel == 'Berita') {
+            $data_detail = $this->Main_model->getDetailBerita($id);
+        } else {
+            $data_detail = $this->Main_model->getDetailAgenda($id);
+           
+        }
         foreach ($data_detail as $value) {
             $page_data = array(
                 'judul' => $value['judul'],
-                'tanggal_publish' => $value['tanggal_publish'],
                 'isi' => $value['isi'],
-                'nama_user' => $value['nama_lengkap'],
-                'nama_file_gambar' => $value['nama_file'],
-                'kategori' => $value['nama_artikel_kategori']
+                'nama_lengkap' => $value['nama_lengkap'],
+                'nama_file_gambar' => $value['nama_file']
+                
             );
+            if ($tabel != 'Berita') {
+                $page_data['id'] = $value['id_agenda'];
+                $page_data['tanggal_pelaksanaan'] = $value['tanggal_pelaksanaan'];
+                $page_data['tempat_pelaksanaan'] = $value['tempat_pelaksanaan'];
+            } else {
+                $page_data['id'] = $value['id_artikel_berita'];
+                $page_data['tanggal_publish'] = $value['tanggal_publish'];
+                $page_data['kategori'] = $value['nama_artikel_kategori'];
+            }
         }
+        if ($tabel == 'Berita') {
+            $page_data['artikel_terkait'] = $this->Main_model->getBeritaTerkait($page_data['id']);
+        } else {
+            $page_data['artikel_terkait'] = $this->Main_model->getAgendaTerkait($page_data['id']);
+        }
+        
         $header_data = [
             'nav_konten' => $_SESSION['data_nav'],
             'title' => $page_data['judul']
@@ -141,17 +129,7 @@ class Home_user extends CI_Controller
         //$this->load->view('guest/sidebar');
         $this->load->view('template/footer');
     }
-    public function detail_agenda($judul) {
-        $header_data = [
-            'nav_konten' => $_SESSION['data_nav'],
-            'title' => $judul
-        ];
-        $this->load->view('template/header',$header_data);
-        $this->load->view('guest/detail_berita');
-        //$this->load->view('guest/sidebar');
-        //$this->load->view('guest/test-page');
-        $this->load->view('template/footer');
-    }
+    
     public function extrapage_news($id) {
         $data = $this->Main_model->getExtraPage($id);
         foreach ($data as $value) {
@@ -170,4 +148,17 @@ class Home_user extends CI_Controller
         $this->load->view('guest/extrapage_news', $page_data);
         $this->load->view('template/footer');
     }
+    public function index_berita($filter) {
+        redirect(base_url().'all_index/index_berita/'.$filter);
+    }
+    public function index_agenda() {
+        redirect(base_url().'all_index/index_agenda');
+    }
+    public function index_foto() {
+        redirect(base_url().'all_index/index_foto');
+    }
+    public function index_video() {
+        redirect(base_url().'all_index/index_video');
+    }
+    
 }
