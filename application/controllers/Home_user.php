@@ -173,13 +173,13 @@ class Home_user extends CI_Controller
         redirect(base_url().'all_index/search_index/index_agenda');
     }
     public function index_foto() {
-        redirect(base_url().'all_index/index_foto');
+        redirect(base_url().'all_index/search_index/index_foto');
     }
     public function index_video() {
-        redirect(base_url().'all_index/index_video');
+        redirect(base_url().'all_index/search_index/index_video');
     }
     public function index_upload() {
-        redirect(base_url().'all_index/index_upload');
+        redirect(base_url().'all_index/search_index/index_upload');
     }
     
 }

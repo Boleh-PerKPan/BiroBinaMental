@@ -17,12 +17,8 @@ class All_index extends CI_Controller
         //     $this->search_index();
         // }     
     }
-    //public function index() {
-        //redirect(base_url().'Home_user/index');
-    //}
-    function searchAndPagination() {
-       
-        
+    public function index() {
+        redirect(base_url().'Home_user/index');
     }
     public function search_index($method = "", $filter = null) {
         if(isset($_POST['judul'])) {
@@ -31,7 +27,6 @@ class All_index extends CI_Controller
            
         } else {
             $this->session->unset_userdata('keyword');
-            
         }
         if ($method == 'index_berita') {
             redirect('all_index/'.$method.'/'.$filter);
@@ -43,33 +38,12 @@ class All_index extends CI_Controller
     //     $this->session->unset_userdata('email');
     //     redirect('all_index/index_berita');
     // }
-    public function index_video($keyword = null) {
-
-        $page_data['page_data'] = $this->GetAll_model->getAllVideo();
-        $header_data = [
-            'nav_konten' => $_SESSION['data_nav'],
-            'title' => 'Index Video'
-        ];
-        $this->load->view('template/header', $header_data);
-        $this->load->view('guest/index_galery', $page_data);
-        $this->load->view('template/footer');
-    }
-    public function index_foto() {
-        $page_data['page_data'] = $this->GetAll_model->getAllFoto();
-        $header_data = [
-            'nav_konten' => $_SESSION['data_nav'],
-            'title' => 'Index Foto'
-        ];
-        $this->load->view('template/header', $header_data);
-        $this->load->view('guest/index_galery', $page_data);
-        $this->load->view('template/footer');
-    }
     public function index_berita() {
         
         if ($this->uri->segment(4) != null) {
             $page_data['start'] = $this->uri->segment(4); 
         } else {
-            $page_data['start'] = 1;
+            $page_data['start'] = 0;
         }
         if ($this->uri->segment(3) != null) {
             $filter = $this->uri->segment(3);
@@ -78,8 +52,8 @@ class All_index extends CI_Controller
         }
             
         $config['base_url'] = base_url().'all_index/index_berita/'.$filter;
-        $config['per_page'] = 4;
-        //$this->searchAndPagination();
+        $config['per_page'] = 10;
+
         //cek keyword
         if (isset($_SESSION['keyword'])) {
             $data['keyword'] = $_SESSION['keyword'];
@@ -114,12 +88,11 @@ class All_index extends CI_Controller
         if ($this->uri->segment(3) != null) {
             $page_data['start'] = $this->uri->segment(3); 
         } else {
-            $page_data['start'] = 1;
+            $page_data['start'] = 0;
         }
 
         $config['base_url'] = base_url().'all_index/index_agenda';
-        $config['per_page'] = 4;
-        //$this->searchAndPagination();
+        $config['per_page'] = 10;
 
          //cek keyword
          if (isset($_SESSION['keyword'])) {
@@ -142,15 +115,15 @@ class All_index extends CI_Controller
         $this->load->view('guest/index_berita', $page_data);
         $this->load->view('template/footer');
     }
-    public function index_upload() {
+    public function index_video($keyword = null) {
         if ($this->uri->segment(3) != null) {
             $page_data['start'] = $this->uri->segment(3); 
         } else {
-            $page_data['start'] = 1;
+            $page_data['start'] = 0;
         }
 
-        $config['base_url'] = base_url().'all_index/index_upload';
-        $config['per_page'] = 4;
+        $config['base_url'] = base_url().'all_index/index_video';
+        $config['per_page'] = 12;
         //$this->searchAndPagination();
 
          //cek keyword
@@ -160,11 +133,73 @@ class All_index extends CI_Controller
             $data['keyword'] = null;
         }
 
-        $config['total_rows'] = $this->GetAll_model->countAllUpload($data['keyword']);
+        $config['total_rows'] = $this->GetAll_model->countAllVideo($data['keyword']);
+        //cek filter for get data
+        $this->pagination->initialize($config);
+
+        $page_data['page_data'] = $this->GetAll_model->getAllVideo($config['per_page'], $page_data['start'], $data['keyword']);
+        $header_data = [
+            'nav_konten' => $_SESSION['data_nav'],
+            'title' => 'Index Video'
+        ];
+        $this->load->view('template/header', $header_data);
+        $this->load->view('guest/index_galery', $page_data);
+        $this->load->view('template/footer');
+    }
+    public function index_foto() {
+        if ($this->uri->segment(3) != null) {
+            $page_data['start'] = $this->uri->segment(3); 
+        } else {
+            $page_data['start'] = 0;
+        }
+
+        $config['base_url'] = base_url().'all_index/index_foto';
+        $config['per_page'] = 24;
+        //$this->searchAndPagination();
+
+         //cek keyword
+         if (isset($_SESSION['keyword'])) {
+            $data['keyword'] = $_SESSION['keyword'];
+        } else {
+            $data['keyword'] = null;
+        }
+
+        $config['total_rows'] = $this->GetAll_model->countAllFoto($data['keyword']);
         //cek filter for get data
         $this->pagination->initialize($config);
         
-        $page_data['page_data'] = $this->GetAll_model->getAllArtikelUpload($data['keyword']);
+        $page_data['page_data'] = $this->GetAll_model->getAllFoto($config['per_page'], $page_data['start'], $data['keyword']);
+        $header_data = [
+            'nav_konten' => $_SESSION['data_nav'],
+            'title' => 'Index Foto'
+        ];
+        $this->load->view('template/header', $header_data);
+        $this->load->view('guest/index_galery', $page_data);
+        $this->load->view('template/footer');
+    }
+    public function index_upload() {
+        if ($this->uri->segment(3) != null) {
+            $page_data['start'] = $this->uri->segment(3); 
+        } else {
+            $page_data['start'] = 0;
+        }
+
+        $config['base_url'] = base_url().'all_index/index_upload';
+        $config['per_page'] = 10;
+        //$this->searchAndPagination();
+
+         //cek keyword
+         if (isset($_SESSION['keyword'])) {
+            $data['keyword'] = $_SESSION['keyword'];
+        } else {
+            $data['keyword'] = null;
+        }
+
+        $config['total_rows'] = $this->GetAll_model->countAllArtikelUpload($data['keyword']);
+        //cek filter for get data
+        $this->pagination->initialize($config);
+        
+        $page_data['page_data'] = $this->GetAll_model->getAllArtikelUpload($config['per_page'], $page_data['start'], $data['keyword']);
         
         $header_data = [
             'nav_konten' => $_SESSION['data_nav'],

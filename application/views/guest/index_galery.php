@@ -18,7 +18,7 @@
                         <a href="<?=base_url()?>home_user/show_video/<?=$data['id_galeri_konten']?>" style="text-align:right; "><small>Lihat video ini  &raquo; &nbsp; </small></a>
                     <?php }?> 
                     <div class="card-body nav-style">
-                        <h5 class="card-title" style="max-width: 30rem; margin:auto;"><?=$data['text']?></h5>
+                        <h5 class="card-title" style="max-width: 30rem; margin:auto; text-align: center;"><?=$data['text']?></h5>
                     </div>
                 </div>
             </div>
@@ -26,6 +26,6 @@
     </div>
     <hr>
     <div style="margin-bottom:1rem; text-align:center">
-        <a href="<?=base_url()?>home_user/index_foto" role="button" class="btn my-btn">1|2|3|nexpage</a>
+        <?=$this->pagination->create_links(); ?>
     </div>
 </div>

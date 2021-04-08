@@ -12,13 +12,13 @@ class GetAll_model extends CI_Model
                     ->get('artikel_berita', $limit, $start)
                     ->result_array();
     }
-    public function countAllBerita($keyword) {
+    public function countAllBerita($judul) {
         return $this->db
-                    ->like('judul', $keyword)
+                    ->like('judul', $judul)
                     ->from('artikel_berita')
                     ->count_all_results();
     }
-    public function getAllbyKategori($filterid,$limit, $start, $judul ) {
+    public function getAllbyKategori($filterid, $limit, $start, $judul ) {
         return $this->db
                     ->select('*, SUBSTRING(isi,1,200) as isi')
                     ->where('artikel_kategori.id_artikel_kategori', $filterid)
@@ -47,10 +47,10 @@ class GetAll_model extends CI_Model
                     ->get('agenda', $limit, $start)
                     ->result_array();
     }
-    public function countAllAgenda($keyword) {
+    public function countAllAgenda($judul) {
         return $this->db
                     ->where('status', 'Publish')
-                    ->like('judul', $keyword)
+                    ->like('judul', $judul)
                     ->from('agenda')
                     ->count_all_results();
     }
@@ -60,40 +60,55 @@ class GetAll_model extends CI_Model
                     ->get('artikel_kategori')
                     ->result_array();
     }
-    public function getAllVideo($text = "") {
+    public function getAllVideo($limit, $start, $text) {
         return $this->db
                     ->where('status', 'Publish')
                     ->where('id_galeri_kategori', 3)
                     ->like('text', $text)
                     ->order_by('id_galeri_konten', 'DESC')
-                    ->get('galeri_konten')
+                    ->get('galeri_konten', $limit, $start)
                     ->result_array();
     }
-    public function countAllVideo() {
-        
+    public function countAllVideo($text) {
+        return $this->db
+                    ->where('status', 'Publish')
+                    ->where('id_galeri_kategori', 3)
+                    ->like('text', $text)
+                    ->from('galeri_konten')
+                    ->count_all_results();
+    
     }
-    public function getAllFoto($text = "") {
+    public function getAllFoto($limit, $start, $text) {
         return $this->db
                     ->where('status', 'Publish')
                     ->where('id_galeri_kategori', 2)
-                    ->like('judul', $text)
+                    ->like('text', $text)
                     ->order_by('id_galeri_konten', 'DESC')
-                    ->get('galeri_konten')
+                    ->get('galeri_konten', $limit, $start)
                     ->result_array();
     }
-    public function countAllFoto() {
-        
+    public function countAllFoto($text) {
+        return $this->db
+                    ->where('status', 'Publish')
+                    ->where('id_galeri_kategori', 2)
+                    ->like('text', $text)
+                    ->from('galeri_konten')
+                    ->count_all_results();
     }
-    public function getAllArtikelUpload($judul = "") {
+    public function getAllArtikelUpload($limit, $start, $judul) {
         return $this->db
                     ->where('artikel_upload.status', 'Publish')
                     ->join('user', 'user.id_user = artikel_upload.id_user')
                     ->like('judul', $judul)
                     ->order_by('tahun_berkas', 'DESC')
-                    ->get('artikel_upload')
+                    ->get('artikel_upload', $limit, $start)
                     ->result_array();
     }
-    public function countAllArtikelUpload() {
-        
+    public function countAllArtikelUpload($judul) {
+        return $this->db
+                    ->where('status', 'Publish')
+                    ->like('judul', $judul)
+                    ->from('artikel_upload')
+                    ->count_all_results();
     }
 }

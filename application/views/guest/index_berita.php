@@ -47,7 +47,6 @@
             <?php endforeach; ?>
             <div style="margin: auto; margin-bottom:1rem;">
                 <?=$this->pagination->create_links(); ?>
-                <br><a href="<?=base_url()?>home_user/index_berita" role="button" class="btn my-btn">1|2|3|nexpage</a>
             </div>
         </div>
         
