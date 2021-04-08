@@ -6,7 +6,7 @@
         <img src="<?=base_url()?>assets/img/<?=$nama_file_image?>" class="new-panel w-50 rounded mx-auto d-block">
     <?php } ?>
     <div class="new-panel">
-        <pre><?=$isi?></pre>
+        <pre><?=nl2br($isi)?></pre>
     </div>
     
 </div>

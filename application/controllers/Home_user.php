@@ -54,42 +54,60 @@ class Home_user extends CI_Controller
         $this->session->set_userdata($session);
         
     }
-    private function setnavkonten($parentid, $child,$link,$namamenu, $status, $x) {
-        if ($status == "Aktif") {
-            if ($child == 0) {
-                //data yg ditransfer dari db hanya yang parent nya = 0
-                $this->nav_konten .= 
-                    '<li class="nav-item active">
-                        <a class="nav-link " href="';
-                        $this->nav_konten .= base_url().'home_user/'.$link;
-                        $this->nav_konten .= '">';
-                        $this->nav_konten .= $namamenu;
-                        $this->nav_konten .= '</a>
-                    </li>';
-            } else {
-                // get the child from db with transfer parent id number 
-                
-               //$this->nav_konten .= '<li class="nav-item active dropdown">';
-                if ($x == 0) {
-                    $this->nav_konten .= '<li class="nav-item active dropdown ">';
-                } else {
-                    $this->nav_konten .= '<li class="nav-item btn-group active dropend" >';
-                }
-                $this->nav_konten .= '<a href="#" data-target="#';
-                $this->nav_konten .= $parentid;
-                $this->nav_konten .='" class="nav-link dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">';
-                $this->nav_konten .= $namamenu;
-                $this->nav_konten .= '</a><ul class="collapse dropdown-menu " id="';
-                $this->nav_konten .=$parentid;
-                $this->nav_konten .='" >';
-                            
-                $data_nav = $this->Main_model->getHeaderData($parentid);
-                foreach ($data_nav as $data) :
-                    $this->setnavkonten($data['id_menu'], $data['child'], $data['link'], $data['nama_menu'], $data['status'], $data['level']);
-                endforeach;    
-                            
-                $this->nav_konten .= '</ul></li>';
-            } 
+    function killAllSess() {
+        $this->session->unset_userdata('data_nav');
+    }
+    private function setnavkonten($parentid, $child,$link,$namamenu, $lv) {
+        if ($child == 0 && $lv == 0) {
+            //data yg ditransfer dari db hanya yang parent nya = 0 lv = 0
+            $this->nav_konten .= '<div class="active nav-item">
+                                <a class="nav-link dropdown-item" href="';
+            $this->nav_konten .= base_url().'home_user/'.$link;
+            $this->nav_konten .= '">';
+            $this->nav_konten .= $namamenu;
+            $this->nav_konten .= '</a></div>';
+
+        } elseif($lv == 0 && $child == 1) {
+            $this->nav_konten .= '<div class="nav-item dropdown active">';
+            $this->nav_konten .= '<a href="';
+            $this->nav_konten .= base_url().'home_user/'.$link;
+            $this->nav_konten .= '" data-target="#';
+            $this->nav_konten .= $parentid;
+            $this->nav_konten .='" class="nav-link dropdown-toggle" data-toggle="dropdown" >';
+            $this->nav_konten .= $namamenu;
+            $this->nav_konten .= '</a><div class="dropdown-menu ">';
+            //$this->nav_konten .= '</a><div class="dropdown-menu " id="';
+            //$this->nav_konten .=$parentid;
+            //$this->nav_konten .='" >';
+                        
+            $data_nav = $this->Main_model->getHeaderData($parentid);
+            foreach ($data_nav as $data) :
+                $this->setnavkonten($data['id_menu'], $data['child'], $data['link'], $data['nama_menu'], $data['level']);
+            endforeach;    
+                        
+            $this->nav_konten .= '</div></div>';
+
+        }  elseif($child == 1 && $lv > 0) {
+            $this->nav_konten .= '<div class="dropright">
+                                <button class="btn bg-transparent dropdown-item dropdown-toggle" data-toggle="dropdown" data-target="#';
+            $this->nav_konten .= $parentid;
+            $this->nav_konten .='">';
+            $this->nav_konten .= $namamenu;
+            $this->nav_konten .='</button><div class="dropdown-menu">';
+
+            $data_nav = $this->Main_model->getHeaderData($parentid);
+            foreach ($data_nav as $data) :
+                $this->setnavkonten($data['id_menu'], $data['child'], $data['link'], $data['nama_menu'], $data['level']);
+            endforeach;    
+
+            $this->nav_konten .= '</div></div>';
+
+        } elseif ($child == 0 && $lv > 0) {
+            $this->nav_konten .= '<a class="dropdown-item " href="';
+            $this->nav_konten .= base_url().'home_user/'.$link;
+            $this->nav_konten .= '">';
+            $this->nav_konten .= $namamenu;
+            $this->nav_konten .= '</a>';
         }
     }
     

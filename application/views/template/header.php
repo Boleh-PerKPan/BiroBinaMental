@@ -15,12 +15,7 @@
     <link href="<?= base_url(); ?>assets/css/guest-dashboard.css" rel="stylesheet">
     <link rel="stylesheet" href="<?= base_url(); ?>assets/libs/fontawesome/css/all.min.css">
     <link rel="shortcut icon" href="<?= base_url()?>assets/img/dont-delete-this-folder/sumbarprof_logo.ico" type="image/x-icon"  /> 
-    <!-- <script>
-            var txt = document.getElementById('long_text').value;
-            var text = txt.split("\r\n");
-            var str = text.join('.</br>');
-            document.write(str);
-    </script> -->
+    
     <title><?=$title?></title>
 </head>
 
@@ -34,9 +29,9 @@
                     <span></span>
                 </button>
                 <div id="navnav" class="collapse navbar-collapse">
-                    <ul class="navbar-nav mr-auto ">
+                    <div class="navbar-nav mr-auto ">
                         <?=$nav_konten;?>
-                    </ul>
+                    </div>
                     <form method="post" class="form-inline my-2 my-lg-0 "  action="<?=base_url()?>all_index/search_index">
                         <input class="form-control mr-sm-2" type="search" name="judul" placeholder="Cari Judul" aria-label="Search">
                         <select id="filterby" name="filterby" class="btn form-control mr-sm-2">
@@ -65,9 +60,9 @@
                     <span></span>
                 </button>
                 <div id="navnav" class="collapse navbar-collapse">
-                    <ul class="navbar-nav mr-auto" id="nav-konten">
+                    <div class="navbar-nav mr-auto" id="nav-konten">
                         <?=$nav_konten;?>
-                    </ul>
+                    </div>
                     <form method="post" class="form-inline my-2 my-lg-0 "  action="<?=base_url()?>all_index/search_index">
                         <input class="form-control mr-sm-2" type="search" name="judul" placeholder="Cari Judul" aria-label="Search">
                         <select id="filterby" name="filterby" class="btn form-control mr-sm-2">

@@ -20,7 +20,7 @@
                             ?><i class="fas fa-calendar-alt"></i> <?= $tanggal_publish?> 
                         <?php } ?>
                     </p> <hr>
-                    <pre class="card-text new-panel" id="long_text" style="text-align:justify"><?=$isi?></pre>
+                    <pre class="card-text new-panel" id="long_text" style="text-align:justify"><?=nl2br($isi)?></pre>
                 </div>
             </div>
         </div>

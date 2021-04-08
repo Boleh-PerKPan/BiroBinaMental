@@ -5,6 +5,7 @@ class Main_model extends CI_Model
     public function getHeaderData($parentid = 0) {
         return $this->db
                     ->where('parent_id', $parentid)
+                    ->where('status', 'Aktif')
                     ->order_by('order_no')
                     ->get('web_menu')
                     ->result_array();
