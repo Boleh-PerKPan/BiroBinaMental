@@ -23,7 +23,7 @@
         </a>
     </div>
     <div class="col-md-2">
-        <a class="card card-link" href="#" style="height: 120px;">
+        <a class="card card-link" href="<?= base_url() ?>auth/logout" style="height: 120px;">
             <div class="card-body">
                 <h5><i class="fas fa-sign-out-alt" style="font-size: 2.5em;"></i></h5>
                 <h5>Logout</h5>

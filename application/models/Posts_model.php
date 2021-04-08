@@ -65,7 +65,7 @@ class Posts_model extends CI_Model
         $count = $this->db
             ->where('parent_id', $parent)
             ->count_all('web_menu');
-        return $count->num_rows();
+        return $count;
     }
 
     #hapus menu
@@ -74,6 +74,7 @@ class Posts_model extends CI_Model
         $this->db
             ->where('id_menu', $id)
             ->delete('web_menu');
+
         if (!$this->countChild($parent)) {
             $child['child'] = 0;
             $this->db
@@ -293,18 +294,41 @@ class Posts_model extends CI_Model
         $this->db->insert('artikel_berita', $data);
     }
 
+    #Khusus Role Administrator dan admin lokal
     public function getArtikelBerita()
     {
         return $this->db
             ->join('artikel_kategori', 'artikel_kategori.id_artikel_kategori = artikel_berita.id_artikel_kategori')
             ->join('galeri_konten', 'galeri_konten.id_galeri_konten = artikel_berita.id_galeri_konten')
+            ->join('user', 'user.id_user = artikel_berita.id_user')
             ->select('artikel_berita.id_artikel_berita, 
                     artikel_berita.tanggal_publish, 
                     artikel_berita.judul,
                     artikel_berita.isi,
                     artikel_berita.hits,
                     artikel_berita.status,
-                    artikel_kategori.nama_artikel_kategori')
+                    artikel_kategori.nama_artikel_kategori,
+                    user.nama_lengkap')
+            ->get('artikel_berita')
+            ->result_array();
+    }
+
+    public function getArtikelBeritaById($id)
+    {
+        return $this->db
+            ->join('artikel_kategori', 'artikel_kategori.id_artikel_kategori = artikel_berita.id_artikel_kategori')
+            ->join('galeri_konten', 'galeri_konten.id_galeri_konten = artikel_berita.id_galeri_konten')
+            ->join('user', 'user.id_user = artikel_berita.id_user')
+            ->select('artikel_berita.id_artikel_berita, 
+                    artikel_berita.tanggal_publish, 
+                    artikel_berita.judul,
+                    artikel_berita.isi,
+                    artikel_berita.hits,
+                    artikel_berita.status,
+                    artikel_berita.id_user,
+                    artikel_kategori.nama_artikel_kategori,
+                    user.nama_lengkap')
+            ->where('artikel_berita.id_user', $id)
             ->get('artikel_berita')
             ->result_array();
     }
@@ -315,12 +339,14 @@ class Posts_model extends CI_Model
         return $this->db
             ->join('artikel_kategori', 'artikel_kategori.id_artikel_kategori = artikel_berita.id_artikel_kategori')
             ->join('galeri_konten', 'galeri_konten.id_galeri_konten = artikel_berita.id_galeri_konten')
+            ->join('user', 'user.id_user = artikel_berita.id_user')
             ->select('artikel_berita.id_artikel_berita, 
                     artikel_berita.tanggal_publish, 
                     artikel_berita.judul,
                     artikel_berita.isi,
                     artikel_berita.hits,
                     artikel_berita.status,
+                    artikel_berita.id_user,
                     galeri_konten.nama_file')
             ->where('artikel_berita.id_artikel_berita', $id)
             ->get('artikel_berita')
@@ -361,6 +387,7 @@ class Posts_model extends CI_Model
         $this->db->insert('artikel_upload', $data);
     }
 
+    #khusus role administrator dan admin lokal
     public function getArtikelUpload()
     {
         return $this->db
@@ -372,6 +399,22 @@ class Posts_model extends CI_Model
                       artikel_upload.tahun_berkas,
                       artikel_upload.hits,
                       artikel_upload.status')
+            ->get('artikel_upload')
+            ->result_array();
+    }
+
+    public function getArtikelUploadById($id)
+    {
+        return $this->db
+            ->join('user', 'user.id_user = artikel_upload.id_user')
+            ->select('user.nama_lengkap,
+                      artikel_upload.id_artikel_upload,
+                      artikel_upload.tanggal_publish,
+                      artikel_upload.judul,
+                      artikel_upload.tahun_berkas,
+                      artikel_upload.hits,
+                      artikel_upload.status')
+            ->where('artikel_upload.id_user', $id)
             ->get('artikel_upload')
             ->result_array();
     }
@@ -556,6 +599,7 @@ class Posts_model extends CI_Model
             ->insert('galeri_konten', $data);
     }
 
+    #khusus role administrator dan admin lokal
     public function getPhoto()
     {
         return $this->db
@@ -567,6 +611,22 @@ class Posts_model extends CI_Model
                       galeri_konten.nama_file,
                       galeri_konten.hits,')
             ->where('id_galeri_kategori', "2")
+            ->get('galeri_konten')
+            ->result_array();
+    }
+
+    public function getPhotoById($id)
+    {
+        return $this->db
+            ->join('user', 'user.id_user = galeri_konten.id_user')
+            ->select('user.nama_lengkap,
+                      galeri_konten.id_galeri_konten,
+                      galeri_konten.text,
+                      galeri_konten.status,
+                      galeri_konten.nama_file,
+                      galeri_konten.hits,')
+            ->where('id_galeri_kategori', "2")
+            ->where('galeri_konten.id_user', $id)
             ->get('galeri_konten')
             ->result_array();
     }
@@ -613,6 +673,7 @@ class Posts_model extends CI_Model
             ->insert('galeri_konten', $data);
     }
 
+    #khusus role administrator dan admin lokal
     public function getVideo()
     {
         return $this->db
@@ -627,8 +688,23 @@ class Posts_model extends CI_Model
             ->result_array();
     }
 
+    public function getVideoById($id)
+    {
+        return $this->db
+            ->join('user', 'user.id_user = galeri_konten.id_user')
+            ->select('user.nama_lengkap,
+                      galeri_konten.id_galeri_konten,
+                      galeri_konten.text,
+                      galeri_konten.status,
+                      galeri_konten.hits,')
+            ->where('id_galeri_kategori', "3")
+            ->where('galeri_konten.id_user', $id)
+            ->get('galeri_konten')
+            ->result_array();
+    }
 
-    #update photo
+
+    #update video
     public function getVideoId($id)
     {
         return $this->db
@@ -689,6 +765,7 @@ class Posts_model extends CI_Model
         $this->db->insert('agenda', $data);
     }
 
+    #khusus role administrator dan admin lokal
     public function getAgenda()
     {
         return $this->db
@@ -707,6 +784,25 @@ class Posts_model extends CI_Model
             ->result_array();
     }
 
+    public function getAgendaById($id)
+    {
+        return $this->db
+            ->join('user', 'user.id_user = agenda.id_user')
+            ->join('galeri_konten', 'galeri_konten.id_galeri_konten = agenda.id_galeri_konten')
+            ->select('agenda.id_agenda, 
+                    agenda.tanggal_pelaksanaan,
+                    agenda.tempat_pelaksanaan, 
+                    agenda.judul,
+                    agenda.isi,
+                    agenda.hits,
+                    agenda.status,
+                    galeri_konten.nama_file,
+                    user.nama_lengkap')
+            ->where('agenda.id_user', $id)
+            ->get('agenda')
+            ->result_array();
+    }
+
     #update artikel berita
     public function getAgendaId($id)
     {
@@ -720,6 +816,7 @@ class Posts_model extends CI_Model
                     agenda.isi,
                     agenda.hits,
                     agenda.status,
+                    agenda.id_user,
                     galeri_konten.nama_file')
             ->where('agenda.id_agenda', $id)
             ->get('agenda')

@@ -33,7 +33,7 @@
                                 <option value="0" selected="selected">0</option>
 
                                 <?php foreach ($menu as $menu) { ?>
-                                    <option value="<?= $menu['id_menu'] ?>"><?= $menu['nama_menu'] ?></option>
+                                    <option value="<?= $menu['id_menu'] ?>" <?php if ($post['parent_id'] == $menu['id_menu']) : ?>selected="selected" <?php endif; ?>><?= $menu['nama_menu'] ?></option>
                                 <?php } ?>
 
                             </select>

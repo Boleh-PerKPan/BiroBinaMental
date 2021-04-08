@@ -41,7 +41,7 @@
 
                         <button type="submit" class="btn btn-primary">Daftar</button>
                         <input class="btn btn-primary" type="reset" value="Reset">
-                        <a class="btn btn-primary" href="<?= base_url() ?>home_admin/manage_article_news">Kembali</a>
+                        <a class="btn btn-primary" href="<?= base_url() ?>home_admin/manage_agenda">Kembali</a>
                     </form>
                 </div>
             </div>
