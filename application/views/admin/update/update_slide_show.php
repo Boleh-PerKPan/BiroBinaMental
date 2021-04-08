@@ -15,7 +15,7 @@
                             <select class="form-control" id="status" name="status">
 
                                 <option value="Publish" <?php if ($post['status'] == 'Publish') : ?>selected="selected" <?php endif; ?>>Publish</option>
-                                <option value="Non-Publish" <?php if ($post['status'] == 'Publish') : ?>selected="selected" <?php endif; ?>>Non-Publish</option>
+                                <option value="Non-Publish" <?php if ($post['status'] == 'Non-Publish') : ?>selected="selected" <?php endif; ?>>Non-Publish</option>
 
                             </select>
                         </div>

@@ -16,6 +16,7 @@
                 <th scope="col">Title</th>
                 <th scope="col">Category</th>
                 <th scope="col">Created at</th>
+                <th scope="col">Created by</th>
                 <th scope="col">Hits</th>
                 <th scope="col">Status</th>
                 <th scope="col">Action</th>
@@ -28,6 +29,7 @@
                     <td scope="row"><?= $post['judul'] ?></td>
                     <td scope="row"><?= $post['nama_artikel_kategori'] ?></td>
                     <td scope="row"><?= $post['tanggal_publish'] ?></td>
+                    <td scope="row"><?= $post['nama_lengkap'] ?></td>
                     <td scope="row"><?= $post['hits'] ?></td>
                     <td scope="row"><?= $post['status'] ?></td>
                     <td scope="row">

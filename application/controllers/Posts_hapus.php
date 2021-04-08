@@ -6,6 +6,9 @@ class Posts_hapus extends CI_Controller
         parent::__construct();
         $this->load->model('Posts_model');
         $this->load->library('form_validation');
+        if (!logged_in()) {
+            redirect('auth');
+        }
     }
 
     public function hapus_menu($id, $parent)
