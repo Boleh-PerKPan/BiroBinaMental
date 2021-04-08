@@ -19,7 +19,7 @@ class Home_user extends CI_Controller
             //data yg ditransfer dari db hanya yang parent nya = 0
             $this->nav_konten .=
                 '<li class="nav-item active">
-                    <a class="nav-link " href="';
+                 <a class="nav-link " href="';
             $this->nav_konten .= base_url() . 'home_user/' . $link;
             $this->nav_konten .= '">';
             $this->nav_konten .= $namamenu;

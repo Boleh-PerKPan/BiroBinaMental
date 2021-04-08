@@ -8,7 +8,11 @@ a:hover {
 	color: inherit;
 	font-size: 110%;
 }
-
+pre {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 15px;
+	white-space: pre-wrap;
+}
 footer {
 	background-color: #736D6D;
 	color: white;
