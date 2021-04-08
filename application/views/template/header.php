@@ -37,13 +37,14 @@
                     <ul class="navbar-nav mr-auto ">
                         <?=$nav_konten;?>
                     </ul>
-                    <form class="form-inline my-2 my-lg-0 ">
-                    <input class="form-control mr-sm-2" type="search" name="judul" placeholder="Cari Judul" aria-label="Search">
+                    <form method="post" class="form-inline my-2 my-lg-0 "  action="<?=base_url()?>all_index/search_index">
+                        <input class="form-control mr-sm-2" type="search" name="judul" placeholder="Cari Judul" aria-label="Search">
                         <select id="filterby" name="filterby" class="btn form-control mr-sm-2">
-                                <option value="artikel_berita">Berita</option>
-                                <option value="agenda">Agenda</option>
-                                <option value="foto">Foto</option>
-                                <option value="video">Video</option>
+                                <option value="index_berita">Berita</option>
+                                <option value="index_agenda">Agenda</option>
+                                <option value="index_foto">Foto</option>
+                                <option value="index_video">Video</option>
+                                <option value="index_upload">File Download</option>
                         </select>
                         <button class="btn btn-outline-success my-2 my-sm-0" type="cari" name="cari"><i class="fas fa-search"></i></button>
                     </form>
@@ -67,13 +68,14 @@
                     <ul class="navbar-nav mr-auto" id="nav-konten">
                         <?=$nav_konten;?>
                     </ul>
-                    <form class="form-inline my-2 my-lg-0 ">
+                    <form method="post" class="form-inline my-2 my-lg-0 "  action="<?=base_url()?>all_index/search_index">
                         <input class="form-control mr-sm-2" type="search" name="judul" placeholder="Cari Judul" aria-label="Search">
                         <select id="filterby" name="filterby" class="btn form-control mr-sm-2">
-                                <option value="artikel_berita">Berita</option>
-                                <option value="agenda">Agenda</option>
-                                <option value="foto">Foto</option>
-                                <option value="video">Video</option>
+                                <option value="index_berita">Berita</option>
+                                <option value="index_agenda">Agenda</option>
+                                <option value="index_foto">Foto</option>
+                                <option value="index_video">Video</option>
+                                <option value="index_upload">File Download</option>
                         </select>
                         <button class="btn btn-outline-success my-2 my-sm-0" type="cari" name="cari"><i class="fas fa-search"></i></button>
                     </form>

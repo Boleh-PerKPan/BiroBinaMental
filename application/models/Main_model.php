@@ -27,7 +27,7 @@ class Main_model extends CI_Model
         return $this->db
                     ->join('galeri_konten', 'galeri_konten.id_galeri_konten = extrapage_news.id_galeri_konten')
                     ->where('id_extrapage !=', $id)
-                    ->where('extrapage_news.id', 'Publish')
+                    ->where('id_extrapage', 'Publish')
                     ->get('extrapage_news')
                     ->result_array();
     }

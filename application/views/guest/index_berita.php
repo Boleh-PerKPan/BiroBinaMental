@@ -7,7 +7,8 @@
             <?php 
             if ($page_data == null) {
                 echo 'Belum Ada Data';
-            }
+            } 
+            //echo $_SESSION['beritafilter'];
             foreach ($page_data as $data) : ?>
                 <div class="row no-gutters" style="max-height: 25rem;">
                     <div class="col-md-2">
@@ -45,7 +46,8 @@
                 <hr>
             <?php endforeach; ?>
             <div style="margin: auto; margin-bottom:1rem;">
-                <a href="<?=base_url()?>home_user/index_berita" role="button" class="btn my-btn">1|2|3|nexpage</a>
+                <?=$this->pagination->create_links(); ?>
+                <br><a href="<?=base_url()?>home_user/index_berita" role="button" class="btn my-btn">1|2|3|nexpage</a>
             </div>
         </div>
         

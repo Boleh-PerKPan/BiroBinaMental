@@ -9,20 +9,12 @@ class Home_user extends CI_Controller
         $this->load->model('Main_model');
         $this->load->model('GetAll_model');
         $this->load->library('form_validation');
-        
+        if (!isset($_SESSION['data_nav'])) {
+            $this->callNavKonten();
+        }
     }
     public function index()
     {   
-        #Pengambilan data navbar
-        $data_nav = $this->Main_model->getHeaderData();
-        foreach ($data_nav as $data) :
-           $this->setnavkonten($data['id_menu'], $data['child'], $data['link'], $data['nama_menu'], $data['status'], $data['level']);
-        endforeach; 
-        #set session data navbar
-        $session = [
-            'data_nav' => $this->nav_konten
-        ];
-        $this->session->set_userdata($session);
         #pengambilan data untuk carousel
         $data_carousel['data_carousel'] = $this->Main_model->getDataCarousel();
         #pengambilan data berita utama
@@ -49,6 +41,18 @@ class Home_user extends CI_Controller
         $this->load->view('guest/index', $berita_utama);
         $this->load->view('guest/sidebar', $sidebar_data);
         $this->load->view('template/footer');
+    }
+    public function callNavKonten() {
+        $data_nav = $this->Main_model->getHeaderData();
+        foreach ($data_nav as $data) :
+        $this->setnavkonten($data['id_menu'], $data['child'], $data['link'], $data['nama_menu'], $data['status'], $data['level']);
+        endforeach; 
+        #set session data navbar
+        $session = [
+            'data_nav' => $this->nav_konten
+        ];
+        $this->session->set_userdata($session);
+        
     }
     private function setnavkonten($parentid, $child,$link,$namamenu, $status, $x) {
         if ($status == "Aktif") {
@@ -161,11 +165,12 @@ class Home_user extends CI_Controller
         $this->load->view('guest/detail_video', $page_data);
         $this->load->view('template/footer');
     }
+    
     public function index_berita($filter) {
-        redirect(base_url().'all_index/index_berita/'.$filter);
+        redirect(base_url().'all_index/search_index/index_berita/'.$filter);
     }
     public function index_agenda() {
-        redirect(base_url().'all_index/index_agenda');
+        redirect(base_url().'all_index/search_index/index_agenda');
     }
     public function index_foto() {
         redirect(base_url().'all_index/index_foto');

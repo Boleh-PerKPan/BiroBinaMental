@@ -14,11 +14,12 @@
                     </div>
                     <div class="card-body col-md-10 ">
                         <h5><?=$data['judul']?></h5>
-                        <small>
+                        <p><small>
                             <i class="fas fa-user"></i> <?=$data['nama_lengkap']?> &nbsp; &nbsp;
                             <i class="fas fa-calendar-alt"></i> Tahun Berkas : <?=$data['tahun_berkas']?> &nbsp; &nbsp;
                             <i class="fas fa-calendar-alt"></i> Tanggal Publish : <?=$data['tanggal_publish']?> &nbsp; &nbsp;
-                        </small>
+                        </small></p>
+                        <a href="<?=base_url()?>assets/img/<?=$data['nama_file']?>" download class="btn btn-danger" role="button" style="height:28px; padding-top:0px; margin-top:6px;"><small>Download File Ini</small></a>
                     </div>
                     <hr>
                 </div>
