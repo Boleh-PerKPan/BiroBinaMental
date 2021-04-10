@@ -60,7 +60,8 @@ class Posts_tambah extends CI_Controller
     public function tambah_user()
     {
         if ($_SESSION['role'] == 1 || $_SESSION['role'] == 2) {
-            $data['role'] = $this->Posts_model->getRole();
+            $data['role'] = $_SESSION['role'];
+            $data['listrole'] = $this->Posts_model->getRole();
             $data['instansi'] = $this->Posts_model->getInstansi();
 
             $this->form_validation->set_rules('name', 'nama instansi', 'required');
