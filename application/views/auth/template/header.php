@@ -16,4 +16,5 @@
     <!-- Custom styles for this template -->
     <link href="signin.css" rel="stylesheet">
 </head>
-    <body class="text-center">
+
+<body class="text-center" style="background: linear-gradient(90deg, rgb(73, 191, 165) , rgb(213, 241, 160));">
