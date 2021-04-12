@@ -45,7 +45,7 @@
 
                             <select class="form-control" id="role" name="role">
 
-                                <?php foreach ($role as $listrole) { ?>
+                                <?php foreach ($listrole as $listrole) { ?>
                                     <option value="<?= $listrole['id_role'] ?>"><?php echo $listrole['nama_role'] ?></option>
                                 <?php } ?>
 
