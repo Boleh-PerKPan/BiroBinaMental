@@ -24,7 +24,7 @@
         <tbody>
             <?php foreach ($posts as $post) : ?>
                 <tr>
-                    <td scope="row"><i class="<?= $post['icon'] ?>"></i><?= $post['nama_menu'] ?></td>
+                    <td scope="row"><i class="<?= $post['icon'] ?>"></i> <?= $post['nama_menu'] ?></td>
                     <td scope="row"><?= $post['link'] ?></td>
                     <td scope="row"><?= $post['order_no'] ?></td>
                     <td scope="row"><?= $post['status'] ?></td>
