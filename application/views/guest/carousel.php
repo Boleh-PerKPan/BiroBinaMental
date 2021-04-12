@@ -5,7 +5,7 @@
                 <?php 
                 if ($data_carousel==null) {
                    $data_carousel[] = array(
-                       'nama_file' => 'default.png',
+                       'nama_file' => 'dont-delete-this-folder/default.png',
                        'text' => 'Biro Bina Mental dan Kesejahteraan Rakyat Sumbar'
                    );
                 }

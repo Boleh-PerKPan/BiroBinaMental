@@ -7,7 +7,11 @@
             }?>
             <?php foreach($berita_utama as $data) : ?>
             <div class="card mb-3 new-panel">
-                <img src="<?= base_url() ?>assets/img/<?=$data['nama_file']?>" class="card-img-top" >
+            <?php 
+                if (isset($data['nama_file'])) { ?>
+                    <img src="<?= base_url() ?>assets/img/<?=$data['nama_file']?>" class="card-img-top" >
+                <?php  } ?>
+                
                 <div class="card-body">
                     <h5 class="card-title"><?= $data['judul']?></h5>
                     <p style="text-align:right" class="article-item">
@@ -31,6 +35,11 @@
                 }?>
                 <?php foreach($berita_terkait as $data) : ?>
                     <div class="row no-gutters" style="max-height: 25rem;">
+                    <?php 
+                        if ($data['nama_file']==null) {
+                            $data['nama_file'] = 'dont-delete-this-folder/default.png';
+                      
+                        } ?>
                         <div class="col-md-2">
                             <img src="<?= base_url() ?>assets/img/<?=$data['nama_file']?>" style="height:5rem; width : 5rem; margin:1rem;">
                         </div>

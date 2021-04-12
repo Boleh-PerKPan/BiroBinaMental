@@ -12,6 +12,11 @@
             foreach ($page_data as $data) : ?>
                 <div class="row no-gutters" style="max-height: 25rem;">
                     <div class="col-md-2">
+                        <?php 
+                        if ($data['nama_file']==null) {
+                            $data['nama_file'] = 'dont-delete-this-folder/default.png';
+                      
+                        } ?>
                         <img src="<?= base_url()?>assets/img/<?=$data['nama_file']?>" style="height:150px; width : 150px; margin:1rem;" alt="...">
                     </div>
                     <div class="col-md-10">

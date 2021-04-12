@@ -1,16 +1,16 @@
     <!--penutup div clas container pada header.php-->
     </div>
     </main>
-    <footer>
+    <footer >
         <div class="new-panel row" style="padding-left: 5rem; padding-right: 5rem; padding-top:1rem">
             <div class="col">
                 <p style="font-size:13px"><b>Tentang Kami</b></p>
                 <p>Alamat Kantor <br>Padang Pasir, Kec. Padang Barat, Kota Padang, Sumatera Barat </p>
                 <p>Email : xxx@xmail.com <br>Fax : (0751) <br>Phone Numbers : (0751)</p>
             </div>
-            <div class="col-6 offset-md-1">
+            <!-- <div class="col-6 offset-md-1">
                 <p>col 2</p>
-            </div>
+            </div> -->
             <div class="col">
                 <p style="font-size:13px"><b>Sites Link</b></p>
                 <p>

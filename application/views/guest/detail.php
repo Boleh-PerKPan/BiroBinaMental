@@ -3,7 +3,10 @@
                 <h4 class="nav-style"><?=$judul?></h4>
             </div>
             <div class="card mb-3 new-panel">
-                <img src="<?= base_url() ?>assets/img/<?=$nama_file_gambar?>" class="card-img-top w-75 m-auto mt-lg-3" alt="...">
+            <?php 
+                if (isset($nama_file_gambar)) { ?>
+                    <img src="<?= base_url() ?>assets/img/<?=$nama_file_gambar?>" class="card-img-top w-75 m-auto mt-lg-3" alt="...">
+                <?php  } ?>
                 <div class="card-body">    
                     <p style="text-align:center" class="article-item">
                         <?php if(isset($tanggal_pelaksanaan)) {

@@ -40,6 +40,7 @@ class GetAll_model extends CI_Model
     }
     public function getAllAgenda($limit, $start, $judul) {
         return $this->db
+                    ->select('*, SUBSTRING(isi,1,200) as isi')
                     ->join('galeri_konten', 'galeri_konten.id_galeri_konten = agenda.id_galeri_konten')
                     ->join('user', 'user.id_user = agenda.id_user')
                     ->where('agenda.status', 'Publish')
