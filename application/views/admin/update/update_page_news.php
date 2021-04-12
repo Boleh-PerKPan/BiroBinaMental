@@ -23,7 +23,7 @@
                             <label for="isi">Isi </label>
                             <textarea class="form-control" name="isi" id="isi" cols="30" rows="10"><?= $post['judul'] ?></textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary">Confirm</button>
+                        <button type="submit" class="btn btn-primary">Edit</button>
                         <input class="btn btn-primary" type="reset" value="Reset">
                         <a class="btn btn-primary" href="<?= base_url() ?>home_admin/manage_page_news">Kembali</a>
                     </form>

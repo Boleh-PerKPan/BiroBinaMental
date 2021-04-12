@@ -20,7 +20,7 @@
 
                             </select>
                         </div>
-                        <button type="submit" class="btn btn-primary">Update</button>
+                        <button type="submit" class="btn btn-primary">Edit</button>
                         <input class="btn btn-primary" type="reset" value="Reset">
                         <a class="btn btn-primary" href="<?= base_url() ?>home_admin/manage_instansi">Kembali</a>
                     </form>

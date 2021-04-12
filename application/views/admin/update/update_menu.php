@@ -8,7 +8,7 @@
                     <div class="card-body">
                         <h4 class="text-md-center"><?= $judul ?></h4>
                         <div class="form-group">
-                            <label for="name">Menu Name</label>
+                            <label for="name">Nama Menu</label>
                             <input type="text" name="name" class="form-control form-control-sm" id="name" value="<?= $post['nama_menu'] ?>">
                             <?= form_error('name', '<small class="pl-3 text-danger">', '</small>') ?>
                         </div>
@@ -48,7 +48,7 @@
 
                             </select>
                         </div>
-                        <button type="submit" class="btn btn-primary" name="submit">Update</button>
+                        <button type="submit" class="btn btn-primary" name="submit">Edit</button>
                         <input class="btn btn-primary" type="reset" value="Reset">
                         <a class="btn btn-primary" href="<?= base_url() ?>home_admin/manage_menu">Kembali</a>
                     </div>

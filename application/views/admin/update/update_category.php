@@ -6,7 +6,7 @@
                     <h4><?= $judul ?></h4>
                     <form action="" method="POST">
                         <div class="form-group">
-                            <label for="name">Nama Category</label>
+                            <label for="name">Nama Kategori</label>
                             <input type="text" name="name" class="form-control form-control-sm" id="name" value="<?= $post['nama_artikel_kategori'] ?>">
                             <?= form_error('name', '<small class="pl-3 text-danger">', '</small>') ?>
                         </div>
@@ -20,7 +20,7 @@
 
                             </select>
                         </div>
-                        <button type="submit" class="btn btn-primary">Confirm</button>
+                        <button type="submit" class="btn btn-primary">Edit</button>
                         <input class="btn btn-primary" type="reset" value="Reset">
                         <a class="btn btn-primary" href="<?= base_url() ?>home_admin/manage_category">Kembali</a>
                     </form>

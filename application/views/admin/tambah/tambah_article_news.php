@@ -16,7 +16,7 @@
                             <?= form_error('judul', '<small class="pl-3 text-danger">', '</small>') ?>
                         </div>
                         <div class="form-group">
-                            <label for="exampleFormControlSelect1">Category </label>
+                            <label for="exampleFormControlSelect1">Kategori </label>
 
                             <select class="form-control" id="kategori" name="kategori">
 
@@ -37,7 +37,7 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="gambar">Image </label>
+                            <label for="gambar">Gambar </label>
                             <input type="file" class="form-control" name="gambar" required>
                         </div>
 

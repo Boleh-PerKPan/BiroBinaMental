@@ -20,7 +20,7 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="gambar">Image </label>
+                            <label for="gambar">Gambar </label>
                             <input type="file" class="form-control" name="gambar" required>
                         </div>
                         <button type="submit" class="btn btn-primary">Daftar</button>

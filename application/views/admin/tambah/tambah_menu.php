@@ -5,7 +5,7 @@
                 <div class="card-body">
                     <form action="" method="POST">
                         <div class="form-group">
-                            <label for="name">Menu Name</label>
+                            <label for="name">Nama Menu</label>
                             <input type="text" name="name" class="form-control form-control-sm" id="name" value="<?= set_value('name') ?>">
                             <?= form_error('name', '<small class="pl-3 text-danger">', '</small>') ?>
                         </div>
@@ -19,7 +19,7 @@
                             <?= form_error('icon', '<small class="pl-3 text-danger">', '</small>') ?>
                         </div>
                         <div class="form-group">
-                            <label for="order_no">Order No.</label>
+                            <label for="order_no">Nomor Order</label>
                             <input type="text" class="form-control form-control-sm" value="<?= $order_no ?>" disabled>
                             <input type="hidden" name="order_no" class="form-control form-control-sm" id="order_no" value="<?= $order_no ?>">
                         </div>

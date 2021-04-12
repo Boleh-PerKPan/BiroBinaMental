@@ -16,7 +16,7 @@
                             <?= form_error('judul', '<small class="pl-3 text-danger">', '</small>') ?>
                         </div>
                         <div class="form-group">
-                            <label for="exampleFormControlSelect1">Category </label>
+                            <label for="exampleFormControlSelect1">Kategori </label>
 
                             <select class="form-control" id="kategori" name="kategori">
 
@@ -42,7 +42,7 @@
                             <textarea class="form-control" name="isi" id="isi" cols="30" rows="10"><?= $post['isi'] ?></textarea>
                         </div>
 
-                        <button type="submit" class="btn btn-primary">Confirm</button>
+                        <button type="submit" class="btn btn-primary">Edit</button>
                         <input class="btn btn-primary" type="reset" value="Reset">
                         <a class="btn btn-primary" href="<?= base_url() ?>home_admin/manage_article_news">Kembali</a>
                     </form>

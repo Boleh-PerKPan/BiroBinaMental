@@ -20,7 +20,7 @@
                             <?= form_error('judul', '<small class="pl-3 text-danger">', '</small>') ?>
                         </div>
                         <div class="form-group">
-                            <label for="file_upload">File Upload </label>
+                            <label for="file_upload">Unggah File </label>
                             <input type="file" class="form-control" name="file_upload" size="50" required>
                         </div>
                         <div class="form-group">

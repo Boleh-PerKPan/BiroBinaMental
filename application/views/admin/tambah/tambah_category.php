@@ -5,7 +5,7 @@
                 <div class="card-body">
                     <form action="" method="POST">
                         <div class="form-group">
-                            <label for="name">Nama Category</label>
+                            <label for="name">Nama Kategori</label>
                             <input type="text" name="name" class="form-control form-control-sm" id="name" value="<?= set_value('name') ?>">
                             <?= form_error('name', '<small class="pl-3 text-danger">', '</small>') ?>
                         </div>

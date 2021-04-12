@@ -11,12 +11,12 @@
                             <?= form_error('judul', '<small class="pl-3 text-danger">', '</small>') ?>
                         </div>
                         <div class="form-group">
-                            <label for="tanggal_pelaksanaan">Date Implementation</label>
+                            <label for="tanggal_pelaksanaan">Tannggal Pelaksanaan</label>
                             <input type="datetime-local" name="tanggal_pelaksanaan" class="form-control form-control-sm" id="tanggal_pelaksanaan" value="<?= set_value('tanggal_pelaksanaan') ?>" required>
                             <?= form_error('tanggal_pelaksanaan', '<small class="pl-3 text-danger">', '</small>') ?>
                         </div>
                         <div class="form-group">
-                            <label for="tempat_pelaksanaan">Location</label>
+                            <label for="tempat_pelaksanaan">Tempat Pelaksanaan</label>
                             <input type="text" name="tempat_pelaksanaan" class="form-control form-control-sm" id="tempat_pelaksanaan" value="<?= set_value('tempat_pelaksanaan') ?>">
                             <?= form_error('tempat_pelaksanaan', '<small class="pl-3 text-danger">', '</small>') ?>
                         </div>
@@ -30,7 +30,7 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="gambar">Image </label>
+                            <label for="gambar">Gambar </label>
                             <input type="file" class="form-control" name="gambar" required>
                         </div>
 
