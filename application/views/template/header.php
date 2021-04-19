@@ -34,7 +34,7 @@
                     </div>
                     <form method="post" class="form-inline my-2 my-lg-0 "  action="<?=base_url()?>all_index/search_index">
                         <input class="form-control mr-sm-2" type="search" name="judul" placeholder="Cari Judul" aria-label="Search">
-                        <button class="btn btn-outline-success my-2 my-sm-0" type="cari" name="cari"><i class="fas fa-search"></i></button>
+                        <button class="btn btn-outline-light my-2 my-sm-0" type="cari" name="cari"><i class="fas fa-search"></i></button>
                     </form>
                 </div>
             </div>    
@@ -59,7 +59,7 @@
                         </div>
                         <form method="post" class="form-inline my-2 my-lg-0 "  action="<?=base_url()?>all_index/search_index">
                             <input class="form-control mr-sm-2" type="search" name="judul" placeholder="Cari Judul" aria-label="Search">
-                            <button class="btn btn-outline-success my-2 my-sm-0" type="cari" name="cari"><i class="fas fa-search"></i></button>
+                            <button class="btn btn-outline-light my-2 my-sm-0" type="cari" name="cari"><i class="fas fa-search"></i></button>
                         </form>
                     </div> 
                 </div>

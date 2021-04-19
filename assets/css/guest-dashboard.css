@@ -78,6 +78,12 @@ hr {
 	background-color: rgb(96, 89, 247);
 	color: black;
 }
+
+.btn-outline-light:hover {
+	background-color: #e01414;
+	border: 1px solid #e01414;
+	color: white;
+}
 #upBtn {
 	display: none;
 	position: fixed;
