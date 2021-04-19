@@ -1,8 +1,4 @@
 
-    <div class="new-panel">
-        <div>
-            <h4 class="nav-style">Index Download</h4>
-        </div>
         <div class="card new-panel " >
             <?php if ($page_data == null) {
                 echo 'Belum ada file download';
@@ -28,7 +24,4 @@
                 <?=$this->pagination->create_links(); ?>
             </div>
         </div>
-      
-    </div>
-
-    <?php
+  

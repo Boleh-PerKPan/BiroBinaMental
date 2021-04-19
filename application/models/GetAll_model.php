@@ -55,12 +55,7 @@ class GetAll_model extends CI_Model
                     ->from('agenda')
                     ->count_all_results();
     }
-    public function getAllArtikelKategori() {
-        return $this->db
-                    ->where('artikel_kategori.status', 'Aktif')
-                    ->get('artikel_kategori')
-                    ->result_array();
-    }
+    
     public function getAllVideo($limit, $start, $text) {
         return $this->db
                     ->where('status', 'Publish')

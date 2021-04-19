@@ -1,43 +1,12 @@
     <div class="col-md-4 offset-md-0 new-panel">
-        <div id="galery">
+        <div id="gub_wagub_pic">
             <div>
-                <a href="<?= base_url()?>home_user/index_foto"><h4 class="nav-style">Foto</h4></a>
+                <a href="<?= base_url()?>home_user/index_foto"><h4 class="nav-style">Gubernur Dan Wakil</h4></a>
             </div>
-            <div id="carousel-galery" class="carousel slide new-panel" data-ride="carousel">
-                <div class="carousel-inner" style="">
-                        <?php if ($data_foto==null) {
-                            $data_foto[] = array(
-                                'nama_file' => 'dont-delete-this-folder/default.png',
-                                'text' => 'Biro Bina Mental dan Kesejahteraan Rakyat Sumbar'
-                            );
-                        }
-                        $row = 1;
-                        foreach ($data_foto as $data) :?>
-                            <?php if ($row == 1) { ?>
-                                <div class="carousel-item active">
-                            <?php $row = $row+1; 
-                            }else { ?>
-                                <div class="carousel-item">
-                            <?php } ?>
-                                <img src="<?= base_url() ?>assets/img/<?=$data['nama_file']?>" class="d-block w-100" style="max-height:20rem">
-                                </div>
-                        <?php endforeach; ?>
-                    
-                </div>
-                <a class="carousel-control-prev" href="#carousel-galery" role="button" data-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-                <a class="carousel-control-next" href="#carousel-galery" role="button" data-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
-                </a>
-                
+            <div id="carousel-galery" class="new-panel" >
+                <img src="<?=base_url()?>assets/img/6073a7af9b5c3.jpg" width="100%">
             </div>
             <hr>
-            <div style="margin: auto; margin-bottom:1rem;">
-                <a href="<?=base_url()?>home_user/index_foto" role="button" class="btn my-btn">Foto Lainnya &raquo;</a>
-            </div>
         </div>
         <div id="video">
             <div class="new-panel">
@@ -86,21 +55,32 @@
                 <a href="<?=base_url()?>home_user/index_agenda" role="button" class="btn my-btn">Agenda Lainnya &raquo;</a>
             </div>
         </div>
-        <div class="" id="kategori">
-            <div class="new-panel">
-                <h4 class="nav-style">Kategori Berita</h4>
-            </div>
-            <div class="card new-panel" style="">
-                <div class="card-body">
-                <?php if ($allkategori == null) {
-                    echo 'Belum ada kategori';
-                } ?>
-                <?php foreach ($allkategori as $data) :  ?>
-                    <a href="<?=base_url()?>home_user/index_berita/<?=$data['id_artikel_kategori']?>" class="my-btn"><small> <?=$data['nama_artikel_kategori']?></small> </a>&nbsp;
-                <?php endforeach; ?>
-                </div>
-            </div>
-        </div>
+        
     </div>
 <!--tutup clas row pada carousel.php-->
 </div>
+<!-- konten ini diluar colomn -->
+<div class="new-panel">
+    <div>
+        <a href="<?= base_url()?>home_user/index_foto"><h4 class="nav-style">Foto</h4></a>
+    </div>
+    <div id="foto" class="row new-panel">
+        <?php if ($data_foto==null) {
+            $data_foto[] = array(
+                'nama_file' => 'dont-delete-this-folder/default.png',
+                'text' => 'Biro Bina Mental dan Kesejahteraan Rakyat Sumbar'
+            );
+        } ?>
+
+        <?php foreach ($data_foto as $data) :?>
+            <div class="row m-3 d-flex align-items-center flex-column">
+                <img src="<?= base_url() ?>assets/img/<?=$data['nama_file']?>" class="d-block w-100" style="max-width:20rem; border: 2px solid #555;">
+            </div>
+        <?php endforeach; ?>
+    </div>
+    <hr>
+    <div style="margin-bottom:1rem;" class="d-flex align-items-center flex-column">
+        <a href="<?=base_url()?>home_user/index_foto" role="button" class="btn my-btn">Foto Lainnya &raquo;</a>
+    </div>
+</div>
+        
