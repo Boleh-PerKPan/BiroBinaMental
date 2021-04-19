@@ -153,8 +153,7 @@ class Home_user extends CI_Controller
         foreach ($data as $value) {
             $page_data = array(
                 'judul' => $value['judul'],
-                'isi' => $value['isi'],
-                'nama_file_image' => $value['nama_file']
+                'isi' => $value['isi']
             );
         }
         $header_data = [

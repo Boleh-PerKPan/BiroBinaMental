@@ -3,8 +3,8 @@
             <div>
                 <a href="<?= base_url()?>home_user/index_foto"><h4 class="nav-style">Gubernur Dan Wakil</h4></a>
             </div>
-            <div id="carousel-galery" class="new-panel" >
-                <img src="<?=base_url()?>assets/img/6073a7af9b5c3.jpg" width="100%">
+            <div id="carousel-galery" class="new-panel" style="margin:30px 10px 20px">
+                <img src="<?=base_url()?>assets/img/dont-delete-this-folder/content-pimpinan2021-removebg-preview.png" width="100%">
             </div>
             <hr>
         </div>
