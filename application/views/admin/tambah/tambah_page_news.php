@@ -20,10 +20,6 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="gambar">Gambar </label>
-                            <input type="file" class="form-control" name="gambar" required>
-                        </div>
-                        <div class="form-group">
                             <label for="isi">Isi </label>
                             <textarea class="form-control" name="isi" id="isi" cols="30" rows="10"></textarea>
                         </div>
