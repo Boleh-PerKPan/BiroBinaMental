@@ -12,7 +12,6 @@
     <table class="table table-striped">
         <thead>
             <tr>
-                <th scope="col">Title</th>
                 <th scope="col">Created by</th>
                 <th scope="col">Thumbnail</th>
                 <th scope="col">Hits</th>
@@ -24,7 +23,6 @@
         <tbody>
             <?php foreach ($posts as $post) : ?>
                 <tr>
-                    <td scope="row"><?= $post['text'] ?></td>
                     <td scope="row"><?= $post['nama_lengkap'] ?></td>
                     <td><img src="<?= base_url() ?>assets/img/<?= $post['nama_file'] ?>" alt="image" height="50px" width="80px"></td>
                     <td scope="row"><?= $post['hits'] ?></td>

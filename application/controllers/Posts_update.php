@@ -53,7 +53,10 @@ class Posts_update extends CI_Controller
                 $this->load->view('admin/tambah/sub_modul/tambah_menu', $data);
                 $this->load->view('admin/template/footer');
             } else {
-                $this->Posts_model->tambahPostSubMenu($id);
+                $level = $this->Posts_model->getMenuId($id);
+                $level['level'] = $level['level'] + 1;
+
+                $this->Posts_model->tambahPostSubMenu($id, $level);
                 $this->session->set_flashdata('pesan', 'ditambahkan');
                 redirect(base_url() . "home_admin/manage_menu");
             }
@@ -109,10 +112,11 @@ class Posts_update extends CI_Controller
     public function Update_user($id)
     {
         if ($_SESSION['role'] == 1 || $_SESSION['role'] == 2) {
+            $data['listrole'] = $this->Posts_model->getRole();
             $data['role'] = $_SESSION['role'];
             $data['judul'] = "Update User";
             $data['post'] = $this->Posts_model->getUserId($id);
-            $data['instansi'] = $this->Posts_model->getInstansi();
+            $data['instansi'] = $this->Posts_model->getInstansiForUser();
 
             $this->form_validation->set_rules('name', 'nama instansi', 'required');
             $this->form_validation->set_rules('email', 'email', 'required');

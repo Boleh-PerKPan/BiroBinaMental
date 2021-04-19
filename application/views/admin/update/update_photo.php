@@ -5,11 +5,6 @@
                 <div class="card-body">
                     <form action="" method="POST" enctype="multipart/form-data">
                         <div class="form-group">
-                            <label for="judul">Judul</label>
-                            <input type="text" name="judul" class="form-control form-control-sm" id="judul" value="<?= $post['text'] ?>">
-                            <?= form_error('judul', '<small class="pl-3 text-danger">', '</small>') ?>
-                        </div>
-                        <div class="form-group">
                             <label for="exampleFormControlSelect1">Status </label>
 
                             <select class="form-control" id="status" name="status">

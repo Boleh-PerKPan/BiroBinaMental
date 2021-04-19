@@ -14,7 +14,6 @@
             <tr>
                 <th scope="col">Title</th>
                 <th scope="col">Created by</th>
-                <th scope="col">Thumbnail</th>
                 <th scope="col">Status</th>
                 <th scope="col">Action</th>
                 <th scope="col">#id</th>
@@ -25,7 +24,6 @@
                 <tr>
                     <td scope="row"><?= $post['judul'] ?></td>
                     <td scope="row"><?= $post['nama_lengkap'] ?></td>
-                    <td><img src="<?= base_url() ?>assets/img/<?= $post['nama_file'] ?>" alt="image" height="50px" width="80px"></td>
                     <td scope="row"><?= $post['status'] ?></td>
                     <td scope="row">
                         <a href="#" class="btn btn-outline-dark dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">action</a>
