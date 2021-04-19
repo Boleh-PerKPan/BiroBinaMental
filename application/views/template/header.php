@@ -41,7 +41,7 @@
         </div>
         <!-- Main Navbar -->
         <div>
-            <a href="<?=base_url()?>home_user"  class="row nav-style" style="font-size:14px; font-family: 'Trebuchet MS', sans-serif; padding: 10px 20px 10px; ">
+            <a href="<?=base_url()?>"  class="row nav-style" style="font-size:14px; font-family: 'Trebuchet MS', sans-serif; padding: 10px 20px 10px; ">
                 <img src="<?= base_url()?>assets/img/dont-delete-this-folder/sumbarprof_logo.ico" style="float:left; max-height: 55px; margin-left:20px">    
                 <p class="col-sm-11 offset-0" >
                     Biro Bina Mental Dan Kesra <br>Setda Sumatera Barat

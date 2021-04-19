@@ -79,8 +79,6 @@
         <?php endforeach; ?>
     </div>
     <hr>
-    <div style="margin-bottom:1rem;" class="d-flex align-items-center flex-column">
-        <a href="<?=base_url()?>home_user/index_foto" role="button" class="btn my-btn">Foto Lainnya &raquo;</a>
-    </div>
+   
 </div>
         
