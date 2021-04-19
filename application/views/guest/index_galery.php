@@ -1,7 +1,4 @@
-<div>
-    <div class="new-panel">
-        <h4 class="nav-style"><?=$title?></h4>
-    </div>
+
     <div class="new-panel row row-cols-1">
         <?php 
         if ($page_data == null) {
@@ -16,10 +13,11 @@
                         <iframe width="500px" height="300px" class="m-auto"  src="https://www.youtube.com/embed/<?=$data['nama_file']?>">
                         </iframe>
                         <a href="<?=base_url()?>home_user/show_video/<?=$data['id_galeri_konten']?>" style="text-align:right; "><small>Lihat video ini  &raquo; &nbsp; </small></a>
+                        <div class="card-body ">
+                            <h5 class="card-title" style="max-width: 30rem; margin:auto; text-align: center;"><?=$data['text']?></h5>
+                        </div>
                     <?php }?> 
-                    <div class="card-body nav-style">
-                        <h5 class="card-title" style="max-width: 30rem; margin:auto; text-align: center;"><?=$data['text']?></h5>
-                    </div>
+                    
                 </div>
             </div>
         <?php endforeach; ?>
@@ -28,4 +26,3 @@
     <div style="margin-bottom:1rem; text-align:center">
         <?=$this->pagination->create_links(); ?>
     </div>
-</div>

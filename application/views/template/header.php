@@ -22,8 +22,8 @@
 <body>
     <i onclick="topFunction()" id="upBtn" class="fas fa-chevron-up" title="Go to top"></i>
         
-    <header>
-        <div class="navbar navbar-expand-lg navbar-light bg-warning nav-style" id="navScroll">
+    <header >
+        <div class="navbar navbar-expand-lg navbar-dark bg-nav" id="navScroll">
             <div class="container">
                 <button class="navbar-toggler navbar-toggler-icon" type="button" id="navbardrop" data-toggle="collapse" data-target="#navnav" aria-controls="navnav" aria-expanded="false" >
                     <span></span>
@@ -34,48 +34,36 @@
                     </div>
                     <form method="post" class="form-inline my-2 my-lg-0 "  action="<?=base_url()?>all_index/search_index">
                         <input class="form-control mr-sm-2" type="search" name="judul" placeholder="Cari Judul" aria-label="Search">
-                        <select id="filterby" name="filterby" class="btn form-control mr-sm-2">
-                                <option value="index_berita">Berita</option>
-                                <option value="index_agenda">Agenda</option>
-                                <option value="index_foto">Foto</option>
-                                <option value="index_video">Video</option>
-                                <option value="index_upload">File Download</option>
-                        </select>
                         <button class="btn btn-outline-success my-2 my-sm-0" type="cari" name="cari"><i class="fas fa-search"></i></button>
                     </form>
                 </div>
             </div>    
         </div>
         <!-- Main Navbar -->
-        <div class="container ">
-            <a href="<?=base_url()?>home_user" >
-                <h5 class="nav-style" style="font-family: 'Trebuchet MS', sans-serif; padding-top:15px; padding-left:20px; ">
-                    <img src="<?= base_url()?>assets/img/dont-delete-this-folder/sumbarprof_logo.ico" style="width:30px">
-                    Biro Bina Mental Dan Kesejahteraan Rakyat Sumatera Barat
-                </h5>
+        <div>
+            <a href="<?=base_url()?>home_user"  class="row nav-style" style="font-size:14px; font-family: 'Trebuchet MS', sans-serif; padding: 10px 20px 10px; ">
+                <img src="<?= base_url()?>assets/img/dont-delete-this-folder/sumbarprof_logo.ico" style="float:left; max-height: 55px; margin-left:20px">    
+                <p class="col-sm-11 offset-0" >
+                    Biro Bina Mental Dan Kesra <br>Setda Sumatera Barat
+                </p>
             </a>
             
-            <nav class="navbar navbar-expand-lg navbar-light bg-warning nav-style" id="mainNav">
-                <button class="navbar-toggler navbar-toggler-icon" type="button" id="navbardrop" data-toggle="collapse" data-target="#navnav" aria-controls="navnav" aria-expanded="false" >
-                    <span></span>
-                </button>
-                <div id="navnav" class="collapse navbar-collapse">
-                    <div class="navbar-nav mr-auto" id="nav-konten">
-                        <?=$nav_konten;?>
-                    </div>
-                    <form method="post" class="form-inline my-2 my-lg-0 "  action="<?=base_url()?>all_index/search_index">
-                        <input class="form-control mr-sm-2" type="search" name="judul" placeholder="Cari Judul" aria-label="Search">
-                        <select id="filterby" name="filterby" class="btn form-control mr-sm-2">
-                                <option value="index_berita">Berita</option>
-                                <option value="index_agenda">Agenda</option>
-                                <option value="index_foto">Foto</option>
-                                <option value="index_video">Video</option>
-                                <option value="index_upload">File Download</option>
-                        </select>
-                        <button class="btn btn-outline-success my-2 my-sm-0" type="cari" name="cari"><i class="fas fa-search"></i></button>
-                    </form>
-                </div> 
-            </nav>
+            <div class="navbar navbar-expand-lg navbar-dark bg-nav" id="mainNav">
+                <div class="container">
+                    <button class="navbar-toggler navbar-toggler-icon" type="button" id="navbardrop" data-toggle="collapse" data-target="#navnav" aria-controls="navnav" aria-expanded="false" >
+                        <span></span>
+                    </button>
+                    <div id="navnav" class="collapse navbar-collapse">
+                        <div class="navbar-nav mr-auto" id="nav-konten">
+                            <?=$nav_konten;?>
+                        </div>
+                        <form method="post" class="form-inline my-2 my-lg-0 "  action="<?=base_url()?>all_index/search_index">
+                            <input class="form-control mr-sm-2" type="search" name="judul" placeholder="Cari Judul" aria-label="Search">
+                            <button class="btn btn-outline-success my-2 my-sm-0" type="cari" name="cari"><i class="fas fa-search"></i></button>
+                        </form>
+                    </div> 
+                </div>
+            </div>
         </div>
     </header>
 

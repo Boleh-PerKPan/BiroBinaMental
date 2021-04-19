@@ -24,18 +24,10 @@ class Main_model extends CI_Model
                     ->get('extrapage_news')
                     ->result_array();
     }
-    public function getAnotherExtraPage($id) {
-        return $this->db
-                    ->join('galeri_konten', 'galeri_konten.id_galeri_konten = extrapage_news.id_galeri_konten')
-                    ->where('id_extrapage !=', $id)
-                    ->where('id_extrapage', 'Publish')
-                    ->get('extrapage_news')
-                    ->result_array();
-    }
+   
     public function getBeritaUtama() {
         return $this->db
                     ->select("*, SUBSTRING(isi,1,200) as isi")
-                    ->where('nama_artikel_kategori', 'Berita Utama')
                     ->where('artikel_berita.status', 'Publish')
                     ->join('galeri_konten', 'galeri_konten.id_galeri_konten = artikel_berita.id_galeri_konten')
                     ->join('artikel_kategori', 'artikel_kategori.id_artikel_kategori = artikel_berita.id_artikel_kategori')
@@ -89,7 +81,7 @@ class Main_model extends CI_Model
                     ->where('status', 'Publish')
                     ->where('id_galeri_kategori', 2)
                     ->order_by('id_galeri_konten', 'DESC')
-                    ->get('galeri_konten', 4)
+                    ->get('galeri_konten', 6)
                     ->result_array();
     }
     public function getLastVideo() {

@@ -27,10 +27,10 @@ class Home_user extends CI_Controller
                 $berita_utama['berita_terkait'] = $this->Main_model->getBeritaTerkait($row['id_artikel_berita']);
             }
         }
-        $sidebar_data['allkategori'] = $this->GetAll_model->getAllArtikelKategori();
         $sidebar_data['data_foto'] = $this->Main_model->getCarouselFoto();
         $sidebar_data['data_video'] = $this->Main_model->getLastVideo();
         $sidebar_data['data_agenda'] = $this->Main_model->getAgendaTerkait();
+        $berita_utama['data_foto'] = $sidebar_data['data_foto'];
         $header_data = [
             'nav_konten' => $_SESSION['data_nav'],
             'title' => 'Biro Bina Mental Dan Kesra',
@@ -56,6 +56,7 @@ class Home_user extends CI_Controller
     }
     function killAllSess() {
         $this->session->unset_userdata('data_nav');
+        redirect('home_user');
     }
     private function setnavkonten($parentid, $child,$link,$namamenu, $lv) {
         if ($child == 0 && $lv == 0) {
@@ -136,11 +137,6 @@ class Home_user extends CI_Controller
                 $page_data['kategori'] = $value['nama_artikel_kategori'];
             }
         }
-        if ($tabel == 'Berita') {
-            $page_data['artikel_terkait'] = $this->Main_model->getBeritaTerkait($page_data['id']);
-        } else {
-            $page_data['artikel_terkait'] = $this->Main_model->getAgendaTerkait($page_data['id']);
-        }
         
         $header_data = [
             'nav_konten' => $_SESSION['data_nav'],
@@ -158,8 +154,7 @@ class Home_user extends CI_Controller
             $page_data = array(
                 'judul' => $value['judul'],
                 'isi' => $value['isi'],
-                'nama_file_image' => $value['nama_file'],               
-                'info_terkait' => $this->Main_model->getAnotherExtraPage($value['id_extrapage'])
+                'nama_file_image' => $value['nama_file']
             );
         }
         $header_data = [

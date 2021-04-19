@@ -8,9 +8,10 @@
                 <p>Alamat Kantor <br>Padang Pasir, Kec. Padang Barat, Kota Padang, Sumatera Barat </p>
                 <p>Email : xxx@xmail.com <br>Fax : (0751) <br>Phone Numbers : (0751)</p>
             </div>
-            <!-- <div class="col-6 offset-md-1">
-                <p>col 2</p>
-            </div> -->
+            <div class="col offset-md-1">
+                <!-- BAGIAN INI DISEDIAKAN UNTUK PENAMBAHAN ITEM FOOTER
+                    <p>col 2</p> -->
+            </div>
             <div class="col">
                 <p style="font-size:13px"><b>Sites Link</b></p>
                 <p>

@@ -1,9 +1,5 @@
 
-    <div class="new-panel">
-        <div>
-            <h4 class="nav-style"><?=$title?></h4>
-        </div>
-        <div class="card new-panel" style="">
+        <div class="card new-panel">
             <?php 
             if ($page_data == null) {
                 echo 'Belum Ada Data';
@@ -55,18 +51,3 @@
             </div>
         </div>
         
-        <div id="kategori" style="margin-top:15px">
-            <hr>
-            <div class="new-panel">
-                <h4 class="nav-style">Kategori Berita</h4>
-            </div>
-            <div class="card new-panel" style="">
-                <div class="card-body">
-                    <a href="<?=base_url()?>home_user/index_berita/" class="my-btn"><small> Semua Kategori</small> </a>&nbsp;
-                    <?php foreach($kategori_data as $data) : ?>
-                        <a href="<?=base_url()?>home_user/index_berita/<?=$data['id_artikel_kategori']?>" class="my-btn"><small> <?=$data['nama_artikel_kategori']?></small> </a>&nbsp;
-                    <?php endforeach; ?>
-                </div>
-            </div>
-        </div>
-    </div>
