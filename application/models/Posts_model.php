@@ -18,12 +18,13 @@ class Posts_model extends CI_Model
         $this->db->insert('web_menu', $data);
     }
 
-    public function tambahPostSubMenu($id)
+    public function tambahPostSubMenu($id, $level)
     {
         $data['nama_menu'] = $this->input->post('name');
         $data['icon'] = $this->input->post('icon');
         $data['link'] = $this->input->post('link');
         $data['parent_id'] = $id;
+        $data['level'] = $level['level'];
         $data['status'] = $this->input->post('status');
         $data['order_no'] = $this->input->post('order_no');
         $this->db->insert('web_menu', $data);
@@ -102,6 +103,14 @@ class Posts_model extends CI_Model
     public function getInstansi()
     {
         return $this->db
+            ->get('user_instansi')
+            ->result_array();
+    }
+
+    public function getInstansiForUser()
+    {
+        return $this->db
+            ->where('status', 'Aktif')
             ->get('user_instansi')
             ->result_array();
     }
@@ -524,12 +533,11 @@ class Posts_model extends CI_Model
     //         ->row_array();
     // }
 
-    public function tambahPostPageNews($LastGaleriKonten, $userdata)
+    public function tambahPostPageNews($userdata)
     {
         $data['id_user'] = $userdata;
         $data['judul'] = $this->input->post('judul');
         $data['isi'] = $this->input->post('isi');
-        $data['id_galeri_konten'] = $LastGaleriKonten['id_galeri_konten'];
         $data['status'] = $this->input->post('status');
         $this->db->insert('extrapage_news', $data);
     }
@@ -538,13 +546,11 @@ class Posts_model extends CI_Model
     {
         return $this->db
             ->join('user', 'user.id_user = extrapage_news.id_user')
-            ->join('galeri_konten', 'galeri_konten.id_galeri_konten = extrapage_news.id_galeri_konten')
             ->select('extrapage_news.id_extrapage, 
                     extrapage_news.judul,
                     extrapage_news.isi,
                     extrapage_news.status,
-                    user.nama_lengkap,
-                    galeri_konten.nama_file')
+                    user.nama_lengkap')
             ->get('extrapage_news')
             ->result_array();
     }
@@ -554,13 +560,11 @@ class Posts_model extends CI_Model
     {
         return $this->db
             ->join('user', 'user.id_user = extrapage_news.id_user')
-            ->join('galeri_konten', 'galeri_konten.id_galeri_konten = extrapage_news.id_galeri_konten')
             ->select('extrapage_news.id_extrapage, 
                     extrapage_news.judul,
                     extrapage_news.isi,
                     extrapage_news.status,
-                    user.nama_lengkap,
-                    galeri_konten.nama_file')
+                    user.nama_lengkap')
             ->where('extrapage_news.id_extrapage', $id)
             ->get('extrapage_news')
             ->row_array();

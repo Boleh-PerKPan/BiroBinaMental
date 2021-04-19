@@ -4,10 +4,10 @@
             <div class="card">
                 <div class="card-body">
                     <form action="" method="POST" enctype="multipart/form-data">
+
                         <div class="form-group">
-                            <label for="judul">Judul</label>
-                            <input type="text" name="judul" class="form-control form-control-sm" id="judul" value="<?= set_value('judul') ?>">
-                            <?= form_error('judul', '<small class="pl-3 text-danger">', '</small>') ?>
+                            <label for="gambar">Gambar </label>
+                            <input type="file" class="form-control" name="gambar" required>
                         </div>
                         <div class="form-group">
                             <label for="exampleFormControlSelect1">Status </label>
@@ -18,10 +18,6 @@
                                 <option value="Non-Publish" selected="selected">Non-Publish</option>
 
                             </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="gambar">Gambar </label>
-                            <input type="file" class="form-control" name="gambar" required>
                         </div>
                         <button type="submit" class="btn btn-primary">Daftar</button>
                         <input class="btn btn-primary" type="reset" value="Reset">

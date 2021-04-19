@@ -42,11 +42,11 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="exampleFormControlSelect1">Group User </label>
+                            <label for="exampleFormControlSelect1">Grup User </label>
 
                             <select class="form-control" id="role" name="role">
 
-                                <?php foreach ($role as $listrole) { ?>
+                                <?php foreach ($listrole as $listrole) { ?>
                                     <option value="<?= $listrole['id_role'] ?>"><?php echo $listrole['nama_role'] ?></option>
                                 <?php } ?>
 

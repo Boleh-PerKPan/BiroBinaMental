@@ -62,7 +62,7 @@ class Posts_tambah extends CI_Controller
         if ($_SESSION['role'] == 1 || $_SESSION['role'] == 2) {
             $data['role'] = $_SESSION['role'];
             $data['listrole'] = $this->Posts_model->getRole();
-            $data['instansi'] = $this->Posts_model->getInstansi();
+            $data['instansi'] = $this->Posts_model->getInstansiForUser();
 
             $this->form_validation->set_rules('name', 'nama instansi', 'required');
             $this->form_validation->set_rules('email', 'email', 'required|is_unique[user.email]');
@@ -251,33 +251,8 @@ class Posts_tambah extends CI_Controller
                 $this->load->view('admin/tambah/tambah_page_news');
                 $this->load->view('admin/template/footer');
             } else {
-                #pengambilan Foto
-                if (isset($_FILES)) {
-                    $namaFile = $_FILES['gambar']['name'];
-                    $ukuranFile = $_FILES['gambar']['size'];
-                    $error = $_FILES['gambar']['error'];
-                    $tmpName = $_FILES['gambar']['tmp_name'];
 
-                    // cek apakah yang di upload adalah gambar
-                    $ekstensiGambarValid = ['jpg', 'jpeg', 'png'];
-                    $ekstensiGambar = explode('.', $namaFile);
-                    $ekstensiGambar = strtolower(end($ekstensiGambar));
-
-                    // lolos pengecekan, gambar siap di upload
-                    // generate nama gambar baru
-                    $namaFileBaru = uniqid();
-                    $namaFileBaru .= '.';
-                    $namaFileBaru .= $ekstensiGambar;
-                    move_uploaded_file($tmpName, 'assets/img/' . $namaFileBaru);
-                } else {
-                    $namaFileBaru = 'default.png';
-                }
-
-                $this->Posts_model->tambahGaleriKontenExtraPage($namaFileBaru, $_SESSION['id']);
-
-                $LastGaleriKonten = $this->Posts_model->getGaleriKontenLastID();
-
-                $this->Posts_model->tambahPostPageNews($LastGaleriKonten, $_SESSION['id']);
+                $this->Posts_model->tambahPostPageNews($_SESSION['id']);
                 $this->session->set_flashdata('pesan', 'ditambahkan');
                 redirect(base_url() . "home_admin/manage_page_news");
             }
