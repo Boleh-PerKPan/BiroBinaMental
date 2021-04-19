@@ -3,16 +3,23 @@
     </main>
     <footer>
         <div class="new-panel row" style="padding-left: 5rem; padding-right: 5rem; padding-top:1rem">
-            <div class="col">
+            <div class="col-8">
                 <p style="font-size:13px"><b>Tentang Kami</b></p>
-                <p>Alamat Kantor <br>Padang Pasir, Kec. Padang Barat, Kota Padang, Sumatera Barat </p>
-                <p>Email : xxx@xmail.com <br>Fax : (0751) <br>Phone Numbers : (0751)</p>
+                <p>Alamat Kantor 
+                    <br>Padang Pasir, Kec. Padang Barat, Kota Padang, Sumatera Barat </p>
+                <p>Email : xxx@xmail.com 
+                    <br>Fax : (0751) 
+                    <br>Phone Numbers : (0751)</p>
+                <p><a href="#"><i class="fab fa-facebook-f fa-2x"></i></a> &nbsp; &nbsp;
+                    <a href="#"><i class="fab fa-instagram fa-2x"></i></a> &nbsp; &nbsp;
+                    <a href="#"><i class="fab fa-twitter fa-2x"></i></a> &nbsp; &nbsp;
+                    </p>
             </div>
-            <div class="col offset-md-1">
-                <!-- BAGIAN INI DISEDIAKAN UNTUK PENAMBAHAN ITEM FOOTER
-                    <p>col 2</p> -->
-            </div>
-            <div class="col">
+            <!-- <div class="col offset-md-1">
+                BAGIAN INI DISEDIAKAN UNTUK PENAMBAHAN ITEM FOOTER
+                    <p>col 2</p>
+            </div> -->
+            <div class="col-4">
                 <p style="font-size:13px"><b>Sites Link</b></p>
                 <p>
                     <a href="http://sumbarprov.go.id/" style="color: white;"><i class="fas fa-chevron-right"></i> Situs Resmi Provinsi Sumbar</a> <br>
