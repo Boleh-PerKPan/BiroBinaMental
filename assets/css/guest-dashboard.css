@@ -36,13 +36,18 @@ hr {
 	color: black;
 }
 
+.title-style {
+	background: linear-gradient(45deg, #d868ec 4%, #97a2ff 75%);
+	color: black;
+}
 .bg-nav {
-	background-color: #bf0000;
+	background-color: #413a3a;
 	width: 100%;
+	color: white;
 }
 
 .nav-style {
-	background: linear-gradient(180deg, #bf0000 0.13%, #88ee7a00 75%);
+	background: linear-gradient(180deg, #413a3a 0.13%, #88ee7a00 75%);
 	color: black;
 }
 
@@ -60,28 +65,29 @@ hr {
 }
 
 .my-btn {
-	background-color: #c00a0a;
-	color: white;
+	background-color: #97a2ff;
+	color: black;
 	margin-top: 15px;
 }
 
 .my-btn:hover {
-	background-color: #e01414;
-	color: white;
+	background-color: #6a78fa;
+	color: black;
 }
 .btn-success {
-	background-color: rgb(71, 71, 71);
-	color: white;
-	border: rgb(71, 71, 71);
+	background-color: #fbe4ff;
+	color: black;
+	border: 1px solid #f0c3f8;
 }
 .btn-success:hover {
-	background-color: rgb(51, 45, 45);
+	background-color: #736D6D;	
+	border: 1px solid #736D6D;
 	color: white;
 }
 
 .btn-outline-light:hover {
-	background-color: #e01414;
-	border: 1px solid #e01414;
+	background-color: #85e3ff;
+	border: 1px solid #85e3ff;
 	color: white;
 }
 #upBtn {
