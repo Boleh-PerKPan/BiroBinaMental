@@ -37,7 +37,7 @@ hr {
 }
 
 .title-style {
-	background: linear-gradient(45deg, #d868ec 4%, #97a2ff 75%);
+	background: linear-gradient(45deg, #f7e0ef 21%, #97a2ff 75%);
 	color: black;
 }
 .bg-nav {
@@ -86,8 +86,8 @@ hr {
 }
 
 .btn-outline-light:hover {
-	background-color: #85e3ff;
-	border: 1px solid #85e3ff;
+	background-color: #97a2ff;
+	border: 1px solid #97a2ff;
 	color: white;
 }
 #upBtn {
